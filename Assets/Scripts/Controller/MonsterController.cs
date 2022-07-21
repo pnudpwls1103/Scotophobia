@@ -6,15 +6,8 @@ public class MonsterController : MonoBehaviour
 {
     float speed = 0.007f;
 
-    float togDirTime = 0f; // togTime > tunrTime => 방향전환
-    float turnTime;
-    float maxTurnTime = 8f;
-    float minTurnTime = 1.5f;
-
-    float currentTime = 0f; // cur > change => Idle <-> Move
-    float changeTime; // Idle <-> Move 시간
-    float minIMTime = 3.5f;
-    float maxIMTime = 5f;
+    Alarm toggleDir = new Alarm(minTime: 1.5f, maxTime: 8f);
+    Alarm IdleMove = new Alarm(minTime: 3.5f, maxTime: 5f);
 
     Vector2 dir = Vector2.right;
     Define.MonsterState monsterState = Define.MonsterState.Idle;
@@ -22,8 +15,8 @@ public class MonsterController : MonoBehaviour
     Rigidbody2D rigid;
     void Start()
     {
-        turnTime = Random.Range(minTurnTime, maxTurnTime);
-        changeTime = Random.Range(minIMTime, maxIMTime);
+        toggleDir.InitCurTime();
+        IdleMove.InitCurTime();
         rigid = GetComponent<Rigidbody2D>();
     }
 
@@ -40,8 +33,9 @@ public class MonsterController : MonoBehaviour
 
     void UpdateIdle()
     {
-        currentTime += Time.deltaTime;
-        if (currentTime >= changeTime)
+        IdleMove.TimeGoes();
+
+        if (IdleMove.IsTimeToEvent())
             ChangeBetweenIdleMove(Define.MonsterState.Move);
         if (PlayerController.IsBulbOn())
         {
@@ -51,13 +45,14 @@ public class MonsterController : MonoBehaviour
     }
     void UpdateMove() // 일정시간이 지나거나 벽에 부딪히면 방향 전환
     {
-        currentTime += Time.deltaTime;
-        togDirTime += Time.deltaTime;
+        IdleMove.TimeGoes();
+        toggleDir.TimeGoes();
+
         rigid.position += dir * speed;
-        if (togDirTime >= turnTime)
+        if (toggleDir.IsTimeToEvent())
             ToggleDirection();
-        if (currentTime >= changeTime)
-            ChangeBetweenIdleMove(Define.MonsterState.Idle, 2.5f);
+        if (IdleMove.IsTimeToEvent())
+            ChangeBetweenIdleMove(Define.MonsterState.Idle, cutTime:2.5f);
         if (PlayerController.IsBulbOn())
         {
             monsterState = Define.MonsterState.Chase;
@@ -87,15 +82,13 @@ public class MonsterController : MonoBehaviour
 
     void ToggleDirection()
     {
-        togDirTime = 0f;
-        turnTime = Random.Range(minTurnTime, maxTurnTime);
+        toggleDir.InitCurTime();
         dir = -dir;
     }
 
     void ChangeBetweenIdleMove(Define.MonsterState state, float cutTime = 0f)
     {
+        IdleMove.InitCurTime(cutTime);
         monsterState = state;
-        currentTime = 0f;
-        changeTime = Random.Range(minIMTime - cutTime, maxIMTime - cutTime);
     }
 }
