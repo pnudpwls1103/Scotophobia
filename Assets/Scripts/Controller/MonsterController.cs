@@ -10,7 +10,7 @@ public class MonsterController : MonoBehaviour
     Alarm IdleMove = new Alarm(minTime: 3.5f, maxTime: 5f);
 
     Vector2 dir = Vector2.right;
-    Define.MonsterState monsterState = Define.MonsterState.Idle;
+    Define.MonsterState monsterState = Define.MonsterState.Move;
     public Transform target;
     Rigidbody2D rigid;
     void Start()
@@ -18,6 +18,8 @@ public class MonsterController : MonoBehaviour
         toggleDir.InitCurTime();
         IdleMove.InitCurTime();
         rigid = GetComponent<Rigidbody2D>();
+        PlayerController.OnBulbOn += OnBulbOn;
+        PlayerController.OnBulbOff += OnBulbOff;
     }
 
     void Update()
@@ -37,11 +39,6 @@ public class MonsterController : MonoBehaviour
 
         if (IdleMove.IsTimeToEvent())
             ChangeBetweenIdleMove(Define.MonsterState.Move);
-        if (PlayerController.IsBulbOn())
-        {
-            monsterState = Define.MonsterState.Chase;
-            speed = 0.012f;
-        }
     }
     void UpdateMove() // 일정시간이 지나거나 벽에 부딪히면 방향 전환
     {
@@ -53,22 +50,12 @@ public class MonsterController : MonoBehaviour
             ToggleDirection();
         if (IdleMove.IsTimeToEvent())
             ChangeBetweenIdleMove(Define.MonsterState.Idle, cutTime:2.5f);
-        if (PlayerController.IsBulbOn())
-        {
-            monsterState = Define.MonsterState.Chase;
-            speed = 0.012f;
-        }
     }
     void UpdateChase() // 전구 켜지면 플레이어 쫓아감
     {
         dir = (target.position - transform.position).normalized;
         dir.y = 0;
         rigid.position += dir * speed;
-        if (!PlayerController.IsBulbOn())
-        {
-            monsterState = Define.MonsterState.Move;
-            speed = 0.007f;
-        }
     }
     void UpdateAttack() // 공격범위안에 플레이어있으면 공격
     {
@@ -79,16 +66,24 @@ public class MonsterController : MonoBehaviour
         if (collision.gameObject.tag == "Wall")
             ToggleDirection();
     }
-
     void ToggleDirection()
     {
         toggleDir.InitCurTime();
         dir = -dir;
     }
-
     void ChangeBetweenIdleMove(Define.MonsterState state, float cutTime = 0f)
     {
         IdleMove.InitCurTime(cutTime);
         monsterState = state;
+    }
+    void OnBulbOn()
+    {
+        monsterState = Define.MonsterState.Chase;
+        speed = 0.012f;
+    }
+    void OnBulbOff()
+    {
+        monsterState = Define.MonsterState.Move;
+        speed = 0.007f;
     }
 }

@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     float speed = 0.02f;
-    static bool bulb = true;
+    static bool bulb = false;
+    public static event System.Action OnBulbOn = null;
+    public static event System.Action OnBulbOff = null;
     public GameObject protectShield;
     Rigidbody2D rigid;
     void Start()
@@ -20,8 +22,11 @@ public class PlayerController : MonoBehaviour
             Jump();
         if (Input.GetKeyDown(KeyCode.O))
         {
+            if (bulb)
+                OnBulbOff();
+            else
+                OnBulbOn();
             bulb = !bulb;
-            protectShield.SetActive(bulb);
         }
     }
 
@@ -34,10 +39,5 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 300));
-    }
-
-    public static bool IsBulbOn()
-    {
-        return bulb;
     }
 }
