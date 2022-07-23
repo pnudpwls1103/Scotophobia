@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     static bool bulb = false;
     public static event System.Action OnBulbOn = null;
     public static event System.Action OnBulbOff = null;
-    public GameObject protectShield;
     Rigidbody2D rigid;
     void Start()
     {

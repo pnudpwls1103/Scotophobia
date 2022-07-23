@@ -9,10 +9,11 @@ public class MonsterController : MonoBehaviour
     Alarm toggleDir = new Alarm(minTime: 1.5f, maxTime: 8f);
     Alarm IdleMove = new Alarm(minTime: 3.5f, maxTime: 5f);
 
+    [SerializeField]
+    Transform target;
     Vector2 dir = Vector2.right;
     Define.MonsterState monsterState = Define.MonsterState.Move;
-    public Transform target;
-    Rigidbody2D rigid;
+    Rigidbody2D rigid = null;
     void Start()
     {
         toggleDir.InitCurTime();
