@@ -8,6 +8,7 @@ public class GlobalLight : MonoBehaviour
     Light2D lit;
     float defLight = 0.1f;
     float speed = 0.0001f;
+    Coroutine co;
     void Start()
     {
         lit = GetComponent<Light2D>();
@@ -23,10 +24,15 @@ public class GlobalLight : MonoBehaviour
     void OnBulbOn()
     {
         lit.intensity = 0f;
+        if (co != null)
+        {
+            StopCoroutine(co);
+            co = null;
+        }
     }
     void OnBulbOff()
     {
-        StartCoroutine(FadeIn());
+        co = StartCoroutine(FadeIn());
     }
 
     IEnumerator FadeIn()
