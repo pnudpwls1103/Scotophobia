@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class miniPuzzle1 : MonoBehaviour
+public class MiniPuzzle1 : MonoBehaviour
 {
     private Vector3 mOffset;
     private float mZCoord;
