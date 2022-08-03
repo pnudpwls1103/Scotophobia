@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public 
+    public GameManager gameManager;
     private float _speed = 10.0f;
     private 
     // Start is called before the first frame update

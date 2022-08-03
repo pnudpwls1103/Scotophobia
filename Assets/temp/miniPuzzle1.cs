@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MiniPuzzle1 : MonoBehaviour
 {
+    public GameManager gameManager;
     private Vector3 mOffset;
     private float mZCoord;
 
@@ -38,6 +39,7 @@ public class MiniPuzzle1 : MonoBehaviour
         {
             if(Input.GetKey(KeyCode.F))
             {
+                gameManager.puzzleCheck[0] = true;
                 SceneManager.LoadScene("temp");
             }
         }

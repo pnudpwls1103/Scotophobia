@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public bool[] puzzleCheck = {false, };
     // Start is called before the first frame update
     void Start()
     {
