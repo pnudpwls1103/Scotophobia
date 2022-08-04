@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MiniPuzzle1 : MonoBehaviour
 {
-    public GameManager gameManager;
     private Vector3 mOffset;
     private float mZCoord;
 
+    private void Start() 
+    {
+        
+    }
     private void OnMouseDown()
     {
         mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
@@ -29,8 +32,7 @@ public class MiniPuzzle1 : MonoBehaviour
     }
 
     private void OnMouseDrag() {
-        transform.position = GetMouseWorldPos() + mOffset;
-        transform.Rotate(mOffset * Time.deltaTime * 1);   
+        transform.position = GetMouseWorldPos() + mOffset;  
     }
 
     private void OnCollisionStay(Collision other) 
@@ -39,8 +41,8 @@ public class MiniPuzzle1 : MonoBehaviour
         {
             if(Input.GetKey(KeyCode.F))
             {
-                gameManager.puzzleCheck[0] = true;
-                SceneManager.LoadScene("temp");
+                GameManager.Instance.SetClearPuzzle(0);
+                SceneManager.LoadScene("Temp 1");
             }
         }
     }
