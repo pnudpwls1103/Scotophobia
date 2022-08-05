@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public bool[] puzzleCheck = {false, };
+    public bool[] puzzleCheck = new bool[] {false, false,};
     private static GameManager _instance;
     public static GameManager Instance
     {
@@ -55,5 +55,10 @@ public class GameManager : MonoBehaviour
     public void SetClearPuzzle(int index)
     {
         puzzleCheck[index] = true;
+    }
+
+    public bool GetClearPuzzle(int index)
+    {
+        return puzzleCheck[index];
     }
 }
