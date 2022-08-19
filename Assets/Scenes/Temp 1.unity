@@ -641,7 +641,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7749df634dfa342bd6ba6cc2296c27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stair: {fileID: 0}
 --- !u!1 &620842486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,7 +1323,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1514214292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b87cfa0c3b708e4489167bc9c0110ef5, type: 3}
+  m_Script: {fileID: 11500000, guid: 10ad48ee4c3a0444c9a1d751f68f61c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   connectedProduct: {fileID: 620842486}
@@ -1534,7 +1533,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c10351dfaaeff48b70d3d829d10916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleCheck: 0000
 --- !u!1 &1849737752
 GameObject:
   m_ObjectHideFlags: 0
