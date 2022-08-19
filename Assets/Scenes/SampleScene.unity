@@ -330,7 +330,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 318699259}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da191d202802567498b2d9c52c9b3478, type: 3}
+  m_Script: {fileID: 11500000, guid: fcfada85a1262b4438612450608b0dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1301934365}
@@ -815,7 +815,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 767698718}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dc1261f687939044a1dcea9da3cf39f, type: 3}
+  m_Script: {fileID: 11500000, guid: 84bbc37bdacb5be4a8e6ab981772d67c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &999586410
@@ -1073,10 +1073,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1301934361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c02546bd6e3abfd4199f6c46138eca3a, type: 3}
+  m_Script: {fileID: 11500000, guid: efb750d027076d947b7a7b9c5d0257bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
 --- !u!1 &1593343868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,8 +1144,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
->>>>>>> main
 --- !u!1 &1978075322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1268,6 +1265,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1978075322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8030eb0bbc8e8c48a90ee06ced1c458, type: 3}
+  m_Script: {fileID: 11500000, guid: 1259989cd16b5e14ea84b8868c6cc27b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

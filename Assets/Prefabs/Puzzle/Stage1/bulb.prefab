@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6725088153372765595}
   - component: {fileID: 7546269985908952408}
   - component: {fileID: 9142396797318184768}
-  - component: {fileID: 2631670074962063530}
+  - component: {fileID: 4100413158099205777}
   m_Layer: 5
   m_Name: bulb
   m_TagString: Untagged
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2631670074962063530
+--- !u!114 &4100413158099205777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,6 +86,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5938915585657173882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d763cd425663cb4daf053b772a81f74, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ed1faa99ed151647a96ffa74e6b5999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
