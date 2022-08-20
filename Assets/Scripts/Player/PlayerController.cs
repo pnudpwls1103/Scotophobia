@@ -9,9 +9,16 @@ public class PlayerController : MonoBehaviour
     public static event System.Action OnBulbOn = null;
     public static event System.Action OnBulbOff = null;
     Rigidbody2D rigid;
+
+    public GameObject driver;
+    static public bool driverCheck = false;
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+        if(driverCheck)
+        {
+            driver.SetActive(false);
+        }
     }
 
     void Update()
@@ -38,5 +45,20 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 300));
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
+
+            if(hit.collider != null && hit.collider.transform == driver.transform)
+            {
+                driver.SetActive(false);
+                driverCheck = true;
+            }
+        }    
     }
 }

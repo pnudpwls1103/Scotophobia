@@ -12,7 +12,7 @@ public class Define
         Attack
     }
 
-    public enum stage1Enum
+    public enum Stage1Enum
     {
         Bookshelf,
         

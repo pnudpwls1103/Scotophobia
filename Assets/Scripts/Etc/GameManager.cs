@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "Stage1_Room1")
         {
-            if(stage1PuzzleCheck[(int)Define.stage1Enum.Bookshelf] 
+            if(stage1PuzzleCheck[(int)Define.Stage1Enum.Bookshelf] 
                 && GameObject.Find("StairParent").transform.Find("Stair").gameObject.activeSelf == true)
             {
                 GameObject.Find("Stair").gameObject.SetActive(false);

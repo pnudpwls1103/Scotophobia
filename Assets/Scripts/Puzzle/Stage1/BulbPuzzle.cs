@@ -13,8 +13,8 @@ public class BulbPuzzle : UI_Base
         bulb8, bulb9, bulb10, bulb11,
         bulb12, bulb13, bulb14, bulb15
     }
-    int on = 0; // ÄÑÁ® ÀÖ´Â Àü±¸ÀÇ °¹¼ö
-    bool[,] arr = new bool[4,4]; // Àü±¸ÀÇ ÄÑÁü/²¨Áü
+    int on = 0; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    bool[,] arr = new bool[4,4]; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½
     int[] dx = new int[5] { 1, -1, 0, 0, 0 };
     int[] dy = new int[5] { 0, 0, 1, -1, 0 };
     Color[] colors = new Color[2] { Color.black, Color.white };
