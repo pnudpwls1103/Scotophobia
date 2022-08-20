@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public Vector3 playerPosition;
     public bool[] stage1PuzzleCheck = {false, false};
     private static GameManager _instance;
     public static GameManager Instance
@@ -28,6 +29,10 @@ public class GameManager : MonoBehaviour
         if(_instance == null)
         {
             _instance = this;
+            if(SceneManager.GetActiveScene().name == "Stage1_Room1")
+            {
+                playerPosition = new Vector3(-7, -4, 0);
+            }
         }
         // 인스턴스가 존재하는 경우 새로 생기는 인스턴스를 삭제
         else if (_instance != this)

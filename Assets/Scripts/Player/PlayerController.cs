@@ -8,10 +8,12 @@ public class PlayerController : MonoBehaviour
     static bool bulb = false;
     public static event System.Action OnBulbOn = null;
     public static event System.Action OnBulbOff = null;
+    
     Rigidbody2D rigid;
 
     public GameObject driver;
     static public bool driverCheck = false;
+
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -19,6 +21,7 @@ public class PlayerController : MonoBehaviour
         {
             driver.SetActive(false);
         }
+        this.transform.position = GameManager.Instance.playerPosition;
     }
 
     void Update()
@@ -60,5 +63,9 @@ public class PlayerController : MonoBehaviour
                 driverCheck = true;
             }
         }    
+    }
+
+    void OnDestroy() {
+        GameManager.Instance.playerPosition = this.transform.position;    
     }
 }
