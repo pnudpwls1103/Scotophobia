@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public bool[] stage1PuzzleCheck = new bool[] {false, };
+    public bool[] stage1PuzzleCheck = {false, false};
     private static GameManager _instance;
     public static GameManager Instance
     {

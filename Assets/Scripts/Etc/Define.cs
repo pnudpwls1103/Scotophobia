@@ -15,6 +15,7 @@ public class Define
     public enum Stage1Enum
     {
         Bookshelf,
+        BulbPuzzle,
         
     }
 }

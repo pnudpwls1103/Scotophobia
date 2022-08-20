@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class BulbInPuzzle : MonoBehaviour, IPointerClickHandler
 {
-    int x, y; // º»ÀÎÀÇ À§Ä¡ ÁÂÇ¥
+    const int MAXSIZE = 4;
+    int x, y; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½Ç¥
     public event Action<int, int> OnClickBulb;
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -16,7 +17,7 @@ public class BulbInPuzzle : MonoBehaviour, IPointerClickHandler
     {
         string str = gameObject.name;
         int val = int.Parse(str.Substring(4));
-        x = val / 4;
-        y = val % 4;
+        x = val / MAXSIZE;
+        y = val % MAXSIZE;
     }
 }

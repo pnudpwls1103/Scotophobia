@@ -65,4 +65,15 @@ public class BulbPuzzle_4x4 : UI_Base
         int colorIdx = Convert.ToInt32(arr[x, y]);
         img.color = colors[colorIdx];
     }
+
+    public void SetoffAllBulb()
+    {
+        on = 0;
+        for (int i = 0; i < 4; i++)
+            for (int j = 0; j < 4; j++)
+            {
+                arr[i,j] = false;
+                SetBulb(i, j);
+            }
+    }
 }
