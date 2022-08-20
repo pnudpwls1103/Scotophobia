@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class PlayerCollider : MonoBehaviour
+public class Bookshelf : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class PlayerCollider : MonoBehaviour
 
             if(hit.collider != null && hit.collider.transform == this.transform)
             {
-                SceneManager.LoadScene("Test_Mini-puzzle1");
+                SceneManager.LoadScene("Stage1_Bookshelf");
             }
         }
     }

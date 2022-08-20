@@ -20,7 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage1_Room1.unity
     guid: df35d5d8f59792b44ab38579825cd45c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Test_Mini-puzzle1.unity
     guid: d3b7724fbb08fa64bbbd6781b5542120
+  - enabled: 1
+    path: Assets/Scenes/Stage1_Bookshelf.unity
+    guid: 035dfd6625cad274a9b32dc0255786c8
   m_configObjects: {}
