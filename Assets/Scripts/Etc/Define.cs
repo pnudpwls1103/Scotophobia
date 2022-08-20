@@ -11,4 +11,10 @@ public class Define
         Chase,
         Attack
     }
+
+    public enum stage1Enum
+    {
+        Bookshelf,
+        
+    }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Screw : MonoBehaviour
 {
     private int clickCount = 0;
+    private bool checkUpCount = false;
     private SpriteRenderer screwSpriteRenderer;
     // Start is called before the first frame update
     void Start()
@@ -25,9 +26,11 @@ public class Screw : MonoBehaviour
                 clickCount++;
             }
         }
-        else if(clickCount >= 3)
+        else if(!checkUpCount && clickCount == 3)
         {
+            checkUpCount = true;
             screwSpriteRenderer.color = new Color(0,1,1,1);
+            CheckScrewCount.finishScrewCount++;
         }
     }
 }

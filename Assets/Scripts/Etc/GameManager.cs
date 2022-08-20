@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public bool[] puzzleCheck = new bool[] {false, false,};
+    public bool[] stage1PuzzleCheck = new bool[] {false, };
     private static GameManager _instance;
     public static GameManager Instance
     {
@@ -41,24 +41,30 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(SceneManager.GetActiveScene().name == "Temp 1")
-        {
-            if(puzzleCheck[0] && GameObject.Find("stairParent").transform.Find("stair").gameObject.activeSelf == true)
-            {
-                GameObject.Find("stair").gameObject.SetActive(false);
-                GameObject.Find("stair2Parent").transform.Find("stair2").gameObject.SetActive(true);
-            }
+        SetObjectStage1();    
+    }
 
-        }    
+    private void SetObjectStage1()
+    {
+        if(SceneManager.GetActiveScene().name == "Stage1_Room1")
+        {
+            if(stage1PuzzleCheck[(int)Define.stage1Enum.Bookshelf] 
+                && GameObject.Find("StairParent").transform.Find("Stair").gameObject.activeSelf == true)
+            {
+                GameObject.Find("Stair").gameObject.SetActive(false);
+                GameObject.Find("UpStairParent").transform.Find("UpStair").gameObject.SetActive(true);
+            }
+        }
+
     }
 
     public void SetClearPuzzle(int index)
     {
-        puzzleCheck[index] = true;
+        stage1PuzzleCheck[index] = true;
     }
 
     public bool GetClearPuzzle(int index)
     {
-        return puzzleCheck[index];
+        return stage1PuzzleCheck[index];
     }
 }
