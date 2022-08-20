@@ -59,6 +59,12 @@ public class GameManager : MonoBehaviour
                 GameObject.Find("Stair").gameObject.SetActive(false);
                 GameObject.Find("UpStairParent").transform.Find("UpStair").gameObject.SetActive(true);
             }
+
+            if(stage1PuzzleCheck[(int)Define.Stage1Enum.BulbPuzzle])
+            {
+                GameObject door = GameObject.Find("Door").gameObject;
+                door.GetComponent<SpriteRenderer>().color = new Color(0,1,1,1);
+            }
         }
 
     }
