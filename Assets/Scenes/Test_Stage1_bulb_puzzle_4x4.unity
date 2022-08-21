@@ -161,7 +161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 787.5, y: 350}
+  m_AnchoredPosition: {x: 720, y: 349.49997}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &207885302
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 207885300}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 389add4001719c5458b1368d806cb306, type: 3}
+  m_Script: {fileID: 11500000, guid: 69a2efc06c5f5b44389431d5abae757d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulbPuzzle: {fileID: 1808839566}
@@ -1366,9 +1366,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: Reset
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontAsset: {fileID: 11400000, guid: 98f5e91230161d840b239b8899b8633b, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 98f5e91230161d840b239b8899b8633b, type: 2}
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 98f5e91230161d840b239b8899b8633b, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -1581,7 +1582,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 787.5, y: 174.99998}
+  m_AnchoredPosition: {x: 720, y: 174.49998}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1568784477
@@ -1593,7 +1594,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1568784475}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99a4a737a04ea9a4f8abec8370fdeede, type: 3}
+  m_Script: {fileID: 11500000, guid: 9331bce32d334244180b2aa27f45acda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1568784478
@@ -2295,7 +2296,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1808839566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81b1648c38f06ca4eba727d461f19051, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a6fa3280b5d9b64aa31ada4ed72af68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1830585236
@@ -2358,9 +2359,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: Back
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontAsset: {fileID: 11400000, guid: 98f5e91230161d840b239b8899b8633b, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 98f5e91230161d840b239b8899b8633b, type: 2}
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 98f5e91230161d840b239b8899b8633b, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:

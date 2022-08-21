@@ -292,7 +292,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -384,7 +384,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1607846035}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b720b3d687af0b2438f3fa0a6357c565, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f8df43c8614f80458dd1004ce440239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1954280756
@@ -578,10 +578,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1607846036}
     m_Modifications:
+    - target: {fileID: 108555588570239561, guid: 2084b55a197a8a4488c550623d2be2ee, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 108555588570239564, guid: 2084b55a197a8a4488c550623d2be2ee, type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 108555588570239564, guid: 2084b55a197a8a4488c550623d2be2ee, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 108555588570239565, guid: 2084b55a197a8a4488c550623d2be2ee, type: 3}
       propertyPath: m_Name
       value: Screw_TopLeft
