@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &46392376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 46392377}
+  m_Layer: 9
+  m_Name: CheckGround
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &46392377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46392376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 489687901}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &128950277
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +165,7 @@ GameObject:
   - component: {fileID: 128950278}
   - component: {fileID: 128950280}
   - component: {fileID: 128950279}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlatformTop2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128950277}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.52, y: 0.48, z: 0}
+  m_LocalPosition: {x: 10.5, y: 0.5, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -523,6 +554,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72312080d145e034d82c2baddddeb582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos: {fileID: 46392377}
+  checkRadius: 0.35
+  isLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  jumpPower: 5
+  speed: 0.03
   driver: {fileID: 292106644}
 --- !u!50 &489687898
 Rigidbody2D:
@@ -637,6 +675,7 @@ Transform:
   m_Children:
   - {fileID: 1227697547}
   - {fileID: 1878238668}
+  - {fileID: 46392377}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -710,7 +749,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 570730234}
   m_LocalRotation: {x: -0, y: -0, z: 0.28498742, w: 0.95853126}
-  m_LocalPosition: {x: 0, y: -2.20617, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 11, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1097,7 +1136,7 @@ GameObject:
   - component: {fileID: 914530901}
   - component: {fileID: 914530903}
   - component: {fileID: 914530902}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlatformTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1112,7 +1151,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 914530900}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.98, y: 0.48000002, z: 0}
+  m_LocalPosition: {x: -10, y: 0.5, z: 0}
   m_LocalScale: {x: 16, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1208,13 +1247,13 @@ GameObject:
   - component: {fileID: 959298697}
   - component: {fileID: 959298699}
   - component: {fileID: 959298698}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UpStair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &959298697
 Transform:
   m_ObjectHideFlags: 0
@@ -1223,7 +1262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959298696}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.203, y: -3, z: 0}
+  m_LocalPosition: {x: 0.01, y: -6.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1613,7 +1652,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364743543}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5200005, y: 0.48000002, z: 0}
+  m_LocalPosition: {x: 1.5, y: 0.5, z: 0}
   m_LocalScale: {x: 8, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1683,7 +1722,7 @@ GameObject:
   - component: {fileID: 1783041013}
   - component: {fileID: 1783041015}
   - component: {fileID: 1783041014}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

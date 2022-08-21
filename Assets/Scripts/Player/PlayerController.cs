@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    float speed = 0.02f;
+    public Transform pos;
+    public float checkRadius;
+    public LayerMask isLayer;
+    bool isGround;
+    public float jumpPower = 3f;
+    public float speed = 0.02f;
     static bool bulb = false;
     public static event System.Action OnBulbOn = null;
     public static event System.Action OnBulbOff = null;
@@ -27,7 +32,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
-        if (Input.GetKeyDown(KeyCode.Space))
+        isGround = Physics2D.OverlapCircle(pos.position, checkRadius, isLayer);
+        if (isGround && Input.GetKeyDown(KeyCode.Space))
             Jump();
         if (Input.GetKeyDown(KeyCode.O))
         {
@@ -47,7 +53,7 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 300));
+        rigid.velocity = Vector2.up * jumpPower;
     }
 
     void OnTriggerStay2D(Collider2D other)
