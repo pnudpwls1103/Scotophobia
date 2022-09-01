@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Transform pos;
-    public float checkRadius;
-    public LayerMask isLayer;
-    bool isGround;
     public float jumpPower = 3f;
     public float speed = 0.02f;
     static bool bulb = false;
@@ -16,33 +12,36 @@ public class PlayerController : MonoBehaviour
     
     Rigidbody2D rigid;
 
-    public GameObject driver;
-    static public bool driverCheck = false;
-
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
-        if(driverCheck)
-        {
-            driver.SetActive(false);
-        }
-        this.transform.position = GameManager.Instance.playerPosition;
     }
 
     void Update()
     {
         Move();
-        isGround = Physics2D.OverlapCircle(pos.position, checkRadius, isLayer);
-        if (isGround && Input.GetKeyDown(KeyCode.Space))
-            Jump();
         if (Input.GetKeyDown(KeyCode.O))
-        {
-            if (bulb)
-                OnBulbOff();
-            else
-                OnBulbOn();
-            bulb = !bulb;
-        }
+            ToggleBulb();
+        if (Input.GetKeyDown(KeyCode.P))
+            GetItem();
+    }
+    void ToggleBulb()
+    {
+        if (bulb)
+            OnBulbOff();
+        else
+            OnBulbOn();
+        bulb = !bulb;
+    }
+    void GetItem()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1000f);
+        foreach (Collider2D col in colliders)
+            if (col.GetComponent<Item>() != null)
+            {
+                Debug.Log($"{col.name} È¹µæ");
+                return;
+            }
     }
 
     void Move()
@@ -54,24 +53,5 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         rigid.velocity = Vector2.up * jumpPower;
-    }
-
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if(Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
-
-            if(hit.collider != null && hit.collider.transform == driver.transform)
-            {
-                driver.SetActive(false);
-                driverCheck = true;
-            }
-        }    
-    }
-
-    void OnDestroy() {
-        GameManager.Instance.playerPosition = this.transform.position;    
     }
 }
