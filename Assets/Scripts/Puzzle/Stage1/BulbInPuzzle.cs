@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class BulbInPuzzle : MonoBehaviour, IPointerClickHandler
 {
     const int MAXSIZE = 4;
-    int x, y; // ������ ��ġ ��ǥ
+    int x, y;
     public event Action<int, int> OnClickBulb;
     public void OnPointerClick(PointerEventData eventData)
     {

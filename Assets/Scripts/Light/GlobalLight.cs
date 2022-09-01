@@ -6,9 +6,10 @@ using UnityEngine.Rendering.Universal;
 public class GlobalLight : MonoBehaviour
 {
     Light2D lit;
-    float defLight = 0.1f;
-    float speed = 0.0001f;
+    float defLight = 0.4f;
+    float speed = 0.0002f;
     Coroutine co;
+    public static event System.Action OnFadeIn = null;
     void Start()
     {
         lit = GetComponent<Light2D>();
@@ -43,5 +44,6 @@ public class GlobalLight : MonoBehaviour
             lit.intensity += speed;
             yield return null;
         }
+        OnFadeIn();
     }
 }
