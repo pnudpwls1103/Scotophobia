@@ -15,4 +15,20 @@ public class UI_Base : MonoBehaviour
                 if (com.name == strs[i])
                     dic[type][i] = com;
     }
+
+    protected void Bind(Type type) // GameObject
+    {
+        string[] strs = Enum.GetNames(type);
+        dic[type] = new UnityEngine.Object[strs.Length];
+        for (int i = 0; i < strs.Length; i++)
+        {
+            GameObject go = GameObject.Find(strs[i]);
+            if (go == null)
+            {
+                Debug.Log($"{strs[i]} 게임 오브젝트 없음");
+                return;
+            }
+            dic[type][i] = go;
+        }
+    }
 }
