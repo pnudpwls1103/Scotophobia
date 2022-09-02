@@ -18,4 +18,14 @@ public class Define
         BulbPuzzle,
         
     }
+
+    public enum UI_Popup
+    {
+        Inventory,
+    }
+
+    public enum UI_Scene
+    {
+
+    }
 }

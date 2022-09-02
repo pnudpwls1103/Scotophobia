@@ -24,10 +24,7 @@ public class UI_Base : MonoBehaviour
         {
             GameObject go = GameObject.Find(strs[i]);
             if (go == null)
-            {
-                Debug.Log($"{strs[i]} 게임 오브젝트 없음");
-                return;
-            }
+                Debug.Log($"{strs[i]} GameObject is not exist");
             dic[type][i] = go;
         }
     }
