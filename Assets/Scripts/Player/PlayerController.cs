@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public class PlayerController : MonoBehaviour
 {
     public float jumpPower = 3f;
@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
+        if (Input.GetKeyDown(KeyCode.I))
+            UI_Root.TogglePopup(typeof(Define.UI_Popup), (int)Define.UI_Popup.Inventory);
         if (Input.GetKeyDown(KeyCode.O))
             ToggleBulb();
         if (Input.GetKeyDown(KeyCode.P))
