@@ -13,4 +13,9 @@ public class Item : MonoBehaviour
     {
         Debug.Log($"{transform.name} ¹ÝÂ¦");
     }
+
+    private void OnDisable()
+    {
+        GlobalLight.OnFadeIn -= OnFadeIn;
+    }
 }

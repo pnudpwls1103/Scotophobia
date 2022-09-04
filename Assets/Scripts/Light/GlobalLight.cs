@@ -44,6 +44,7 @@ public class GlobalLight : MonoBehaviour
             lit.intensity += speed;
             yield return null;
         }
-        OnFadeIn();
+        if (OnFadeIn != null)
+            OnFadeIn();
     }
 }

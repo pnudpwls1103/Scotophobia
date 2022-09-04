@@ -26,6 +26,20 @@ public class PlayerController : MonoBehaviour
             ToggleBulb();
         if (Input.GetKeyDown(KeyCode.P))
             GetItem();
+        if (Input.GetKeyDown(KeyCode.L))
+            Interact();
+    }
+
+    void Interact()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1000f);
+        foreach (Collider2D col in colliders)
+            if (col.GetComponent<IInteraction>() != null)
+            {
+                IInteraction inter = col.GetComponent<IInteraction>();
+                inter.Interact(gameObject);
+                return;
+            }
     }
     void ToggleBulb()
     {
@@ -42,6 +56,8 @@ public class PlayerController : MonoBehaviour
             if (col.GetComponent<Item>() != null)
             {
                 Debug.Log($"{col.name} È¹µæ");
+                Inventory.Instance.Insert(col.name);
+                col.gameObject.SetActive(false);
                 return;
             }
     }
