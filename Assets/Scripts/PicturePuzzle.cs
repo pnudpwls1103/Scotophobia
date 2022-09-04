@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PicturePuzzle : MonoBehaviour
+public class PicturePuzzle : MonoBehaviour, IInteraction
 {
     int[] dx = new int[4] { 1, 0, -1, 0 };
     int[] dy = new int[4] { 0, 1, 0, -1 };
@@ -57,19 +57,19 @@ public class PicturePuzzle : MonoBehaviour
         }
     }
 
-    void CheckClear()
+    bool CheckClear()
     {
         for (int i = 0; i < MAP_SIZE; i++)
             for (int j = 0; j < MAP_SIZE; j++)
             {
                 Sprite sprite = pieces[i, j].GetComponent<SpriteRenderer>().sprite;
                 if (sprite == null)
-                    return;
+                    continue;
                 if (!IsEqual(information[i].goalPosInf[j].row * layout.distance * (-1), pieces[i, j].transform.localPosition.y)
                     || !IsEqual(information[i].goalPosInf[j].col * layout.distance, pieces[i, j].transform.localPosition.x))
-                    return;
+                    return false;
             }
-        Debug.Log("Puzzle Clear");
+        return true;
     }
     bool IsEqual(float goal, float cur)
     {
@@ -103,5 +103,20 @@ public class PicturePuzzle : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void Interact(GameObject gameObject)
+    {
+        if (!CheckClear())
+            return;
+        GameObject go = Inventory.Instance.GetItem("Key");
+        if (go == null)
+            return;
+        for (int i = 0; i < MAP_SIZE; i++)
+            for (int j = 0; j < MAP_SIZE; j++)
+                if (pieces[i, j].GetComponent<SpriteRenderer>().sprite == null)
+                    pieces[i, j].GetComponent<SpriteRenderer>().sprite = go.GetComponent<Image>().sprite;
+        Inventory.Instance.Delete("Key");
+        Debug.Log("Puzzle Clear");
     }
 }
