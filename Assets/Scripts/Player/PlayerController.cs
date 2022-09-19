@@ -4,8 +4,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class PlayerController : MonoBehaviour
 {
-    public float jumpPower = 3f;
-    public float speed = 0.02f;
+    float speed;
+    [SerializeField]
+    float bulbOnSpeed;
+    [SerializeField]
+    float bulbOffSpeed;
     static bool bulb = false;
     public static event System.Action OnBulbOn = null;
     public static event System.Action OnBulbOff = null;
@@ -14,7 +17,10 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        speed = bulb ? bulbOnSpeed : bulbOffSpeed;
         rigid = GetComponent<Rigidbody2D>();
+        OnBulbOn += SpeedUp;
+        OnBulbOff += SpeedDown;
     }
 
     void Update()
@@ -68,8 +74,12 @@ public class PlayerController : MonoBehaviour
         rigid.position += Vector2.right * hAxis * speed;
     }
 
-    void Jump()
+    void SpeedUp()
     {
-        rigid.velocity = Vector2.up * jumpPower;
+        speed = bulbOnSpeed;
+    }
+    void SpeedDown()
+    {
+        speed = bulbOffSpeed;
     }
 }
