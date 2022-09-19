@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
             ToggleBulb();
         if (Input.GetKeyDown(KeyCode.P))
             GetItem();
-        if (Input.GetKeyDown(KeyCode.L))
+        if (bulb && Input.GetKeyDown(KeyCode.L))
             Interact();
     }
 
