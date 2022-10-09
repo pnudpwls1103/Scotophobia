@@ -39,11 +39,11 @@ public class MiniPuzzle1 : MonoBehaviour
     {
         if(other.collider.CompareTag("object"))
         {
-            if(Input.GetKey(KeyCode.F))
-            {
-                GameManager.Instance.SetClearPuzzle(0);
-                SceneManager.LoadScene("Temp 1");
-            }
+            // if(Input.GetKey(KeyCode.F))
+            // {
+            //     GameManager.Instance.SetClearPuzzle(0);
+            //     SceneManager.LoadScene("Temp 1");
+            // }
         }
     }
 }

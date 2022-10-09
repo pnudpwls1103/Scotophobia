@@ -14,17 +14,17 @@ public class BulbsPuzzle_5x5 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.Instance.GetClearPuzzle((int)Define.Stage1Enum.Bookshelf)
-            && !GameManager.Instance.GetClearPuzzle((int)Define.Stage1Enum.BulbPuzzle)
-            && Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
+        // if(GameManager.Instance.GetClearPuzzle((int)Define.Stage1Enum.Bookshelf)
+        //     && !GameManager.Instance.GetClearPuzzle((int)Define.Stage1Enum.BulbPuzzle)
+        //     && Input.GetMouseButtonDown(0))
+        // {
+        //     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //     RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
 
-            if(hit.collider != null && hit.collider.transform == this.transform)
-            {
-                SceneManager.LoadScene("Test_Stage1_bulb_puzzle_5x5");
-            }
-        }    
+        //     if(hit.collider != null && hit.collider.transform == this.transform)
+        //     {
+        //         SceneManager.LoadScene("Test_Stage1_bulb_puzzle_5x5");
+        //     }
+        // }    
     }
 }

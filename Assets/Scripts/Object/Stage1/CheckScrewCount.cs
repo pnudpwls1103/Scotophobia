@@ -15,10 +15,10 @@ public class CheckScrewCount : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(finishScrewCount == 4)
-        {
-            GameManager.Instance.SetClearPuzzle((int)Define.Stage1Enum.Bookshelf);
-            SceneManager.LoadScene("Stage1_Room1");
-        }
+        // if(finishScrewCount == 4)
+        // {
+        //     GameManager.Instance.SetClearPuzzle((int)Define.Stage1Enum.Bookshelf);
+        //     SceneManager.LoadScene("Stage1_Room1");
+        // }
     }
 }

@@ -13,12 +13,12 @@ public class MapPuzzle1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.Instance.GetClearPuzzle(1))
-        {
-            if(GameObject.Find("doorParent").transform.Find("door").gameObject.activeSelf == true)
-            {
-                GameObject.Find("door").gameObject.SetActive(false);
-            }
-        }
+        // if(GameManager.Instance.GetClearPuzzle(1))
+        // {
+        //     if(GameObject.Find("doorParent").transform.Find("door").gameObject.activeSelf == true)
+        //     {
+        //         GameObject.Find("door").gameObject.SetActive(false);
+        //     }
+        // }
     }
 }

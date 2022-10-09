@@ -55,7 +55,7 @@ public class BulbPuzzle_5x5 : UI_Base
         }
         if (on == MAXSIZE * MAXSIZE)
         {
-            GameManager.Instance.SetClearPuzzle((int)Define.Stage1Enum.BulbPuzzle);
+            //GameManager.Instance.SetClearPuzzle((int)Define.Stage1Enum.BulbPuzzle);
             SceneManager.LoadScene("Stage1_Room1");
             Debug.Log("Clear!");
         }

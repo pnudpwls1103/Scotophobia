@@ -34,11 +34,11 @@ public class DrawLine : MonoBehaviour
 
                 lr.enabled = true;
 
-                /* ì„ íƒëœ ì˜¤ë¸Œì íŠ¸ì— ë¼ì¸ ì—°ê²° */
+                /* ?„ ?ƒ?œ ?˜¤ë¸Œì ?Š¸?— ?¼?¸ ?—°ê²? */
                 linePoints[1] = hit.collider.gameObject.transform.position;
                 lr.SetPositions(linePoints);
 
-                GameManager.Instance.SetClearPuzzle(1);
+                //GameManager.Instance.SetClearPuzzle(1);
 
                 return;
             }
@@ -49,7 +49,7 @@ public class DrawLine : MonoBehaviour
             }
         }
 
-        connectedProduct = null; /* ë¹ˆ ê³µê°„ hit */
+        connectedProduct = null; /* ë¹? ê³µê°„ hit */
         Debug.Log("failed to connect");
     }
 
@@ -59,7 +59,7 @@ public class DrawLine : MonoBehaviour
         lr.enabled = false;
         lr.material.color = Color.red;
         lr.widthMultiplier = lineWidth;
-        linePoints[0] = transform.position; /* ì²«ë²ˆì§¸ ì ì˜ ìœ„ì¹˜ëŠ” gameobject */
+        linePoints[0] = transform.position; /* ì²«ë²ˆì§? ? ?˜ ?œ„ì¹˜ëŠ” gameobject */
         lr.positionCount = linePoints.Length;
     }
 
