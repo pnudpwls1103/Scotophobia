@@ -14,8 +14,10 @@ public class TalkManager : MonoBehaviour
 
     void GenerateData()
     {
-        talkData.Add(100, new string[]{"주방이다.", "배고프다.", "나도 배고프다"});
-        talkData.Add(300, new string[]{"아빠가 그려진 사진조각이다.", "왜 사진조각만 떨어져 있는거지?"});
+        // x000 : 스테이지
+        // x00 : 오브젝트
+        talkData.Add(1000, new string[]{"부엌", "여기는 집안일 퍼즐이 있는 곳이다."});
+        talkData.Add(2000, new string[]{"아빠 서재", "여기는 책 퍼즐이 있는 곳이다."});
     }
 
     public string GetTalk(int objectId, int talkIndex)

@@ -6,15 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
+    //public QuestManager questManager;
     public TalkManager talkManager;
 
     // ¥Î»≠√¢
     public GameObject talkPanel;
     public Text UITalkText;
     public GameObject scanObject;
-    public bool isAction;
+    public bool isAction = false;
     public int talkIndex;
+
+    public void Start()
+    {
+        talkPanel.SetActive(isAction);
+    }
 
     public void Action(GameObject scanObj)
     {
@@ -28,7 +33,7 @@ public class GameManager : MonoBehaviour
     void Talk(int id)
     {
         string talkData = talkManager.GetTalk(id, talkIndex);
-        Debug.Log(talkData);
+
         if(talkData == null)
         {
             isAction = false;
@@ -37,6 +42,7 @@ public class GameManager : MonoBehaviour
         }
 
         UITalkText.text = talkData;
+        
         isAction = true;
         talkIndex++;
     }
