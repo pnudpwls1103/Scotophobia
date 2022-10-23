@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //public QuestManager questManager;
     public TalkManager talkManager;
 
     // ´ëÈ­Ã¢
