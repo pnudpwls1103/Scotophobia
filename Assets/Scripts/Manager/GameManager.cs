@@ -45,7 +45,13 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        talkPanel = GameObject.Find("UI_talk");
+        UITalkText = GameObject.Find("Talk").GetComponentInChildren<Text>();
+
         DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(questManager);
+        DontDestroyOnLoad(talkManager);
+        DontDestroyOnLoad(GameObject.Find("Canvas"));
     }
 
     public void Start()
@@ -55,7 +61,6 @@ public class GameManager : MonoBehaviour
         stageNumber = 10000;
         questManager.questId = 10;
     }
-
 
     public void Action(GameObject scanObj)
     {
@@ -67,9 +72,17 @@ public class GameManager : MonoBehaviour
         talkPanel.SetActive(isAction); 
     }
 
+
     public void ChangeNextScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        talkPanel = GameObject.Find("UI_talk");
+        UITalkText = GameObject.Find("Talk").GetComponentInChildren<Text>();
+        Debug.Log(scene.name);
     }
 
     void Talk(int id)

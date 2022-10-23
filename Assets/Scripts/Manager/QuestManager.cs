@@ -68,6 +68,7 @@ public class QuestManager : MonoBehaviour
         {
             case 10:
                 if(questOrderIndex == 1)
+                    
                     Debug.Log("Stage1_Puzzle ½ÇÇà");
                     //GameManager.Instance.ChangeNextScene("Stage1_Puzzle");
                 break;
