@@ -31,6 +31,7 @@ public class TalkManager : MonoBehaviour
         talkData.Add(20000 + 3000 + 20, new string[]{"이상한 문양이 그려진 책들이 있다."});
         talkData.Add(20000 + 4000 + 20 + 1, new string[]{"여전히 이상한 문양이다."});
 
+        talkData.Add(20000 + 5000, new string[]{"아빠와 함께 있는 사진이다."});
         talkData.Add(20000 + 5000 + 30, new string[]{"아빠와 함께 있는 사진이다."});
         talkData.Add(20000 + 6000 + 20 + 1, new string[]{"아빠가 무서운 무기를 들고 있다."});
         
@@ -51,7 +52,6 @@ public class TalkManager : MonoBehaviour
                 
             else
                 return GetTalk(id - id%10, talkIndex);
-            
         }
 
         // 퀘스트 id에서 퀘스트 index에 해당하는 대사가 있는 경우

@@ -24,6 +24,11 @@ public class QuestManager : MonoBehaviour
     
     }
 
+    public void SetQuestClear(int questid)
+    {
+        questList[questId].cleared = true;
+    }
+
     // Object의 Id를 받아 퀘스트 번호를 반환하는 함수
     public int GetQuestTalkIndex()
     {
@@ -80,8 +85,16 @@ public class QuestManager : MonoBehaviour
                 break;
             case 30:
                 if(questOrderIndex == 1)
+                {
                     Debug.Log("Stage2_Puzzle2 실행");
-                    //GameManager.Instance.ChangeNextScene("Stage2_Puzzle2");
+                    GameManager.Instance.ChangeNextScene("Stage2_Puzzle2");
+                }
+                    
+                if(questOrderIndex == 2)
+                {
+                    Debug.Log("Stage2 실행");
+                    GameManager.Instance.ChangeNextScene("Stage2");
+                }
                 break;
             default:
                 break;
