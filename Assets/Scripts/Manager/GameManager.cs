@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    static public int stageNumber;
     public QuestManager questManager;
     public TalkManager talkManager;
 
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     {
         talkPanel.SetActive(isAction);
         questManager.CheckQuest();
+        stageNumber = 10000;
     }
 
     public void Action(GameObject scanObj)
