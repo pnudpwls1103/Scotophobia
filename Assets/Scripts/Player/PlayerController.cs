@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using Spine.Unity;
 public class PlayerController : MonoBehaviour
 {
+    float direction;
     float speed;
     [SerializeField]
     float bulbOnSpeed;
@@ -47,8 +48,9 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.DrawRay(rigid.position, Vector2.left, Color.red);
-        RaycastHit2D hit = Physics2D.Raycast(rigid.position, Vector2.left, 1, LayerMask.GetMask("Object"));
+        float dir = direction == 0 ? 1 : direction;
+        Debug.DrawRay(new Vector3(this.transform.position.x, this.transform.position.y + 4, 0), new Vector3(dir * 2, 0, 0), Color.red);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(this.transform.position.x, this.transform.position.y + 8), new Vector2(dir, 0), 2, LayerMask.GetMask("Object"));
         if(hit.collider != null)
         {
             Debug.Log(hit.transform.gameObject.name);
@@ -93,19 +95,19 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        float hAxis = Input.GetAxisRaw("Horizontal");
+        direction = Input.GetAxisRaw("Horizontal");
         
-        if(hAxis == 0)
+        if(direction == 0)
             skeletonAnimation.AnimationState.SetAnimation(0, "animation", true);
         else
         {
-            if(hAxis < 0)
+            if(direction < 0)
                 skeletonAnimation.skeleton.ScaleX = Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
             else
                 skeletonAnimation.skeleton.ScaleX = -Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
         }
 
-        rigid.position += Vector2.right * hAxis * speed;
+        rigid.position += Vector2.right * direction * speed;
     }
 
     void SpeedUp()
