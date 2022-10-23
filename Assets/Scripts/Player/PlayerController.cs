@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Spine.Unity;
 public class PlayerController : MonoBehaviour
 {
     float speed;
@@ -17,9 +18,11 @@ public class PlayerController : MonoBehaviour
     public GameManager gameManager;
     
     Rigidbody2D rigid;
+    private SkeletonAnimation skeletonAnimation;
 
     void Start()
     {
+        skeletonAnimation = GetComponent<SkeletonAnimation>();
         speed = bulb ? bulbOnSpeed : bulbOffSpeed;
         rigid = GetComponent<Rigidbody2D>();
         OnBulbOn += SpeedUp;
@@ -91,7 +94,18 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        float hAxis = Input.GetAxis("Horizontal");
+        float hAxis = Input.GetAxisRaw("Horizontal");
+        
+        if(hAxis == 0)
+            skeletonAnimation.AnimationState.SetAnimation(0, "animation", true);
+        else
+        {
+            if(hAxis < 0)
+                skeletonAnimation.skeleton.ScaleX = Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
+            else
+                skeletonAnimation.skeleton.ScaleX = -Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
+        }
+
         rigid.position += Vector2.right * hAxis * speed;
     }
 
