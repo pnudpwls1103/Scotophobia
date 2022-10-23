@@ -22,9 +22,11 @@ public class FramePuzzle : MonoBehaviour
 
             if(hit.collider != null && hit.collider.gameObject == target)
             {
+                GameManager gameManager = GameManager.Instance;
                 Debug.Log(hit.collider.name);
-                GameManager.Instance.questManager.questOrderIndex++;
-                GameManager.Instance.questManager.SetQuestClear(30);
+                gameManager.questManager.questOrderIndex++;
+                gameManager.questManager.SetQuestClear(30);
+                gameManager.questManager.CheckQuest(0);
             }
         }
     }

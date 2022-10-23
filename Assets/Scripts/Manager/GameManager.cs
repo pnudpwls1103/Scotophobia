@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(questManager);
         DontDestroyOnLoad(talkManager);
         DontDestroyOnLoad(GameObject.Find("Canvas"));
+        DontDestroyOnLoad(GameObject.Find("GlobalLight"));
     }
 
     public void Start()
