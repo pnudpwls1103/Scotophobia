@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    static public int stageNumber;
+    public int stageNumber;
     public QuestManager questManager;
     public TalkManager talkManager;
 
@@ -17,12 +17,45 @@ public class GameManager : MonoBehaviour
     public bool isAction = false;
     public int talkIndex;
 
+    // 싱글톤
+    private static GameManager _instance;
+    public static GameManager Instance
+    {
+        get 
+        {
+            if(!_instance)
+            {
+                _instance = FindObjectOfType(typeof(GameManager)) as GameManager;
+
+                if(_instance == null)
+                    Debug.Log("no Singleton obj");
+            }
+            return _instance;
+        }
+    }
+
+    public void Awake()
+    {
+        if(_instance == null)
+        {
+            _instance = this;
+        }
+        else if(_instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
+
     public void Start()
     {
         talkPanel.SetActive(isAction);
         questManager.CheckQuest();
         stageNumber = 10000;
+        questManager.questId = 10;
     }
+
 
     public void Action(GameObject scanObj)
     {
@@ -32,6 +65,11 @@ public class GameManager : MonoBehaviour
 
         //대화창 활성화 상태에 따라 대화창 활성화 변경
         talkPanel.SetActive(isAction); 
+    }
+
+    public void ChangeNextScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 
     void Talk(int id)
@@ -52,6 +90,5 @@ public class GameManager : MonoBehaviour
         isAction = true;
         talkIndex++;
     }
-
 
 }

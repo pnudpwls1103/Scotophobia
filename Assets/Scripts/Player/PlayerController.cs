@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     public static event System.Action OnBulbOff = null;
 
     public GameObject scanObject;
-    public GameManager gameManager;
     
     Rigidbody2D rigid;
     private SkeletonAnimation skeletonAnimation;
@@ -43,7 +42,7 @@ public class PlayerController : MonoBehaviour
             Interact();
         }
         if (Input.GetKeyDown(KeyCode.Space) && scanObject != null)
-            gameManager.Action(scanObject);
+            GameManager.Instance.Action(scanObject);
     }
 
     void FixedUpdate()

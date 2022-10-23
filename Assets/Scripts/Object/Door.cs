@@ -9,7 +9,9 @@ public class Door : MonoBehaviour, IInteraction
     {
         int objectNum  = GetComponent<ObjectData>().id;
         string sceneName = this.gameObject.name.Substring(4);
-        if(GameManager.stageNumber == objectNum)
-            SceneManager.LoadScene(sceneName);
+
+        GameManager gameManager = GameManager.Instance;
+        if(gameManager.stageNumber == objectNum)
+            gameManager.ChangeNextScene(sceneName);
     }
 }
