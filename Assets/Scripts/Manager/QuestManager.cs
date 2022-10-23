@@ -19,7 +19,9 @@ public class QuestManager : MonoBehaviour
     void GenerateData()
     {
         questList.Add(10, new QuestData("샌드위치 만들기", new int[]{1000, 2000}));
-        questList.Add(20, new QuestData("책 배열", new int[]{3000}));
+        questList.Add(20, new QuestData("책 배열", new int[]{3000, 4000}));
+        questList.Add(30, new QuestData("공 뽑기", new int[]{5000, 6000}));
+    
     }
 
     // Object의 Id를 받아 퀘스트 번호를 반환하는 함수
@@ -71,8 +73,14 @@ public class QuestManager : MonoBehaviour
                 break;
             
             case 20:
-                if(questOrderIndex == 2)
-                    questObject[0].SetActive(false);
+                if(questOrderIndex == 1)
+                    Debug.Log("Stage2_Puzzle1 실행");
+                    //GameManager.Instance.ChangeNextScene("Stage2_Puzzle1");
+                break;
+            case 30:
+                if(questOrderIndex == 1)
+                    Debug.Log("Stage2_Puzzle2 실행");
+                    //GameManager.Instance.ChangeNextScene("Stage2_Puzzle2");
                 break;
             default:
                 break;

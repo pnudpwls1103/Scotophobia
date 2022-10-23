@@ -19,16 +19,20 @@ public class TalkManager : MonoBehaviour
         talkData.Add(0, new string[]{"미션을 수행하세요"});
 
         talkData.Add(10000, new string[]{"부엌"});
-        talkData.Add(20000, new string[]{"복도"});
-        talkData.Add(30000, new string[]{"아빠 서재"});
-        talkData.Add(40000, new string[]{"세탁실"});
+        talkData.Add(20000, new string[]{"아빠 서재"});
+        talkData.Add(30000, new string[]{"세탁실"});
+
+        talkData.Add(60000, new string[]{"복도"});
 
         talkData.Add(10000 + 1000 + 10, new string[]{"조리공간 위에 재료들이 있다."});
         talkData.Add(10000 + 2000 + 10 + 1, new string[]{"방금 만들어서 따끈따끈한 샌드위치를 먹었다."});
         
-        talkData.Add(1000 + 10, new string[]{"부엌", "여기는 집안일 퍼즐이 있는 곳이다."});
-        talkData.Add(2000 + 10, new string[]{"아빠 서재", "여기는 책 퍼즐이 있는 곳이다."});
+        talkData.Add(20000 + 3000 + 20, new string[]{"이상한 문양이 그려진 책들이 있다."});
+        talkData.Add(20000 + 4000 + 20 + 1, new string[]{"여전히 이상한 문양이다."});
 
+        talkData.Add(20000 + 5000 + 30, new string[]{"아빠와 함께 있는 사진이다."});
+        talkData.Add(20000 + 6000 + 20 + 1, new string[]{"아빠가 무서운 무기를 들고 있다."});
+        
         
     }
 
