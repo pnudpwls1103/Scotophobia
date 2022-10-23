@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public QuestManager questManager;
     public TalkManager talkManager;
 
     // 대화창
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         talkPanel.SetActive(isAction);
+        questManager.CheckQuest();
     }
 
     public void Action(GameObject scanObj)
@@ -29,14 +31,17 @@ public class GameManager : MonoBehaviour
         //대화창 활성화 상태에 따라 대화창 활성화 변경
         talkPanel.SetActive(isAction); 
     }
+
     void Talk(int id)
     {
-        string talkData = talkManager.GetTalk(id, talkIndex);
+        int questTalkIndex = questManager.GetQuestTalkIndex(id);
+        string talkData = talkManager.GetTalk(id + questTalkIndex, talkIndex);
 
         if(talkData == null)
         {
             isAction = false;
             talkIndex = 0;
+            Debug.Log(questManager.CheckQuest(id));
             return;
         }
 
