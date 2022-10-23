@@ -25,7 +25,7 @@ public class QuestManager : MonoBehaviour
     }
 
     // Object의 Id를 받아 퀘스트 번호를 반환하는 함수
-    public int GetQuestTalkIndex(int id)
+    public int GetQuestTalkIndex()
     {
         return questId + questOrderIndex;
     }

@@ -48,9 +48,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float dir = direction == 0 ? 1 : direction;
-        Debug.DrawRay(new Vector3(this.transform.position.x, this.transform.position.y + 4, 0), new Vector3(dir * 2, 0, 0), Color.red);
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(this.transform.position.x, this.transform.position.y + 8), new Vector2(dir, 0), 2, LayerMask.GetMask("Object"));
+        Debug.DrawRay(new Vector3(this.transform.position.x, this.transform.position.y + 4, 0), new Vector3(direction * 2, 0, 0), Color.red);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(this.transform.position.x, this.transform.position.y + 4), new Vector2(direction, 0), 2, LayerMask.GetMask("Object"));
         if(hit.collider != null)
         {
             Debug.Log(hit.transform.gameObject.name);
@@ -86,7 +85,7 @@ public class PlayerController : MonoBehaviour
         foreach (Collider2D col in colliders)
             if (col.GetComponent<Item>() != null)
             {
-                Debug.Log($"{col.name} È¹µæ");
+                Debug.Log($"{col.name} È¹ï¿½ï¿½");
                 Inventory.Instance.Insert(col.name);
                 //col.gameObject.SetActive(false);
                 return;
@@ -95,19 +94,20 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        direction = Input.GetAxisRaw("Horizontal");
+        float hAxis = Input.GetAxisRaw("Horizontal");
         
-        if(direction == 0)
+        if(hAxis == 0)
             skeletonAnimation.AnimationState.SetAnimation(0, "animation", true);
         else
         {
-            if(direction < 0)
+            direction = hAxis;
+            if(hAxis < 0)
                 skeletonAnimation.skeleton.ScaleX = Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
             else
                 skeletonAnimation.skeleton.ScaleX = -Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
         }
 
-        rigid.position += Vector2.right * direction * speed;
+        rigid.position += Vector2.right * hAxis * speed;
     }
 
     void SpeedUp()

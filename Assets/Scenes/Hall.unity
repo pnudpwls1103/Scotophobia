@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 69376752}
   - component: {fileID: 69376751}
   - component: {fileID: 69376750}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorStage2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,6 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 20000
+  isDoor: 1
 --- !u!114 &69376752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,7 +597,7 @@ GameObject:
   - component: {fileID: 632851531}
   - component: {fileID: 632851532}
   - component: {fileID: 632851533}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorStage1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -695,6 +696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 10000
+  isDoor: 1
 --- !u!61 &632851533
 BoxCollider2D:
   m_ObjectHideFlags: 0

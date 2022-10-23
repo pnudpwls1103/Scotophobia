@@ -67,7 +67,6 @@ public class GameManager : MonoBehaviour
         scanObject = scanObj;
         ObjectData objData = scanObject.GetComponent<ObjectData>();
         Talk(objData.id);
-
         //대화창 활성화 상태에 따라 대화창 활성화 변경
         talkPanel.SetActive(isAction); 
     }
@@ -87,8 +86,12 @@ public class GameManager : MonoBehaviour
 
     void Talk(int id)
     {
-        int questTalkIndex = questManager.GetQuestTalkIndex(id);
-        string talkData = talkManager.GetTalk(id + questTalkIndex, talkIndex);
+        int questTalkIndex = questManager.GetQuestTalkIndex();
+        string talkData;
+        if(id/10000 > 0)
+            talkData = talkManager.GetTalk(id + questTalkIndex, talkIndex);
+        else
+            talkData = talkManager.GetTalk(stageNumber + id + questTalkIndex, talkIndex);
 
         if(talkData == null)
         {

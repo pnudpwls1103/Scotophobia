@@ -24,6 +24,7 @@ public class TalkManager : MonoBehaviour
 
         talkData.Add(60000, new string[]{"복도"});
 
+        talkData.Add(10000 + 1000, new string[]{"조리공간 위에 재료들이 있다."});
         talkData.Add(10000 + 1000 + 10, new string[]{"조리공간 위에 재료들이 있다."});
         talkData.Add(10000 + 2000 + 10 + 1, new string[]{"방금 만들어서 따끈따끈한 샌드위치를 먹었다."});
         
@@ -38,12 +39,16 @@ public class TalkManager : MonoBehaviour
 
     public string GetTalk(int id, int talkIndex)
     {
+        Debug.Log(id);
         // 퀘스트 id에서 퀘스트 index에 해당하는 대사가 없는 경우
         if(!talkData.ContainsKey(id))
         {
             // 기본 대사 출력
             if(!talkData.ContainsKey(id - id%10))
+            {
                 return GetTalk(id - id%100, talkIndex);
+            }
+                
             else
                 return GetTalk(id - id%10, talkIndex);
             
