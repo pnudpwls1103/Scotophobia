@@ -26,6 +26,7 @@ public class MonsterController : MonoBehaviour
 
     void Update()
     {
+        
         switch (monsterState)
         {
             case Define.MonsterState.Idle: UpdateIdle(); break;
