@@ -74,9 +74,17 @@ public class PlayerController : MonoBehaviour
     void ToggleBulb()
     {
         if (bulb)
+        {
+            skeletonAnimation.Skeleton.SetSkin("skin2");
             OnBulbOff();
+        }
+            
         else
+        {
+            skeletonAnimation.Skeleton.SetSkin("skin1");
             OnBulbOn();
+        }
+            
         bulb = !bulb;
     }
     void GetItem()
