@@ -18,9 +18,9 @@ public class QuestManager : MonoBehaviour
 
     void GenerateData()
     {
-        questList.Add(10, new QuestData("샌드위치 만들기", new int[]{1000, 2000}));
-        questList.Add(20, new QuestData("책 배열", new int[]{3000, 4000}));
-        questList.Add(30, new QuestData("공 뽑기", new int[]{5000, 6000}));
+        questList.Add(10, new QuestData("샌드위치 만들기", new int[]{1000, 0}));
+        questList.Add(20, new QuestData("책 배열", new int[]{3000, 0}));
+        questList.Add(30, new QuestData("공 뽑기", new int[]{5000, 0, 0}));
     
     }
 
@@ -73,27 +73,32 @@ public class QuestManager : MonoBehaviour
         {
             case 10:
                 if(questOrderIndex == 1)
-                    
                     Debug.Log("Stage1_Puzzle 실행");
                     //GameManager.Instance.ChangeNextScene("Stage1_Puzzle");
                 break;
             
             case 20:
                 if(questOrderIndex == 1)
+                {
                     Debug.Log("Stage2_Puzzle1 실행");
                     //GameManager.Instance.ChangeNextScene("Stage2_Puzzle1");
+                }
                 break;
             case 30:
                 if(questOrderIndex == 1)
                 {
+                    GameManager.Instance.SetPlayerPosition(new Vector3(155, -210, 0));
                     Debug.Log("Stage2_Puzzle2 실행");
-                    GameManager.Instance.ChangeNextScene("Stage2_Puzzle2");
+                    //GameManager.Instance.ChangeNextScene("Stage2_Puzzle2");
                 }
                     
                 if(questOrderIndex == 2)
                 {
+                    GameManager.Instance.SetPlayerPosition(new Vector3(56 , -210, 0));
+                    questObject[0].SetActive(true);
                     Debug.Log("Stage2 실행");
-                    GameManager.Instance.ChangeNextScene("Stage2");
+                    //GameManager.Instance.ChangeNextScene("Stage2");
+                    //GameObject.Find("MonsterParent").transform.GetChild(0);
                 }
                 break;
             default:

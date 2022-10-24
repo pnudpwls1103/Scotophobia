@@ -9,23 +9,30 @@ public class FramePuzzle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = true;
+        //Cursor.visible = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        GameManager gameManager = GameManager.Instance;
+        if(gameManager.stageNumber == 20000 && Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
 
             if(hit.collider != null && hit.collider.gameObject == target)
             {
-                GameManager gameManager = GameManager.Instance;
                 Debug.Log(hit.collider.name);
-                gameManager.questManager.questOrderIndex++;
+                target.SetActive(false);
+                changeImage.SetActive(true);
                 gameManager.questManager.SetQuestClear(30);
+                gameManager.questManager.CheckQuest(0);
+            }
+
+            if(hit.collider != null && hit.collider.gameObject == changeImage)
+            {
+                Debug.Log(hit.collider.name);
                 gameManager.questManager.CheckQuest(0);
             }
         }

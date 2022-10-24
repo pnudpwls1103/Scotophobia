@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour, IInteraction
 {
+    public Vector3 pos;
     public void Interact(GameObject gameObject)
     {
         int objectNum  = GetComponent<ObjectData>().id;
@@ -12,6 +13,6 @@ public class Door : MonoBehaviour, IInteraction
 
         GameManager gameManager = GameManager.Instance;
         if(gameManager.stageNumber == objectNum || objectNum == 60000)
-            gameManager.ChangeNextScene(sceneName);
+            gameManager.SetPlayerPosition(pos);
     }
 }

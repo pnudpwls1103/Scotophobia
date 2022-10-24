@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour
     public bool isAction = false;
     public int talkIndex;
 
+    // Player
+    public GameObject player;
+    public Vector3 playerPos;
+
     // ΩÃ±€≈Ê
     private static GameManager _instance;
     public static GameManager Instance
@@ -53,6 +57,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(talkManager);
         DontDestroyOnLoad(GameObject.Find("Canvas"));
         DontDestroyOnLoad(GameObject.Find("GlobalLight"));
+        DontDestroyOnLoad(GameObject.Find("Player"));
     }
 
     public void Start()
@@ -78,6 +83,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void SetPlayerPosition(Vector3 pos)
+    {
+        player.transform.position = pos;
+    }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         talkPanel = GameObject.Find("UI_talk");

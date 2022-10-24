@@ -28,6 +28,7 @@ public class TalkManager : MonoBehaviour
         talkData.Add(10000 + 1000 + 10, new string[]{"조리공간 위에 재료들이 있다."});
         talkData.Add(10000 + 2000 + 10 + 1, new string[]{"방금 만들어서 따끈따끈한 샌드위치를 먹었다."});
         
+        talkData.Add(20000 + 3000, new string[]{"아빠의 책이 가득 찬 책장이다."});
         talkData.Add(20000 + 3000 + 20, new string[]{"이상한 문양이 그려진 책들이 있다."});
         talkData.Add(20000 + 4000 + 20 + 1, new string[]{"여전히 이상한 문양이다."});
 
