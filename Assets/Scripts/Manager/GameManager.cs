@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    static public int stageNumber;
+    public int stageNumber;
     public QuestManager questManager;
     public TalkManager talkManager;
 
@@ -17,11 +17,55 @@ public class GameManager : MonoBehaviour
     public bool isAction = false;
     public int talkIndex;
 
+    // Player
+    public GameObject player;
+    public Vector3 playerPos;
+
+    // 싱글톤
+    private static GameManager _instance;
+    public static GameManager Instance
+    {
+        get 
+        {
+            if(!_instance)
+            {
+                _instance = FindObjectOfType(typeof(GameManager)) as GameManager;
+
+                if(_instance == null)
+                    Debug.Log("no Singleton obj");
+            }
+            return _instance;
+        }
+    }
+
+    public void Awake()
+    {
+        if(_instance == null)
+        {
+            _instance = this;
+        }
+        else if(_instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        talkPanel = GameObject.Find("UI_talk");
+        UITalkText = GameObject.Find("Talk").GetComponentInChildren<Text>();
+
+        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(questManager);
+        DontDestroyOnLoad(talkManager);
+        DontDestroyOnLoad(GameObject.Find("Canvas"));
+        DontDestroyOnLoad(GameObject.Find("GlobalLight"));
+        DontDestroyOnLoad(GameObject.Find("Player"));
+    }
+
     public void Start()
     {
         talkPanel.SetActive(isAction);
         questManager.CheckQuest();
         stageNumber = 10000;
+        questManager.questId = 10;
     }
 
     public void Action(GameObject scanObj)
@@ -29,15 +73,35 @@ public class GameManager : MonoBehaviour
         scanObject = scanObj;
         ObjectData objData = scanObject.GetComponent<ObjectData>();
         Talk(objData.id);
-
         //대화창 활성화 상태에 따라 대화창 활성화 변경
         talkPanel.SetActive(isAction); 
     }
 
+
+    public void ChangeNextScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void SetPlayerPosition(Vector3 pos)
+    {
+        player.transform.position = pos;
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        talkPanel = GameObject.Find("UI_talk");
+        UITalkText = GameObject.Find("Talk").GetComponentInChildren<Text>();
+        Debug.Log(scene.name);
+    }
+
     void Talk(int id)
     {
-        int questTalkIndex = questManager.GetQuestTalkIndex(id);
-        string talkData = talkManager.GetTalk(id + questTalkIndex, talkIndex);
+        int questTalkIndex = questManager.GetQuestTalkIndex();
+        string talkData;
+        if(id/10000 > 0)
+            talkData = talkManager.GetTalk(id + questTalkIndex, talkIndex);
+        else
+            talkData = talkManager.GetTalk(stageNumber + id + questTalkIndex, talkIndex);
 
         if(talkData == null)
         {
@@ -52,6 +116,5 @@ public class GameManager : MonoBehaviour
         isAction = true;
         talkIndex++;
     }
-
 
 }

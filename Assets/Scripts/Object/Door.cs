@@ -5,11 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour, IInteraction
 {
+    public Vector3 pos;
     public void Interact(GameObject gameObject)
     {
         int objectNum  = GetComponent<ObjectData>().id;
         string sceneName = this.gameObject.name.Substring(4);
-        if(GameManager.stageNumber == objectNum)
-            SceneManager.LoadScene(sceneName);
+
+        GameManager gameManager = GameManager.Instance;
+        if(gameManager.stageNumber == objectNum || objectNum == 60000)
+            gameManager.SetPlayerPosition(pos);
     }
 }

@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Spine.Unity;
 public class PlayerController : MonoBehaviour
 {
+    float direction;
     float speed;
     [SerializeField]
     float bulbOnSpeed;
@@ -14,12 +16,13 @@ public class PlayerController : MonoBehaviour
     public static event System.Action OnBulbOff = null;
 
     public GameObject scanObject;
-    public GameManager gameManager;
     
     Rigidbody2D rigid;
+    private SkeletonAnimation skeletonAnimation;
 
     void Start()
     {
+        skeletonAnimation = GetComponent<SkeletonAnimation>();
         speed = bulb ? bulbOnSpeed : bulbOffSpeed;
         rigid = GetComponent<Rigidbody2D>();
         OnBulbOn += SpeedUp;
@@ -35,18 +38,18 @@ public class PlayerController : MonoBehaviour
             ToggleBulb();
         if (Input.GetKeyDown(KeyCode.P))
             GetItem();
-        if (bulb && Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             Interact();
         }
         if (Input.GetKeyDown(KeyCode.Space) && scanObject != null)
-            gameManager.Action(scanObject);
+            GameManager.Instance.Action(scanObject);
     }
 
     void FixedUpdate()
     {
-        Debug.DrawRay(rigid.position, Vector2.left, Color.red);
-        RaycastHit2D hit = Physics2D.Raycast(rigid.position, Vector2.left, 1, LayerMask.GetMask("Object"));
+        Debug.DrawRay(new Vector3(this.transform.position.x, this.transform.position.y + 4, 0), new Vector3(direction * 2, 0, 0), Color.red);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(this.transform.position.x, this.transform.position.y + 4), new Vector2(direction, 0), 2, LayerMask.GetMask("Object"));
         if(hit.collider != null)
         {
             Debug.Log(hit.transform.gameObject.name);
@@ -71,9 +74,17 @@ public class PlayerController : MonoBehaviour
     void ToggleBulb()
     {
         if (bulb)
+        {
+            skeletonAnimation.Skeleton.SetSkin("skin2");
             OnBulbOff();
+        }
+            
         else
+        {
+            skeletonAnimation.Skeleton.SetSkin("skin1");
             OnBulbOn();
+        }
+            
         bulb = !bulb;
     }
     void GetItem()
@@ -82,7 +93,7 @@ public class PlayerController : MonoBehaviour
         foreach (Collider2D col in colliders)
             if (col.GetComponent<Item>() != null)
             {
-                Debug.Log($"{col.name} È¹µæ");
+                Debug.Log($"{col.name} È¹ï¿½ï¿½");
                 Inventory.Instance.Insert(col.name);
                 //col.gameObject.SetActive(false);
                 return;
@@ -91,7 +102,19 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        float hAxis = Input.GetAxis("Horizontal");
+        float hAxis = Input.GetAxisRaw("Horizontal");
+        
+        if(hAxis == 0)
+            skeletonAnimation.AnimationState.SetAnimation(0, "animation", true);
+        else
+        {
+            direction = hAxis;
+            if(hAxis < 0)
+                skeletonAnimation.skeleton.ScaleX = Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
+            else
+                skeletonAnimation.skeleton.ScaleX = -Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
+        }
+
         rigid.position += Vector2.right * hAxis * speed;
     }
 

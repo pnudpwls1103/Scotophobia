@@ -16,6 +16,7 @@ public class MonsterController : MonoBehaviour
     Rigidbody2D rigid = null;
     void Start()
     {
+        target = GameObject.Find("Player").transform;
         toggleDir.InitCurTime();
         IdleMove.InitCurTime();
         rigid = GetComponent<Rigidbody2D>();
@@ -25,6 +26,7 @@ public class MonsterController : MonoBehaviour
 
     void Update()
     {
+        
         switch (monsterState)
         {
             case Define.MonsterState.Idle: UpdateIdle(); break;
@@ -80,11 +82,11 @@ public class MonsterController : MonoBehaviour
     void OnBulbOn()
     {
         monsterState = Define.MonsterState.Chase;
-        speed = 0.012f;
+        speed = 0.12f;
     }
     void OnBulbOff()
     {
-        monsterState = Define.MonsterState.Move;
-        speed = 0.007f;
+        monsterState = Define.MonsterState.Chase;
+        speed = 0.12f;
     }
 }

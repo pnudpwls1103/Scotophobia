@@ -5,22 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Hall.unity
     guid: 8e4198c62393abc40a436aa27089ac13
   - enabled: 1
     path: Assets/Scenes/Stage1.unity
     guid: 538ec413ea7deef4f99aa5279532817a
+  - enabled: 1
+    path: Assets/Scenes/Stage2.unity
+    guid: cc6521c536b15b244bda78e63142c717
+  - enabled: 1
+    path: Assets/Scenes/Stage2_Puzzle2.unity
+    guid: 3e97dc717625a164d8c0e9d0e6b388e1
   m_configObjects: {}
