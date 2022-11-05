@@ -61,7 +61,9 @@ public class QuestManager : MonoBehaviour
             case 10:
                 questList[questId].cleared = true;
                 GameManager.Instance.limitStage = 20000;
-                // Puzzle Trigger를 disable 해야 함
+                PuzzleTrigger trigger = questObject[0].GetComponent<PuzzleTrigger>();
+                trigger.Restore();
+                trigger.isActivate = false;
                 break;
             default:
                 break;

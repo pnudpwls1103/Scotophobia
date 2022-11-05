@@ -86,7 +86,6 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         talkPanel.SetActive(isAction);
-        questManager.CheckQuest();
         currentStage = (int)Room.Hall;
         limitStage = (int)Room.Kitchen;
         questManager.questId = 10;
