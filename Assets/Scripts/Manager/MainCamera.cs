@@ -53,8 +53,6 @@ public class MainCamera : MonoBehaviour
         float clampY = Mathf.Clamp(transform.position.y, -ly + centers[stageNum].y, ly + centers[stageNum].y);
 
         transform.position = new Vector3(clampX, clampY, -10f);
-
-        Debug.Log($"{transform.position.y}, {centers[stageNum].y}, {-ly + centers[stageNum].y}");
     }
 
 }
