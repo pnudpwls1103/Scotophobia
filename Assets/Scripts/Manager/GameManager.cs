@@ -2,20 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
+enum Room 
+{
+    Hall = 60000,
+    Kitchen = 10000,
+    Library = 20000,
+    Laundry = 30000,
+}
 public class GameManager : MonoBehaviour
 {
-    public int stageNumber;
+    
+
+    public int limitStage;
+    public int currentStage;
+    public int Stage
+    {
+        get
+        {
+            return currentStage;
+        }
+        set
+        {
+            currentStage = value;
+            //puzzleManager.checkManager();
+        }
+    }
+
     public QuestManager questManager;
     public TalkManager talkManager;
+    public PuzzleManager puzzleManager;
 
     // 대화창
     public GameObject talkPanel;
     public Text UITalkText;
     public GameObject scanObject;
     public bool isAction = false;
-    public int talkIndex;
 
     // Player
     public GameObject player;
@@ -64,7 +87,8 @@ public class GameManager : MonoBehaviour
     {
         talkPanel.SetActive(isAction);
         questManager.CheckQuest();
-        stageNumber = 10000;
+        currentStage = (int)Room.Hall;
+        limitStage = (int)Room.Kitchen;
         questManager.questId = 10;
     }
 
@@ -73,25 +97,9 @@ public class GameManager : MonoBehaviour
         scanObject = scanObj;
         ObjectData objData = scanObject.GetComponent<ObjectData>();
         Talk(objData.id);
+        
         //대화창 활성화 상태에 따라 대화창 활성화 변경
         talkPanel.SetActive(isAction); 
-    }
-
-
-    public void ChangeNextScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
-
-    public void SetPlayerPosition(Vector3 pos)
-    {
-        player.transform.position = pos;
-    }
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        talkPanel = GameObject.Find("UI_talk");
-        UITalkText = GameObject.Find("Talk").GetComponentInChildren<Text>();
-        Debug.Log(scene.name);
     }
 
     void Talk(int id)
@@ -99,22 +107,20 @@ public class GameManager : MonoBehaviour
         int questTalkIndex = questManager.GetQuestTalkIndex();
         string talkData;
         if(id/10000 > 0)
-            talkData = talkManager.GetTalk(id + questTalkIndex, talkIndex);
+            talkData = talkManager.GetTalk(id);
         else
-            talkData = talkManager.GetTalk(stageNumber + id + questTalkIndex, talkIndex);
+            talkData = talkManager.GetTalk(currentStage + id + questTalkIndex);
 
         if(talkData == null)
         {
             isAction = false;
-            talkIndex = 0;
-            Debug.Log(questManager.CheckQuest(id));
+            talkManager.talkIndex = 0;
             return;
         }
 
         UITalkText.text = talkData;
         
         isAction = true;
-        talkIndex++;
+        talkManager.talkIndex++;
     }
-
 }

@@ -7,7 +7,7 @@ public class MainCamera : MonoBehaviour
     [SerializeField]
     Transform playerTrans;
     [SerializeField]
-    Vector2[] mapSizes = new Vector2[2];
+    Vector2[] mapSizes = new Vector2[6];
     [SerializeField]
     Vector3 cameraPosition;
 
@@ -22,7 +22,9 @@ public class MainCamera : MonoBehaviour
     
     void Awake()
     {
-        mapSizes[0] = new Vector2(27.195f, 5.4f);
+
+        mapSizes[5] = new Vector2(27.195f, 5.4f);
+
     }
 
     void Start()
@@ -38,7 +40,7 @@ public class MainCamera : MonoBehaviour
 
     void LimitCameraArea()
     {
-        int stageNum = GameManager.Instance.stageNumber/10000 - 1;
+        int stageNum = GameManager.Instance.Stage / 10000 - 1;
         transform.position = Vector3.Lerp(transform.position, 
                                         playerTrans.position + cameraPosition,
                                         Time.deltaTime * cameraMoveSpeed);

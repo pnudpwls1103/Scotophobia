@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Door : Trigger
+public class PuzzleTrigger : Trigger
 {
-    public Transform nextPos;
-
+    public string SceneName;
     override public void Interact(GameObject gameObject)
     {
         if(isActivate)
@@ -18,6 +17,6 @@ public class Door : Trigger
 
     override public void Action(GameObject player)
     {
-        player.transform.position = nextPos.position;
+        SceneManager.LoadScene(SceneName);
     }
 }

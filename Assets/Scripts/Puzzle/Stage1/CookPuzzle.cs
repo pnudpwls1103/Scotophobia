@@ -21,6 +21,7 @@ public class CookPuzzle : ObjectData
 
     public void Clear()
     {
+        GameManager.Instance.questManager.CheckQuest();
         Debug.Log("Cook Puzzle Clear");
     }
 }

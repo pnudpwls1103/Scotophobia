@@ -16,7 +16,7 @@ public class FramePuzzle : MonoBehaviour
     void Update()
     {
         GameManager gameManager = GameManager.Instance;
-        if(gameManager.stageNumber == 20000 && Input.GetMouseButtonDown(0))
+        if(gameManager.currentStage == 20000 && Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
@@ -27,13 +27,13 @@ public class FramePuzzle : MonoBehaviour
                 target.SetActive(false);
                 changeImage.SetActive(true);
                 gameManager.questManager.SetQuestClear(30);
-                gameManager.questManager.CheckQuest(0);
+                //gameManager.questManager.CheckQuest(0);
             }
 
             if(hit.collider != null && hit.collider.gameObject == changeImage)
             {
                 Debug.Log(hit.collider.name);
-                gameManager.questManager.CheckQuest(0);
+                //gameManager.questManager.CheckQuest(0);
             }
         }
     }

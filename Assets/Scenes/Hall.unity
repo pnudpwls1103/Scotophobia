@@ -307,8 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7f8aea08f373e4ca509d866c785617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 20000
-  isDoor: 1
+  id: 0
 --- !u!114 &69376752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,7 +320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c700a8e8ea7e74c91a2d99f03cc83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: {x: -20, y: -205, z: 0}
+  id: 20000
+  nextPos: {fileID: 0}
 --- !u!212 &69376753
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -768,7 +768,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243190191}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.072075, y: 11.5230255, z: -0.1283679}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -787,14 +787,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bda9ee18bc10f945a25ea631043177d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageNumber: 0
+  limitStage: 0
+  currentStage: 0
   questManager: {fileID: 1921603146}
   talkManager: {fileID: 1770083123}
+  puzzleManager: {fileID: 0}
   talkPanel: {fileID: 1058778490}
   UITalkText: {fileID: 1549821214}
   scanObject: {fileID: 0}
   isAction: 0
-  talkIndex: 0
   player: {fileID: 1689144251}
   playerPos: {x: 0, y: 0, z: 0}
 --- !u!1 &353107017
@@ -1351,8 +1352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7f8aea08f373e4ca509d866c785617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 5000
-  isDoor: 0
+  id: 0
 --- !u!212 &592989398
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1474,7 +1474,6 @@ GameObject:
   - component: {fileID: 632851529}
   - component: {fileID: 632851530}
   - component: {fileID: 632851531}
-  - component: {fileID: 632851532}
   - component: {fileID: 632851533}
   m_Layer: 8
   m_Name: DoorStage1
@@ -1562,21 +1561,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c700a8e8ea7e74c91a2d99f03cc83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: {x: -10, y: -105, z: 0}
---- !u!114 &632851532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632851528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df7f8aea08f373e4ca509d866c785617, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   id: 10000
-  isDoor: 1
+  nextPos: {fileID: 1234591152}
 --- !u!61 &632851533
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1725,7 +1711,7 @@ GameObject:
   - component: {fileID: 896915948}
   - component: {fileID: 896915949}
   m_Layer: 8
-  m_Name: Kitchen
+  m_Name: Stage1_Kitchen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1817,7 +1803,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896915944}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4.8882055}
+  m_LocalPosition: {x: 6, y: 0, z: -4.8882055}
   m_LocalScale: {x: 7, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1837,7 +1823,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1000
-  isDoor: 0
 --- !u!114 &896915949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2241,8 +2226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7f8aea08f373e4ca509d866c785617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 3000
-  isDoor: 0
+  id: 0
 --- !u!114 &1011351685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2542,8 +2526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7f8aea08f373e4ca509d866c785617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 60000
-  isDoor: 1
+  id: 0
 --- !u!61 &1234591150
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2649,7 +2632,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c700a8e8ea7e74c91a2d99f03cc83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: {x: -20, y: -3, z: 0}
+  id: 60000
+  nextPos: {fileID: 632851529}
 --- !u!1 &1309905846
 GameObject:
   m_ObjectHideFlags: 0
@@ -2765,8 +2749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7f8aea08f373e4ca509d866c785617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 2000
-  isDoor: 0
+  id: 0
 --- !u!61 &1387795169
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3584,7 +3567,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c700a8e8ea7e74c91a2d99f03cc83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: {x: -10, y: 0, z: 0}
+  id: 0
+  nextPos: {fileID: 0}
 --- !u!114 &1700896132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3597,8 +3581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7f8aea08f373e4ca509d866c785617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 60000
-  isDoor: 1
+  id: 0
 --- !u!1 &1745337803
 GameObject:
   m_ObjectHideFlags: 0
@@ -3644,8 +3627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7f8aea08f373e4ca509d866c785617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 4000
-  isDoor: 0
+  id: 0
 --- !u!212 &1745337806
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3742,6 +3724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1512fff10730e47877320ff11ac814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  talkIndex: 0
 --- !u!1 &1921603144
 GameObject:
   m_ObjectHideFlags: 0
@@ -3939,8 +3922,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTrans: {fileID: 1689144256}
-  mapSize: {x: 27.195, y: 5.4}
-  cameraPosition: {x: 0, y: 0.4, z: -10}
+  mapSizes:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  cameraPosition: {x: 0, y: 0.4, z: 0}
   center: {x: 0, y: 0.4}
   cameraMoveSpeed: 2
 --- !u!1 &2086585809
