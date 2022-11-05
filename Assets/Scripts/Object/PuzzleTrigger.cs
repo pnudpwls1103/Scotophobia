@@ -19,14 +19,14 @@ public class PuzzleTrigger : Trigger
 
     override public void Action(GameObject player)
     {
-        GameManager.Instance.player.SetActive(false);
+        GameManager.Instance.ControlSceneObject(false, false);
         HideObject.SetActive(false);
         SceneManager.LoadScene(SceneName, LoadSceneMode.Additive);
     }
 
     public void Restore()
     {
-        GameManager.Instance.player.SetActive(true);
+        GameManager.Instance.ControlSceneObject(true, true);
         HideObject.SetActive(true);
         SceneManager.UnloadSceneAsync(SceneName);
     }

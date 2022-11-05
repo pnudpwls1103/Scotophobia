@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public Vector3 playerPos;
 
+    // Camera
+    public GameObject mainCamera;
     // ΩÃ±€≈Ê
     private static GameManager _instance;
     public static GameManager Instance
@@ -121,5 +123,11 @@ public class GameManager : MonoBehaviour
         
         isAction = true;
         talkManager.talkIndex++;
+    }
+
+    public void ControlSceneObject(bool playerState, bool cameraState)
+    {
+        player.SetActive(playerState);
+        mainCamera.SetActive(cameraState);
     }
 }
