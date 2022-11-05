@@ -49,8 +49,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.DrawRay(new Vector3(this.transform.position.x, this.transform.position.y * 0.2f, 0), new Vector3(direction * 2, 0, 0), Color.red);
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(this.transform.position.x, this.transform.position.y * 0.2f), new Vector2(direction, 0), 2, LayerMask.GetMask("Object"));
+        Debug.DrawRay(new Vector3(this.transform.position.x, this.transform.position.y + 2, 0), new Vector3(direction * 2, 0, 0), Color.red);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(this.transform.position.x, this.transform.position.y + 2), new Vector2(direction, 0), 2, LayerMask.GetMask("Object"));
         if(hit.collider != null)
         {
             Debug.Log(hit.transform.gameObject.name);
