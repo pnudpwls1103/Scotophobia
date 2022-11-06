@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5e61ed8f16e62bb4faff4271d1c07da5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -89,9 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79dae7b382c895408e5653d4492508b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu: {fileID: 0}
-  cuttingBoard: {fileID: 0}
-  fryingPan: {fileID: 0}
   order: 0
   canPutOnCuttingBoard: 1
   canPutOnFryingPan: 0

@@ -39,9 +39,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
             GetItem();
         if (Input.GetKeyDown(KeyCode.L))
-        {
             Interact();
-        }
         if (Input.GetKeyDown(KeyCode.Space) && scanObject != null)
             GameManager.Instance.Action(scanObject);
     }
@@ -73,17 +71,17 @@ public class PlayerController : MonoBehaviour
     }
     void ToggleBulb()
     {
-        if (bulb)
-        {
-            skeletonAnimation.Skeleton.SetSkin("skin2");
-            OnBulbOff();
-        }
+        //if (bulb)
+        //{
+        //    skeletonAnimation.Skeleton.SetSkin("skin2");
+        //    OnBulbOff();
+        //}
             
-        else
-        {
-            skeletonAnimation.Skeleton.SetSkin("skin1");
-            OnBulbOn();
-        }
+        //else
+        //{
+        //    skeletonAnimation.Skeleton.SetSkin("skin1");
+        //    OnBulbOn();
+        //}
             
         bulb = !bulb;
     }
@@ -93,9 +91,8 @@ public class PlayerController : MonoBehaviour
         foreach (Collider2D col in colliders)
             if (col.GetComponent<Item>() != null)
             {
-                Debug.Log($"{col.name} ȹ��");
+                Debug.Log($"Item {col.name} Get!");
                 Inventory.Instance.Insert(col.name);
-                //col.gameObject.SetActive(false);
                 return;
             }
     }
@@ -103,21 +100,24 @@ public class PlayerController : MonoBehaviour
     void Move()
     {
         float hAxis = Input.GetAxisRaw("Horizontal");
-        
-        if(hAxis == 0)
-            skeletonAnimation.AnimationState.SetAnimation(0, "animation", true);
-        else
-        {
-            direction = hAxis;
-            if(hAxis < 0)
-                skeletonAnimation.skeleton.ScaleX = Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
-            else
-                skeletonAnimation.skeleton.ScaleX = -Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
-        }
 
+        //if(hAxis == 0)
+        //    skeletonAnimation.AnimationState.SetAnimation(0, "animation", true);
+        //else
+        //{
+        //    direction = hAxis;
+        //    if(hAxis < 0)
+        //        skeletonAnimation.skeleton.ScaleX = Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
+        //    else
+        //        skeletonAnimation.skeleton.ScaleX = -Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
+        //}
         rigid.position += Vector2.right * hAxis * speed;
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Monster"))
+            Debug.Log("Player die!");
+    }
     void SpeedUp()
     {
         speed = bulbOnSpeed;

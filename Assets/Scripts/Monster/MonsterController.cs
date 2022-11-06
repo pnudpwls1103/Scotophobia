@@ -12,7 +12,7 @@ public class MonsterController : MonoBehaviour
     [SerializeField]
     Transform target;
     Vector2 dir = Vector2.right;
-    Define.MonsterState monsterState = Define.MonsterState.Move;
+    Define.MonsterState monsterState = Define.MonsterState.Chase;
     Rigidbody2D rigid = null;
     void Start()
     {
@@ -20,13 +20,11 @@ public class MonsterController : MonoBehaviour
         toggleDir.InitCurTime();
         IdleMove.InitCurTime();
         rigid = GetComponent<Rigidbody2D>();
-        PlayerController.OnBulbOn += OnBulbOn;
-        PlayerController.OnBulbOff += OnBulbOff;
     }
 
     void Update()
     {
-        
+        Debug.Log($"current : {monsterState.ToString()}");
         switch (monsterState)
         {
             case Define.MonsterState.Idle: UpdateIdle(); break;
@@ -79,14 +77,14 @@ public class MonsterController : MonoBehaviour
         IdleMove.InitCurTime(cutTime);
         monsterState = state;
     }
-    void OnBulbOn()
-    {
-        monsterState = Define.MonsterState.Chase;
-        speed = 0.12f;
-    }
-    void OnBulbOff()
-    {
-        monsterState = Define.MonsterState.Chase;
-        speed = 0.12f;
-    }
+    //void OnBulbOn()
+    //{
+    //    monsterState = Define.MonsterState.Chase;
+    //    speed = 0.12f;
+    //}
+    //void OnBulbOff()
+    //{
+    //    monsterState = Define.MonsterState.Chase;
+    //    speed = 0.12f;
+    //}
 }

@@ -89,9 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79dae7b382c895408e5653d4492508b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu: {fileID: 0}
-  cuttingBoard: {fileID: 0}
-  fryingPan: {fileID: 0}
   order: 0
   canPutOnCuttingBoard: 0
   canPutOnFryingPan: 1
