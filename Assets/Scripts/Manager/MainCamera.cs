@@ -7,12 +7,11 @@ public class MainCamera : MonoBehaviour
     [SerializeField]
     Transform playerTrans;
     [SerializeField]
-    Vector2[] mapSizes = new Vector2[2];
+    Vector2[] mapSizes = new Vector2[6];
     [SerializeField]
     Vector3 cameraPosition;
 
-    [SerializeField]
-    Vector2 center;
+    public Vector2[] centers = new Vector2[6];
     
 
     [SerializeField]
@@ -22,7 +21,13 @@ public class MainCamera : MonoBehaviour
     
     void Awake()
     {
-        mapSizes[0] = new Vector2(27.195f, 5.4f);
+        mapSizes[0] = new Vector2(14.66f, 0f);
+        mapSizes[1] = new Vector2(36.5f, 0f);
+        mapSizes[5] = new Vector2(27.195f, 5.4f);
+
+        centers[0] = new Vector2(-13f, -24f);
+        centers[1] = new Vector2(31.27f, -40f);
+        centers[5] = new Vector2(0f, 0.4f);
     }
 
     void Start()
@@ -38,16 +43,16 @@ public class MainCamera : MonoBehaviour
 
     void LimitCameraArea()
     {
-        int stageNum = GameManager.Instance.stageNumber/10000 - 1;
+        int stageNum = GameManager.Instance.Stage / 10000 - 1;
         transform.position = Vector3.Lerp(transform.position, 
                                         playerTrans.position + cameraPosition,
                                         Time.deltaTime * cameraMoveSpeed);
 
         float lx = mapSizes[stageNum].x - width;
-        float clampX = Mathf.Clamp(transform.position.x, -lx + center.x, lx + center.x);
+        float clampX = Mathf.Clamp(transform.position.x, -lx + centers[stageNum].x, lx + centers[stageNum].x);
 
         float ly = mapSizes[stageNum].y - height;
-        float clampY = Mathf.Clamp(transform.position.y, -ly + center.y, ly + center.y);
+        float clampY = Mathf.Clamp(transform.position.y, -ly + centers[stageNum].y, ly + centers[stageNum].y);
 
         transform.position = new Vector3(clampX, clampY, -10f);
     }
