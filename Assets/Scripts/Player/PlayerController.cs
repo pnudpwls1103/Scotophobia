@@ -72,17 +72,17 @@ public class PlayerController : MonoBehaviour
     }
     void ToggleBulb()
     {
-        //if (bulb)
-        //{
-        //    skeletonAnimation.Skeleton.SetSkin("skin2");
-        //    OnBulbOff();
-        //}
+        if (bulb)
+        {
+           skeletonAnimation.Skeleton.SetSkin("skin2");
+           OnBulbOff();
+        }
             
-        //else
-        //{
-        //    skeletonAnimation.Skeleton.SetSkin("skin1");
-        //    OnBulbOn();
-        //}
+        else
+        {
+           skeletonAnimation.Skeleton.SetSkin("skin1");
+           OnBulbOn();
+        }
             
         bulb = !bulb;
     }
@@ -102,16 +102,16 @@ public class PlayerController : MonoBehaviour
     {
         float hAxis = Input.GetAxisRaw("Horizontal");
 
-        //if(hAxis == 0)
-        //    skeletonAnimation.AnimationState.SetAnimation(0, "animation", true);
-        //else
-        //{
-        //    direction = hAxis;
-        //    if(hAxis < 0)
-        //        skeletonAnimation.skeleton.ScaleX = Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
-        //    else
-        //        skeletonAnimation.skeleton.ScaleX = -Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
-        //}
+        if(hAxis == 0)
+           skeletonAnimation.AnimationState.SetAnimation(0, "animation", true);
+        else
+        {
+           direction = hAxis;
+           if(hAxis < 0)
+               skeletonAnimation.skeleton.ScaleX = Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
+           else
+               skeletonAnimation.skeleton.ScaleX = -Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
+        }
         rigid.position += Vector2.right * hAxis * speed;
     }
     private void OnTriggerEnter2D(Collider2D collision)
