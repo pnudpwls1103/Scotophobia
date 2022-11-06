@@ -279,15 +279,15 @@ MonoBehaviour:
   id: 0
   bookInfos:
   - book: {fileID: 1061923863}
-    order: 1
+    order: 4
   - book: {fileID: 1581782236}
     order: 0
   - book: {fileID: 2070993709}
-    order: 0
+    order: 1
   - book: {fileID: 1135903198}
-    order: 0
+    order: 2
   - book: {fileID: 640219478}
-    order: 0
+    order: 3
 --- !u!4 &989064662
 Transform:
   m_ObjectHideFlags: 0
