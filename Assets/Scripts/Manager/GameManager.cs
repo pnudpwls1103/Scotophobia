@@ -13,8 +13,6 @@ enum Room
 }
 public class GameManager : MonoBehaviour
 {
-    
-
     public int limitStage;
     public int currentStage;
     public int Stage
@@ -33,6 +31,7 @@ public class GameManager : MonoBehaviour
     public QuestManager questManager;
     public TalkManager talkManager;
     public PuzzleManager puzzleManager;
+    public DoorManager doorManager;
 
     // ¥Î»≠√¢
     public GameObject talkPanel;
@@ -91,6 +90,7 @@ public class GameManager : MonoBehaviour
         currentStage = (int)Room.Hall;
         limitStage = (int)Room.Kitchen;
         questManager.questId = 10;
+        doorManager.SetActivate();
     }
 
     public void Action(GameObject scanObj)
