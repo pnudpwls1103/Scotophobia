@@ -56,13 +56,21 @@ public class QuestManager : MonoBehaviour
 
     void ControlObject()
     {
+        PuzzleTrigger trigger;
         switch(questId)
         {
             case 10:
                 questList[questId].cleared = true;
                 GameManager.Instance.limitStage = 20000;
                 GameManager.Instance.doorManager.SetActivate();
-                PuzzleTrigger trigger = questObject[0].GetComponent<PuzzleTrigger>();
+                trigger = questObject[0].GetComponent<PuzzleTrigger>();
+                trigger.Restore();
+                trigger.isActivate = false;
+                break;
+            case 20:
+                questList[questId].cleared = true;
+                GameManager.Instance.doorManager.SetActivate();
+                trigger = questObject[1].GetComponent<PuzzleTrigger>();
                 trigger.Restore();
                 trigger.isActivate = false;
                 break;

@@ -3959,6 +3959,7 @@ MonoBehaviour:
   questId: 10
   questObject:
   - {fileID: 3296904213379759925}
+  - {fileID: 1831301644959513733}
   - {fileID: 109976329}
 --- !u!1 &1959422703
 GameObject:
@@ -4387,7 +4388,7 @@ GameObject:
   - component: {fileID: 1011351686}
   - component: {fileID: 5900341007304857860}
   m_Layer: 8
-  m_Name: PuzzleTrigger1
+  m_Name: Stage2PuzzleTrigger1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4700,7 +4701,7 @@ GameObject:
   - component: {fileID: 1295431593}
   - component: {fileID: 1295431592}
   m_Layer: 8
-  m_Name: PuzzleTrigger
+  m_Name: Stage1PuzzleTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
