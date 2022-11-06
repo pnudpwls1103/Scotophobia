@@ -3342,7 +3342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 5f73ae3bc11b31b4eb3c7de8fff75569, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: a781c4816d657134eae672610c7a67d5, type: 2}
   initialSkinName: skin2
   fixPrefabOverrideViaMeshFilter: 2
   initialFlipX: 0
@@ -3390,7 +3390,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cbe929f67d9efde4884d654fd7c3f73c, type: 2}
+  - {fileID: 2100000, guid: 0bf428dbb9797984fb1d7ba15aeaf848, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5026,7 +5026,7 @@ MonoBehaviour:
   isActivate: 1
   stageNum: 20000
   SceneName: Stage2_Bookshelf
-  HideObject: {fileID: 569652438711574978}
+  HideObject: {fileID: 1619109755}
 --- !u!4 &6720633773298860473
 Transform:
   m_ObjectHideFlags: 0

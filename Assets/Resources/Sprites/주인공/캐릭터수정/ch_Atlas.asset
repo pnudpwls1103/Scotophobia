@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
-  m_Name: ch 2_Atlas
+  m_Name: ch_Atlas
   m_EditorClassIdentifier: 
-  atlasFile: {fileID: 4900000, guid: c849a4867b68ab04e85beaaab6151a66, type: 3}
+  atlasFile: {fileID: 4900000, guid: 20085f051e81d56439ed98a5208c99f1, type: 3}
   materials:
-  - {fileID: 2100000, guid: 8c6b530389956c84eb8371963efd1179, type: 2}
+  - {fileID: 2100000, guid: 0bf428dbb9797984fb1d7ba15aeaf848, type: 2}
