@@ -24,13 +24,11 @@ public class GameManager : MonoBehaviour
         set
         {
             currentStage = value;
-            //puzzleManager.checkManager();
         }
     }
 
     public QuestManager questManager;
     public TalkManager talkManager;
-    public PuzzleManager puzzleManager;
     public DoorManager doorManager;
 
     // ¥Î»≠√¢
@@ -41,7 +39,6 @@ public class GameManager : MonoBehaviour
 
     // Player
     public GameObject player;
-    public Vector3 playerPos;
 
     // Camera
     public GameObject mainCamera;
