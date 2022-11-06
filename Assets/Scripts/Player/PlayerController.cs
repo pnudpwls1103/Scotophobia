@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
     void Interact()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 5f);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 2f);
         foreach (Collider2D col in colliders)
             if (col.GetComponent<IInteraction>() != null)
             {

@@ -21,10 +21,10 @@ public class MainCamera : MonoBehaviour
     
     void Awake()
     {
-        mapSizes[0] = new Vector2(27.195f, 0f);
+        mapSizes[0] = new Vector2(14.66f, 0f);
         mapSizes[5] = new Vector2(27.195f, 5.4f);
 
-        centers[0] = new Vector2(0f, -54f);
+        centers[0] = new Vector2(-13f, -34f);
         centers[5] = new Vector2(0f, 0.4f);
     }
 
