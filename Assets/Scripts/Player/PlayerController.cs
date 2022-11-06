@@ -111,9 +111,9 @@ public class PlayerController : MonoBehaviour
         {
             direction = hAxis;
             if(hAxis < 0)
-                skeletonAnimation.skeleton.ScaleX = -Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
-            else
                 skeletonAnimation.skeleton.ScaleX = Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
+            else
+                skeletonAnimation.skeleton.ScaleX = -Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
         }
 
         rigid.position += Vector2.right * hAxis * speed;

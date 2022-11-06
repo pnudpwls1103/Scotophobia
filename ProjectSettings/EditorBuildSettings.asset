@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage1_Kitchen.unity
     guid: 81363aaf53d19ec41a260890ce5aece3
+  - enabled: 1
+    path: Assets/Scenes/Stage2_Bookshelf.unity
+    guid: 384d0742f897bfa4c95d6fd044ba7b4e
   m_configObjects: {}
