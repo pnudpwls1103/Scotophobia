@@ -327,6 +327,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   order: 0
   menu: {fileID: 282643377}
+  ingredientPos: {x: -6.71, y: 0.48}
+  size: 0.3
+  watingTime: 1
 --- !u!70 &1243106468
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -491,6 +494,8 @@ MonoBehaviour:
   menu: {fileID: 282643377}
   cookPuzzle: {fileID: 1498274911}
   order: 0
+  ingredientPos: {x: 0.53, y: -0.07}
+  size: 0.3
 --- !u!61 &1726316830
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -738,8 +743,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 910, y: 0}
-  m_SizeDelta: {x: 100, y: 1080}
+  m_AnchoredPosition: {x: 846.77563, y: 0}
+  m_SizeDelta: {x: 226.4487, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1765570723
 MonoBehaviour:
@@ -761,7 +766,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 70, y: 70}
+  m_CellSize: {x: 200, y: 200}
   m_Spacing: {x: 15, y: 15}
   m_Constraint: 1
   m_ConstraintCount: 1
