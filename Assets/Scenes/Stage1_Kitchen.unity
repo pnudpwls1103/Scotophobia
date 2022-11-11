@@ -327,6 +327,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   order: 0
   menu: {fileID: 282643377}
+  ingredientPos: {x: -6.71, y: 0.48}
+  size: 0.3
+  watingTime: 1
 --- !u!70 &1243106468
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -491,6 +494,8 @@ MonoBehaviour:
   menu: {fileID: 282643377}
   cookPuzzle: {fileID: 1498274911}
   order: 0
+  ingredientPos: {x: 0.53, y: -0.07}
+  size: 0.3
 --- !u!61 &1726316830
 BoxCollider2D:
   m_ObjectHideFlags: 0
