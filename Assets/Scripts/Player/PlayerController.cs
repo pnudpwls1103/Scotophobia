@@ -32,14 +32,15 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
+
+        if (Input.GetMouseButtonDown(0))
+            Interact();
         if (Input.GetKeyDown(KeyCode.I))
             UI_Root.TogglePopup(typeof(Define.UI_Popup), (int)Define.UI_Popup.Inventory);
         if (Input.GetKeyDown(KeyCode.O))
             ToggleBulb();
         if (Input.GetKeyDown(KeyCode.P))
             GetItem();
-        if (Input.GetKeyDown(KeyCode.L))
-            Interact();
         if (Input.GetKeyDown(KeyCode.Space) && scanObject != null)
             GameManager.Instance.Action(scanObject);
             
@@ -47,21 +48,27 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        ScanObject();
+    }
+
+    private void ScanObject()
+    {
         Debug.DrawRay(new Vector3(this.transform.position.x, this.transform.position.y + 2, 0), new Vector3(direction * 2, 0, 0), Color.red);
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(this.transform.position.x, this.transform.position.y + 2), new Vector2(direction, 0), 2, LayerMask.GetMask("Object"));
-        if(hit.collider != null)
+        if (hit.collider != null)
         {
             Debug.Log(hit.transform.gameObject.name);
             scanObject = hit.transform.gameObject;
-        } else {
+        }
+        else
+        {
             scanObject = null;
         }
-        
     }
 
     void Interact()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 2f);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1f);
         foreach (Collider2D col in colliders)
             if (col.GetComponent<IInteraction>() != null)
             {
