@@ -9,7 +9,6 @@ public class MonsterController : MonoBehaviour
     Alarm toggleDir = new Alarm(minTime: 1.5f, maxTime: 8f);
     Alarm IdleMove = new Alarm(minTime: 3.5f, maxTime: 5f);
 
-    [SerializeField]
     Transform target;
     Vector2 dir = Vector2.right;
     Define.MonsterState monsterState = Define.MonsterState.Chase;
@@ -24,7 +23,11 @@ public class MonsterController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log($"current : {monsterState.ToString()}");
+        Debug.Log($"{monsterState}");
+        if (CheckPlayerInSight() && monsterState != Define.MonsterState.Chase)
+            monsterState = Define.MonsterState.Chase;
+        else if (!CheckPlayerInSight() && monsterState == Define.MonsterState.Chase)
+            monsterState = Define.MonsterState.Move;
         switch (monsterState)
         {
             case Define.MonsterState.Idle: UpdateIdle(); break;
@@ -32,6 +35,19 @@ public class MonsterController : MonoBehaviour
             case Define.MonsterState.Chase: UpdateChase(); break;
             case Define.MonsterState.Attack: UpdateAttack(); break;
         }
+    }
+
+    bool CheckPlayerInSight()
+    {
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.left);
+        foreach (RaycastHit2D hit in hits)
+            if (hit.transform.name == "Player")
+                return true;
+        hits = Physics2D.RaycastAll(transform.position, Vector2.right);
+        foreach (RaycastHit2D hit in hits)
+            if (hit.transform.name == "Player")
+                return true;
+        return false;
     }
 
     void UpdateIdle()
@@ -66,6 +82,8 @@ public class MonsterController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Wall")
             ToggleDirection();
+        else if (collision.gameObject.tag == "Player")
+            Debug.Log("Player Dead!");
     }
     void ToggleDirection()
     {
