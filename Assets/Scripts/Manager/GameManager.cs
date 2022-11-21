@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public QuestManager questManager;
     public TalkManager talkManager;
     public DoorManager doorManager;
+    public CutSceneManager cutSceneManager;
 
     // ´ëÈ­Ã¢
     public GameObject talkPanel;
