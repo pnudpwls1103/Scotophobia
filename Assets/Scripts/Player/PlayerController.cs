@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         OnBulbOn += SpeedUp;
         OnBulbOff += SpeedDown;
+        skeletonAnimation.skeleton.ScaleX = -Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
     }
 
     void Update()

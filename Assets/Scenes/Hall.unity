@@ -623,13 +623,14 @@ MonoBehaviour:
   talkManager: {fileID: 1770083123}
   doorManager: {fileID: 959235149}
   cutSceneManager: {fileID: 1256439108}
-  lineManager: {fileID: 0}
+  lineManager: {fileID: 800235380}
   talkPanel: {fileID: 1058778490}
   UIText: {fileID: 0}
   scanObject: {fileID: 0}
   isAction: 0
-  player: {fileID: 1689144251}
   isLineActive: 0
+  lineNumber: 1
+  player: {fileID: 1689144251}
   mainCamera: {fileID: 1959422703}
 --- !u!1 &243370098
 GameObject:
