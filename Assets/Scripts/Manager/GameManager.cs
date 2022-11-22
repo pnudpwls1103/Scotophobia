@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public GlobalLight globalLight;
     public QuestManager questManager;
     public TalkManager talkManager;
     public DoorManager doorManager;

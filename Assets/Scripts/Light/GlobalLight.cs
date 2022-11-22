@@ -36,6 +36,16 @@ public class GlobalLight : MonoBehaviour
         co = StartCoroutine(FadeIn());
     }
 
+    public void SetIntensity(float intensity)
+    {
+        lit.intensity = intensity;
+    }
+
+    public void SetColor(Color color)
+    {
+        lit.color = color;
+    }
+
     IEnumerator FadeIn()
     {
         yield return new WaitForSeconds(0.2f);

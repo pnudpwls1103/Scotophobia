@@ -79,6 +79,9 @@ public class QuestManager : MonoBehaviour
                 questObject[1].SetActive(false);
                 questTrigger = questObject[1].GetComponent<QuestTrigger>();
                 questTrigger.isActivate = false;
+                GameManager.Instance.globalLight.SetIntensity(0.4f);
+                GameManager.Instance.globalLight.SetColor(new Color32(178, 158, 255, 255));
+                questObject[2].SetActive(true);
                 break;
             case 30:
                 questList[questId].cleared = true;
