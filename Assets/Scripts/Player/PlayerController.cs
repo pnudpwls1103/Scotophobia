@@ -35,7 +35,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
-
+        GetScanObjectMouse();
+        
+        if (scanClickObject)
+            Interact();
         if (Input.GetKeyDown(KeyCode.I))
             UI_Root.TogglePopup(typeof(Define.UI_Popup), (int)Define.UI_Popup.Inventory);
         if (Input.GetKeyDown(KeyCode.O))
@@ -50,9 +53,6 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         ScanObject();
-        GetScanObjectMouse();
-        if (scanClickObject)
-            Interact();
     }
 
     private void ScanObject()
