@@ -603,7 +603,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &243190193
 MonoBehaviour:
@@ -623,11 +623,13 @@ MonoBehaviour:
   talkManager: {fileID: 1770083123}
   doorManager: {fileID: 959235149}
   cutSceneManager: {fileID: 1256439108}
+  lineManager: {fileID: 0}
   talkPanel: {fileID: 1058778490}
-  UITalkText: {fileID: 1549821214}
+  UIText: {fileID: 0}
   scanObject: {fileID: 0}
   isAction: 0
   player: {fileID: 1689144251}
+  isLineActive: 0
   mainCamera: {fileID: 1959422703}
 --- !u!1 &243370098
 GameObject:
@@ -2000,7 +2002,52 @@ Transform:
   - {fileID: 109976334}
   - {fileID: 524540244}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &800235379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 800235381}
+  - component: {fileID: 800235380}
+  m_Layer: 0
+  m_Name: LineManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &800235380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800235379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71104ae76966823499649ef00dcf494b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineIndex: 0
+--- !u!4 &800235381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800235379}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.071309, y: -20.523136, z: -0.22545646}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &828836034
 GameObject:
@@ -2067,7 +2114,7 @@ Transform:
   - {fileID: 178710478}
   - {fileID: 1670789330700469859}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &918228738
 GameObject:
@@ -3513,7 +3560,7 @@ Transform:
   - {fileID: 1119620722}
   - {fileID: 5630619}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1683106802 stripped
 Transform:

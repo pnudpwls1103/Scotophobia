@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
             ToggleBulb();
         if (Input.GetKeyDown(KeyCode.P))
             GetItem();
-        if (Input.GetKeyDown(KeyCode.Space) && scanObject != null)
+        if (Input.GetKeyDown(KeyCode.Space))
             GameManager.Instance.Action(scanObject);
             
     }
