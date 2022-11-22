@@ -18,8 +18,9 @@ public class QuestManager : MonoBehaviour
     void GenerateData()
     {
         questList.Add(10, new QuestData("»÷µåÀ§Ä¡ ¸¸µé±â", new int[]{1000}));
-        questList.Add(20, new QuestData("Ã¥ ¹è¿­", new int[]{3000}));
-        questList.Add(30, new QuestData("°ø »Ì±â", new int[]{5000}));
+        questList.Add(20, new QuestData("»÷µåÀ§Ä¡ °Ç³»ÁÖ±â", new int[]{2000}));
+        questList.Add(30, new QuestData("Ã¥ ¹è¿­", new int[]{3000}));
+        questList.Add(40, new QuestData("°ø »Ì±â", new int[]{5000}));
     }
 
     public void SetQuestClear(int questid)
@@ -56,23 +57,35 @@ public class QuestManager : MonoBehaviour
 
     void ControlObject()
     {
-        PuzzleTrigger trigger;
+        PuzzleTrigger puzzleTrigger;
+        QuestTrigger questTrigger;
         switch(questId)
         {
             case 10:
                 questList[questId].cleared = true;
+                GameManager.Instance.SetLineQueue();
+                GameManager.Instance.Action(null);
+                questObject[1].SetActive(true);
                 GameManager.Instance.limitStage = 20000;
                 GameManager.Instance.doorManager.SetActivate();
-                trigger = questObject[0].GetComponent<PuzzleTrigger>();
-                trigger.Restore();
-                trigger.isActivate = false;
+                puzzleTrigger = questObject[0].GetComponent<PuzzleTrigger>();
+                puzzleTrigger.Restore();
+                puzzleTrigger.isActivate = false;
+                Inventory.Instance.Insert("Sandwich");
                 break;
             case 20:
                 questList[questId].cleared = true;
+                Debug.Log("»÷µåÀ§Ä¡ ÄÆ¾À");
+                questObject[1].SetActive(false);
+                questTrigger = questObject[1].GetComponent<QuestTrigger>();
+                questTrigger.isActivate = false;
+                break;
+            case 30:
+                questList[questId].cleared = true;
                 GameManager.Instance.doorManager.SetActivate();
-                trigger = questObject[1].GetComponent<PuzzleTrigger>();
-                trigger.Restore();
-                trigger.isActivate = false;
+                puzzleTrigger = questObject[3].GetComponent<PuzzleTrigger>();
+                puzzleTrigger.Restore();
+                puzzleTrigger.isActivate = false;
                 break;
             default:
                 break;

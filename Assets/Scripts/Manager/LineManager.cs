@@ -11,6 +11,11 @@ public class LineManager : MonoBehaviour
     {
         lineList.Add(new LineData(1, "???", new string[]{"아이야, 나아가야 해"}));
         lineList.Add(new LineData(1, "아이", new string[]{"(아빠가 일어나기 전에 아침밥을 차려야 해.)", "(우리 아빠는 너무 상냥해)"}));
+
+        lineList.Add(new LineData(2, "아빠", new string[]{"맛있어 보이는 샌드위치구나!"}));
+        lineList.Add(new LineData(2, "아이", new string[]{"(아빠에게 샌드위치를 전해주자)"}));
+
+        
     }
 
     void Awake()

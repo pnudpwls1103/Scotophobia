@@ -94,6 +94,9 @@ public class GameManager : MonoBehaviour
         limitStage = (int)Room.Kitchen;
         questManager.questId = 10;
         doorManager.SetActivate();
+
+        SetLineQueue();
+        Action(null);
     }
 
     public void Action(GameObject scanObj)
