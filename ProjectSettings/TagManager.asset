@@ -46,6 +46,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Chracter
+    uniqueID: 161941023
+    locked: 0
   - name: Player
     uniqueID: 3312673329
     locked: 0

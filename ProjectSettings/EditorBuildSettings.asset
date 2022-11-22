@@ -23,4 +23,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage2_Bookshelf.unity
     guid: 384d0742f897bfa4c95d6fd044ba7b4e
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 55eed154b0d96c648820d5477a58a35e, type: 2}

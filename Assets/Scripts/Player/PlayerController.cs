@@ -15,7 +15,9 @@ public class PlayerController : MonoBehaviour
     public static event System.Action OnBulbOn = null;
     public static event System.Action OnBulbOff = null;
 
+    public float maxDistance = 9f;
     public GameObject scanObject;
+    public GameObject scanClickObject;
     
     Rigidbody2D rigid;
     private SkeletonAnimation skeletonAnimation;
@@ -27,13 +29,15 @@ public class PlayerController : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         OnBulbOn += SpeedUp;
         OnBulbOff += SpeedDown;
+        skeletonAnimation.skeleton.ScaleX = -Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
     }
 
     void Update()
     {
         Move();
-
-        if (Input.GetMouseButtonDown(0))
+        GetScanObjectMouse();
+        
+        if (scanClickObject)
             Interact();
         if (Input.GetKeyDown(KeyCode.I))
             UI_Root.TogglePopup(typeof(Define.UI_Popup), (int)Define.UI_Popup.Inventory);
@@ -41,7 +45,7 @@ public class PlayerController : MonoBehaviour
             ToggleBulb();
         if (Input.GetKeyDown(KeyCode.P))
             GetItem();
-        if (Input.GetKeyDown(KeyCode.Space) && scanObject != null)
+        if (Input.GetKeyDown(KeyCode.Space))
             GameManager.Instance.Action(scanObject);
             
     }
@@ -66,16 +70,34 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void GetScanObjectMouse()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Ray2D ray= new Ray2D(pos, Vector2.zero);
+
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, LayerMask.GetMask("Object"));
+
+            if(hit.collider != null)
+            {
+                float distance = Vector2.Distance(hit.transform.position, transform.position);
+                if(distance <= maxDistance)
+                    scanClickObject = hit.collider.gameObject;
+                return;
+            } 
+        }
+
+        scanClickObject = null;
+    }
     void Interact()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1f);
-        foreach (Collider2D col in colliders)
-            if (col.GetComponent<IInteraction>() != null)
-            {
-                IInteraction inter = col.GetComponent<IInteraction>();
-                inter.Interact(gameObject);
-                return;
-            }
+        Collider2D col = scanClickObject.GetComponent<Collider2D>();
+        if (col.GetComponent<IInteraction>() != null)
+        {
+            IInteraction inter = col.GetComponent<IInteraction>();
+            inter.Interact(gameObject);
+        }
     }
     void ToggleBulb()
     {

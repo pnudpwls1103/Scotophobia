@@ -27,18 +27,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public GlobalLight globalLight;
     public QuestManager questManager;
     public TalkManager talkManager;
     public DoorManager doorManager;
+    public CutSceneManager cutSceneManager;
+    public LineManager lineManager;
 
     // 대화창
     public GameObject talkPanel;
-    public Text UITalkText;
+    public Text UIText;
     public GameObject scanObject;
     public bool isAction = false;
 
+    // 자동 대사
+    public bool isLineActive = false;
+    public int lineNumber = 1;
     // Player
     public GameObject player;
+    
 
     // Camera
     public GameObject mainCamera;
@@ -71,7 +78,7 @@ public class GameManager : MonoBehaviour
         }
 
         talkPanel = GameObject.Find("UI_talk");
-        UITalkText = GameObject.Find("Talk").GetComponentInChildren<Text>();
+        UIText = GameObject.Find("Talk").GetComponentInChildren<Text>();
 
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(questManager);
@@ -88,13 +95,23 @@ public class GameManager : MonoBehaviour
         limitStage = (int)Room.Kitchen;
         questManager.questId = 10;
         doorManager.SetActivate();
+
+        SetLineQueue();
+        Action(null);
     }
 
     public void Action(GameObject scanObj)
     {
-        scanObject = scanObj;
-        ObjectData objData = scanObject.GetComponent<ObjectData>();
-        Talk(objData.id);
+        if(scanObj != null && !isLineActive)
+        {
+            scanObject = scanObj;
+            ObjectData objData = scanObject.GetComponent<ObjectData>();
+            Talk(objData.id);
+        } 
+        else if(isLineActive)
+        {
+            PrintLine();
+        }
         
         //대화창 활성화 상태에 따라 대화창 활성화 변경
         talkPanel.SetActive(isAction); 
@@ -116,7 +133,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        UITalkText.text = talkData;
+        UIText.text = talkData;
         
         isAction = true;
         talkManager.talkIndex++;
@@ -126,5 +143,29 @@ public class GameManager : MonoBehaviour
     {
         player.SetActive(playerState);
         mainCamera.SetActive(cameraState);
+    }
+
+    public void SetLineQueue()
+    {
+        isLineActive = true;
+        lineManager.ClearLineQueue();
+        lineManager.SetLines(lineNumber);
+    }
+    public void PrintLine()
+    {
+        string lineData = lineManager.GetLine();
+
+        if(lineData == null)
+        {
+            isAction = false;
+            isLineActive = false;
+
+            return;
+        }
+
+        UIText.text = lineData;
+
+        isAction = true;
+        lineManager.lineIndex++;
     }
 }
