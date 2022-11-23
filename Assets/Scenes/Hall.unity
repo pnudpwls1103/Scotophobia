@@ -624,6 +624,7 @@ MonoBehaviour:
   stageNum: 10000
   SceneName: Stage1_Hint
   HideObject: {fileID: 1619109755}
+  isPlayerActive: 0
   image: {fileID: 21300000, guid: 10ad0c4d7f5df234c8a11a11a285e443, type: 3}
 --- !u!61 &213671874
 BoxCollider2D:
@@ -1157,6 +1158,137 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &390247867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 390247868}
+  - component: {fileID: 390247871}
+  - component: {fileID: 390247870}
+  - component: {fileID: 390247869}
+  m_Layer: 8
+  m_Name: Stage1LockTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &390247868
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390247867}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.7, y: 5, z: 0}
+  m_LocalScale: {x: 4, y: 8, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1670789330700469859}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &390247869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390247867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a048c3cf7dee549be42c5c1444bcc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 3000
+  isActivate: 1
+  stageNum: 10000
+  SceneName: Stage1_Lock
+  HideObject: {fileID: 1619109755}
+  isPlayerActive: 0
+  image: {fileID: 0}
+--- !u!61 &390247870
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390247867}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!212 &390247871
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390247867}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 0.6273585, b: 0.9950224, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &398465619
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,10 +1336,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  isActivate: 1
+  isActivate: 0
   stageNum: 10000
   SceneName: Stage1_Hint
   HideObject: {fileID: 1619109755}
+  isPlayerActive: 0
   image: {fileID: 21300000, guid: 1936a0e27279c534987d3b2871d195da, type: 3}
 --- !u!61 &398465622
 BoxCollider2D:
@@ -1754,6 +1887,7 @@ MonoBehaviour:
   stageNum: 10000
   SceneName: Stage1_Kitchen
   HideObject: {fileID: 1619109755}
+  isPlayerActive: 0
   image: {fileID: 0}
 --- !u!61 &591482965
 BoxCollider2D:
@@ -2641,6 +2775,7 @@ MonoBehaviour:
   stageNum: 10000
   SceneName: Stage1_Hint
   HideObject: {fileID: 1619109755}
+  isPlayerActive: 0
   image: {fileID: 21300000, guid: 53ad0bd063fc63a4fb156e30b8aad091, type: 3}
 --- !u!61 &930409439
 BoxCollider2D:
@@ -3072,7 +3207,7 @@ GameObject:
   - component: {fileID: 1122358977}
   - component: {fileID: 1122358976}
   - component: {fileID: 1122358979}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Monster1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4951,6 +5086,9 @@ MonoBehaviour:
   - {fileID: 591482962}
   - {fileID: 293446717}
   - {fileID: 1122358974}
+  - {fileID: 1991817685}
+  - {fileID: 398465619}
+  - {fileID: 390247867}
   - {fileID: 1831301644959513733}
   - {fileID: 109976329}
 --- !u!1 &1923673042
@@ -5200,10 +5338,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  isActivate: 1
+  isActivate: 0
   stageNum: 10000
   SceneName: Stage1_Hint
   HideObject: {fileID: 1619109755}
+  isPlayerActive: 0
   image: {fileID: 21300000, guid: 2a050ef6e58501e4a95227fb7743190d, type: 3}
 --- !u!61 &1991817688
 BoxCollider2D:
@@ -5424,7 +5563,7 @@ Transform:
   m_Children:
   - {fileID: 1306910351061487461}
   m_Father: {fileID: 1670789330700469859}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &307859632206677371
 GameObject:
@@ -5527,6 +5666,7 @@ Transform:
   - {fileID: 1122358975}
   - {fileID: 293446718}
   - {fileID: 591482963}
+  - {fileID: 390247868}
   - {fileID: 2109157098}
   - {fileID: 4920888286915842863}
   - {fileID: 6720633773298860473}
@@ -5857,7 +5997,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1670789330700469859}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4942635221340924554
 SpriteRenderer:
@@ -6116,6 +6256,7 @@ MonoBehaviour:
   stageNum: 20000
   SceneName: Stage2_Bookshelf
   HideObject: {fileID: 1619109755}
+  isPlayerActive: 0
   image: {fileID: 0}
 --- !u!4 &6720633773298860473
 Transform:
@@ -6130,7 +6271,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1670789330700469859}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &6722847159648643163
 Transform:
@@ -6145,7 +6286,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1670789330700469859}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6722847159648643164
 BoxCollider2D:

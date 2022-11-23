@@ -2234,13 +2234,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oneUnitInfos:
   - oneUnit: {fileID: 484396157}
-    goal: 1
+    goal: 0
   - oneUnit: {fileID: 48208480}
-    goal: 2
+    goal: 7
   - oneUnit: {fileID: 1969612396}
-    goal: 3
+    goal: 1
   - oneUnit: {fileID: 716630597}
-    goal: 4
+    goal: 2
 --- !u!1 &1424399324
 GameObject:
   m_ObjectHideFlags: 0

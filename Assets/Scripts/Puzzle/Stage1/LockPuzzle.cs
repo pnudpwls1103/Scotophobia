@@ -17,7 +17,11 @@ public class LockPuzzle : MonoBehaviour
     private void Update()
     {
         if (CheckClear())
+        {
+            GameManager.Instance.questManager.CheckQuest();
             Debug.Log("Clear");
+        }
+            
     }
     bool CheckClear()
     {

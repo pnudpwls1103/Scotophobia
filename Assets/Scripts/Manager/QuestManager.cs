@@ -19,8 +19,9 @@ public class QuestManager : MonoBehaviour
     {
         questList.Add(10, new QuestData("»÷µåÀ§Ä¡ ¸¸µé±â", new int[]{1000}));
         questList.Add(20, new QuestData("»÷µåÀ§Ä¡ °Ç³»ÁÖ±â", new int[]{2000}));
-        questList.Add(30, new QuestData("Ã¥ ¹è¿­", new int[]{3000}));
-        questList.Add(40, new QuestData("°ø »Ì±â", new int[]{5000}));
+        questList.Add(30, new QuestData("½ºÅ×ÀÌÁö1 ÀÚ¹°¼è ¿­±â", new int[]{3000}));
+        questList.Add(40, new QuestData("Ã¥ ¹è¿­", new int[]{4000}));
+        questList.Add(50, new QuestData("°ø »Ì±â", new int[]{5000}));
     }
 
     public void SetQuestClear(int questid)
@@ -66,8 +67,6 @@ public class QuestManager : MonoBehaviour
                 GameManager.Instance.SetLineQueue();
                 GameManager.Instance.Action(null);
                 questObject[1].SetActive(true);
-                GameManager.Instance.limitStage = 20000;
-                GameManager.Instance.doorManager.SetActivate();
                 puzzleTrigger = questObject[0].GetComponent<PuzzleTrigger>();
                 puzzleTrigger.Restore();
                 puzzleTrigger.isActivate = false;
@@ -82,11 +81,29 @@ public class QuestManager : MonoBehaviour
                 GameManager.Instance.globalLight.SetIntensity(0.4f);
                 GameManager.Instance.globalLight.SetColor(new Color32(178, 158, 255, 255));
                 questObject[2].SetActive(true);
+                questObject[3].GetComponent<PuzzleTrigger>().isActivate = true;
+                questObject[4].GetComponent<PuzzleTrigger>().isActivate = true;
+                questObject[5].GetComponent<PuzzleTrigger>().isActivate = true;
+                questObject[5].GetComponent<PuzzleTrigger>().isPlayerActive = true;
                 break;
             case 30:
+                questObject[2].SetActive(false);
+                questList[questId].cleared = true;
+                Debug.Log("¿ÊÀå ÄÆ¾À");
+                puzzleTrigger = questObject[5].GetComponent<PuzzleTrigger>();
+                puzzleTrigger.Restore();
+                puzzleTrigger.isActivate = false;
+                for(int i = 3; i <= 6; i++)
+                    questObject[i].GetComponent<PuzzleTrigger>().isActivate = false;
+                GameManager.Instance.globalLight.SetIntensity(0.7f);
+                GameManager.Instance.globalLight.SetColor(new Color32(255, 255, 255, 255));
+                GameManager.Instance.limitStage = 20000;
+                GameManager.Instance.doorManager.SetActivate();
+                break;
+            case 40:
                 questList[questId].cleared = true;
                 GameManager.Instance.doorManager.SetActivate();
-                puzzleTrigger = questObject[3].GetComponent<PuzzleTrigger>();
+                puzzleTrigger = questObject[6].GetComponent<PuzzleTrigger>();
                 puzzleTrigger.Restore();
                 puzzleTrigger.isActivate = false;
                 break;

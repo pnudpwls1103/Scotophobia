@@ -8,6 +8,7 @@ public class PuzzleTrigger : Trigger
     public int stageNum;
     public string SceneName;
     public GameObject HideObject;
+    public bool isPlayerActive = false;
     public Sprite image = null;
 
     override public void Interact(GameObject gameObject)
@@ -30,7 +31,7 @@ public class PuzzleTrigger : Trigger
 
     override public void Action(GameObject player)
     {
-        GameManager.Instance.ControlSceneObject(false, false);
+        GameManager.Instance.ControlSceneObject(isPlayerActive, false);
         HideObject.SetActive(false);
 
         SceneManager.LoadScene(SceneName, LoadSceneMode.Additive);

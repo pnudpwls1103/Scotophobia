@@ -83,10 +83,7 @@ public class PlayerController : MonoBehaviour
             {
                 float distance = Vector2.Distance(hit.transform.position, transform.position);
                 if(distance <= maxDistance)
-                {
                     scanClickObject = hit.collider.gameObject;
-                    Debug.Log(scanClickObject.name);
-                }
                     
                 return;
             } 
