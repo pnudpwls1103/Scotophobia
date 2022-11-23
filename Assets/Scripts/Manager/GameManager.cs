@@ -43,12 +43,14 @@ public class GameManager : MonoBehaviour
     // ÀÚµ¿ ´ë»ç
     public bool isLineActive = false;
     public int lineNumber = 1;
+
     // Player
     public GameObject player;
     
 
     // Camera
     public GameObject mainCamera;
+    
     // ½Ì±ÛÅæ
     private static GameManager _instance;
     public static GameManager Instance
@@ -167,5 +169,11 @@ public class GameManager : MonoBehaviour
 
         isAction = true;
         lineManager.lineIndex++;
+    }
+
+    public void SetImage(Sprite changeImage)
+    {
+        Image image = GameObject.Find("Image").GetComponent<Image>();
+        image.sprite = changeImage;
     }
 }

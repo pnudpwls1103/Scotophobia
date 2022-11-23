@@ -7,6 +7,6 @@ public class BackButton : MonoBehaviour
 {
     public void BackToStage()
     {
-        SceneManager.LoadScene("Stage1_Room1");
+        SceneManager.LoadScene("Stage1_Hall");
     }
 }
