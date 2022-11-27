@@ -62,6 +62,7 @@ public class QuestManager : MonoBehaviour
         GameManager gameManager = GameManager.Instance;
         PuzzleTrigger puzzleTrigger;
         QuestTrigger questTrigger;
+        HintTrigger hintTrigger;
         questList[questId].cleared = true;
         switch(questId)
         {
@@ -90,10 +91,10 @@ public class QuestManager : MonoBehaviour
                 gameManager.globalLight.SetIntensity(0.4f);
                 gameManager.globalLight.SetColor(new Color32(178, 158, 255, 255));
                 questObject[2].SetActive(true);
-                questObject[3].GetComponent<PuzzleTrigger>().isActivate = false;
-                questObject[4].GetComponent<PuzzleTrigger>().isActivate = false;
-                questObject[5].GetComponent<PuzzleTrigger>().isActivate = true;
-                questObject[6].GetComponent<PuzzleTrigger>().isActivate = true;
+                questObject[3].GetComponent<HintTrigger>().isActivate = false;
+                questObject[4].GetComponent<HintTrigger>().isActivate = false;
+                questObject[5].GetComponent<HintTrigger>().isActivate = true;
+                questObject[6].GetComponent<HintTrigger>().isActivate = true;
                 questObject[7].GetComponent<PuzzleTrigger>().isActivate = true;
                 questObject[7].GetComponent<PuzzleTrigger>().isPlayerActive = true;
                 questObject[7].GetComponent<PuzzleTrigger>().isCameraActive = true;
@@ -105,7 +106,7 @@ public class QuestManager : MonoBehaviour
                 puzzleTrigger.Restore();
                 puzzleTrigger.isActivate = false;
                 for(int i = 3; i <= 6; i++)
-                    questObject[i].GetComponent<PuzzleTrigger>().isActivate = false;
+                    questObject[i].GetComponent<HintTrigger>().isActivate = false;
                 gameManager.globalLight.SetIntensity(0.7f);
                 gameManager.globalLight.SetColor(new Color32(255, 255, 255, 255));
                 gameManager.limitStage = 20000;

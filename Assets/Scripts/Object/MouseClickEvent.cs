@@ -7,9 +7,12 @@ public class MouseClickEvent : MonoBehaviour, IPointerClickHandler
 {
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(GameManager.Instance.questManager.questId == 10 && eventData.button == PointerEventData.InputButton.Left)
+        if(eventData.button == PointerEventData.InputButton.Left)
         {
-            GameManager.Instance.questManager.CheckQuest();
+            PlayerController playerController = GameManager.Instance.player.GetComponent<PlayerController>();
+            playerController.canMove = true;
+            playerController.canClick = true;
+            this.gameObject.SetActive(false);
         }
     }
 }

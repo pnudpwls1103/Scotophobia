@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     static bool bulb = false;
     public static event System.Action OnBulbOn = null;
     public static event System.Action OnBulbOff = null;
+    public bool canMove = true;
+    public bool canClick = true;
 
     public float maxDistance = 9f;
     public GameObject scanObject;
@@ -34,9 +36,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Move();
+        if(canMove)
+            Move();
+        else
+            skeletonAnimation.AnimationState.SetAnimation(0, "animation", true);
+
         GetScanObjectMouse();
-        
+
         if (scanClickObject)
             Interact();
         if (Input.GetKeyDown(KeyCode.I))
@@ -72,7 +78,7 @@ public class PlayerController : MonoBehaviour
 
     private void GetScanObjectMouse()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(canClick && Input.GetMouseButtonDown(0))
         {
             Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Ray2D ray= new Ray2D(pos, Vector2.zero);

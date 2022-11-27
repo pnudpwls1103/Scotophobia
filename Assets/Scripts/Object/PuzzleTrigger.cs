@@ -16,18 +16,8 @@ public class PuzzleTrigger : Trigger
     {
         if(isActivate)
         {
-            SceneManager.sceneLoaded += LoadedsceneEvent;
             Action(gameObject);
             GameManager.Instance.Stage = stageNum;
-        }
-    }
-
-    void LoadedsceneEvent(Scene scene, LoadSceneMode mode)
-    {
-        if(image != null)
-        {
-            Time.timeScale = 0f;
-            GameManager.Instance.SetImage(image);
         }
     }
 
@@ -35,16 +25,24 @@ public class PuzzleTrigger : Trigger
     {
         GameManager.Instance.ControlSceneObject(isPlayerActive, isCameraActive);
         HideObject.SetActive(false);
-
+        if(isPlayerActive)
+        {
+            PlayerController playerController = GameManager.Instance.player.GetComponent<PlayerController>();
+            playerController.canMove = false;
+            playerController.canClick = false;
+        }
+        
         SceneManager.LoadScene(SceneName, LoadSceneMode.Additive);
+        
     }
 
     public void Restore()
     {
-        Time.timeScale = 1f;
         GameManager.Instance.ControlSceneObject(true, true);
+        PlayerController playerController = GameManager.Instance.player.GetComponent<PlayerController>();
+        playerController.canMove = true;
+        playerController.canClick = true;
         HideObject.SetActive(true);
         SceneManager.UnloadSceneAsync(SceneName);
-        SceneManager.sceneLoaded -= LoadedsceneEvent;
     }
 }
