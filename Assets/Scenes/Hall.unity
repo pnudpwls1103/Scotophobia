@@ -625,7 +625,7 @@ MonoBehaviour:
   stageNum: 10000
   SceneName: Stage1_Hint
   HideObject: {fileID: 1619109755}
-  isPlayerActive: 0
+  isPlayerActive: 1
   isCameraActive: 0
   image: {fileID: 21300000, guid: 10ad0c4d7f5df234c8a11a11a285e443, type: 3}
 --- !u!61 &213671874
@@ -1464,7 +1464,7 @@ MonoBehaviour:
   stageNum: 10000
   SceneName: Stage1_Hint
   HideObject: {fileID: 1619109755}
-  isPlayerActive: 0
+  isPlayerActive: 1
   isCameraActive: 0
   image: {fileID: 21300000, guid: 1936a0e27279c534987d3b2871d195da, type: 3}
 --- !u!61 &398465622
@@ -3003,7 +3003,7 @@ MonoBehaviour:
   stageNum: 10000
   SceneName: Stage1_Hint
   HideObject: {fileID: 1619109755}
-  isPlayerActive: 0
+  isPlayerActive: 1
   isCameraActive: 0
   image: {fileID: 21300000, guid: 53ad0bd063fc63a4fb156e30b8aad091, type: 3}
 --- !u!61 &930409439
@@ -5846,7 +5846,7 @@ MonoBehaviour:
   stageNum: 10000
   SceneName: Stage1_Hint
   HideObject: {fileID: 1619109755}
-  isPlayerActive: 0
+  isPlayerActive: 1
   isCameraActive: 0
   image: {fileID: 21300000, guid: 2a050ef6e58501e4a95227fb7743190d, type: 3}
 --- !u!61 &1991817688

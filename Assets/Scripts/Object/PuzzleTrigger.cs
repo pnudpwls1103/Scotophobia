@@ -26,6 +26,7 @@ public class PuzzleTrigger : Trigger
     {
         if(image != null)
         {
+            Time.timeScale = 0f;
             GameManager.Instance.SetImage(image);
         }
     }
@@ -40,6 +41,7 @@ public class PuzzleTrigger : Trigger
 
     public void Restore()
     {
+        Time.timeScale = 1f;
         GameManager.Instance.ControlSceneObject(true, true);
         HideObject.SetActive(true);
         SceneManager.UnloadSceneAsync(SceneName);
