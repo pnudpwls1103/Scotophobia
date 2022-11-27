@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public GameObject scanClickObject;
     
     Rigidbody2D rigid;
-    private SkeletonAnimation skeletonAnimation;
+    SkeletonAnimation skeletonAnimation;
 
     void Start()
     {

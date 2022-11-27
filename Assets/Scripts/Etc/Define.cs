@@ -24,6 +24,12 @@ public class Define
         Inventory,
     }
 
+    public enum FireFlyState
+    {
+        Chase,
+        Auto,
+    }
+
     public enum UI_Scene
     {
 
