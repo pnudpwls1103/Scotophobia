@@ -9,6 +9,7 @@ public class PuzzleTrigger : Trigger
     public string SceneName;
     public GameObject HideObject;
     public bool isPlayerActive = false;
+    public bool isCameraActive = false;
     public Sprite image = null;
 
     override public void Interact(GameObject gameObject)
@@ -31,7 +32,7 @@ public class PuzzleTrigger : Trigger
 
     override public void Action(GameObject player)
     {
-        GameManager.Instance.ControlSceneObject(isPlayerActive, false);
+        GameManager.Instance.ControlSceneObject(isPlayerActive, isCameraActive);
         HideObject.SetActive(false);
 
         SceneManager.LoadScene(SceneName, LoadSceneMode.Additive);

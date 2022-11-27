@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class QuestManager : MonoBehaviour
 {
-    public int questId; // ÇöÀç Äù½ºÆ® Id
+    public int questId;
     Dictionary<int, QuestData> questList;
     public GameObject[] questObject;
 
@@ -29,7 +29,6 @@ public class QuestManager : MonoBehaviour
         questList[questId].cleared = true;
     }
 
-    // ObjectÀÇ Id¸¦ ¹Þ¾Æ Äù½ºÆ® ¹øÈ£¸¦ ¹ÝÈ¯ÇÏ´Â ÇÔ¼ö
     public int GetQuestTalkIndex()
     {
         return questId;
@@ -81,16 +80,19 @@ public class QuestManager : MonoBehaviour
                 GameManager.Instance.globalLight.SetIntensity(0.4f);
                 GameManager.Instance.globalLight.SetColor(new Color32(178, 158, 255, 255));
                 questObject[2].SetActive(true);
-                questObject[3].GetComponent<PuzzleTrigger>().isActivate = true;
-                questObject[4].GetComponent<PuzzleTrigger>().isActivate = true;
+                questObject[3].GetComponent<PuzzleTrigger>().isActivate = false;
+                questObject[4].GetComponent<PuzzleTrigger>().isActivate = false;
                 questObject[5].GetComponent<PuzzleTrigger>().isActivate = true;
-                questObject[5].GetComponent<PuzzleTrigger>().isPlayerActive = true;
+                questObject[6].GetComponent<PuzzleTrigger>().isActivate = true;
+                questObject[7].GetComponent<PuzzleTrigger>().isActivate = true;
+                questObject[7].GetComponent<PuzzleTrigger>().isPlayerActive = true;
+                questObject[7].GetComponent<PuzzleTrigger>().isCameraActive = true;
                 break;
             case 30:
                 questObject[2].SetActive(false);
                 questList[questId].cleared = true;
                 Debug.Log("¿ÊÀå ÄÆ¾À");
-                puzzleTrigger = questObject[5].GetComponent<PuzzleTrigger>();
+                puzzleTrigger = questObject[7].GetComponent<PuzzleTrigger>();
                 puzzleTrigger.Restore();
                 puzzleTrigger.isActivate = false;
                 for(int i = 3; i <= 6; i++)
