@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class LineManager : MonoBehaviour
 {    
@@ -9,7 +10,7 @@ public class LineManager : MonoBehaviour
     public int lineIndex = 0;
     void GenerateData()
     {
-        lineList.Add(new LineData(1, "???", new string[]{"아이야, 나아가야 해"}));
+        lineList.Add(new LineData(1, "반딧불이", new string[]{"아이야, 나아가야 해"}));
         lineList.Add(new LineData(1, "아이", new string[]{"(아빠가 일어나기 전에 아침밥을 차려야 해.)", "(우리 아빠는 너무 상냥해)"}));
 
         lineList.Add(new LineData(2, "아빠", new string[]{"맛있어 보이는 샌드위치구나!"}));
@@ -44,7 +45,7 @@ public class LineManager : MonoBehaviour
         lineQueue.Clear();
     }
 
-    public string GetLine()
+    public Tuple<string, string> GetLine()
     {          
         if(lineIndex == lineQueue.Peek().lines.Length)
         {
@@ -58,6 +59,7 @@ public class LineManager : MonoBehaviour
             return null;
         }
         
-        return lineQueue.Peek().lines[lineIndex];
+        LineData topData = lineQueue.Peek();
+        return new Tuple<string, string>(topData.name, topData.lines[lineIndex]);
     }
 }

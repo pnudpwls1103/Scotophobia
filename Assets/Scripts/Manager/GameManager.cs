@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System;
 
 enum Room 
 {
@@ -34,9 +35,10 @@ public class GameManager : MonoBehaviour
     public CutSceneManager cutSceneManager;
     public LineManager lineManager;
 
-    // 대화창
+    // 대화/대사창
     public GameObject talkPanel;
     public Text UIText;
+    public Text UINameText;
     public GameObject scanObject;
     public bool isAction = false;
 
@@ -79,9 +81,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        talkPanel = GameObject.Find("UI_talk");
-        UIText = GameObject.Find("Talk").GetComponentInChildren<Text>();
-
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(questManager);
         DontDestroyOnLoad(talkManager);
@@ -115,8 +114,8 @@ public class GameManager : MonoBehaviour
             PrintLine();
         }
         
-        //대화창 활성화 상태에 따라 대화창 활성화 변경
-        talkPanel.SetActive(isAction); 
+        talkPanel.SetActive(isAction);
+        UINameText.gameObject.SetActive(isLineActive);
     }
 
     void Talk(int id)
@@ -155,7 +154,7 @@ public class GameManager : MonoBehaviour
     }
     public void PrintLine()
     {
-        string lineData = lineManager.GetLine();
+        Tuple<string, string> lineData = lineManager.GetLine();
 
         if(lineData == null)
         {
@@ -165,7 +164,8 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        UIText.text = lineData;
+        UINameText.text = lineData.Item1;
+        UIText.text = lineData.Item2;
 
         isAction = true;
         lineManager.lineIndex++;
