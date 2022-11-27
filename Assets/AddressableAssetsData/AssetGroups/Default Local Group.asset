@@ -16,21 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: fb23f8713f3fb11479e547989079b988
-  m_SerializeEntries:
-  - m_GUID: 6fe1800807c37154ab4668d73c0f0a99
-    m_Address: Data/sceneline
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    <IsFolder>k__BackingField: 0
-    <BundleFileId>k__BackingField: 
-    <IsInResources>k__BackingField: 0
-    <IsInSceneList>k__BackingField: 0
-    <IsSubAsset>k__BackingField: 0
-    m_CheckedIsScene: 0
-    m_IsScene: 0
-    m_cachedAssetPath: 
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: dfbe100548de915449a7bc1cef9a963a, type: 2}
   m_SchemaSet:
