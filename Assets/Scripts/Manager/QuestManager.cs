@@ -17,11 +17,13 @@ public class QuestManager : MonoBehaviour
 
     void GenerateData()
     {
-        questList.Add(10, new QuestData("샌드위치 만들기", new int[]{1000}));
-        questList.Add(20, new QuestData("샌드위치 건내주기", new int[]{2000}));
-        questList.Add(30, new QuestData("스테이지1 자물쇠 열기", new int[]{3000}));
-        questList.Add(40, new QuestData("책 배열", new int[]{4000}));
-        questList.Add(50, new QuestData("공 뽑기", new int[]{5000}));
+        questList.Add(0, new QuestData("시작", new int[]{}));
+        questList.Add(10, new QuestData("시작페이지 클릭", new int[]{}));
+        questList.Add(20, new QuestData("샌드위치 만들기", new int[]{1000}));
+        questList.Add(30, new QuestData("샌드위치 건내주기", new int[]{2000}));
+        questList.Add(40, new QuestData("스테이지1 자물쇠 열기", new int[]{3000}));
+        questList.Add(50, new QuestData("책 배열", new int[]{4000}));
+        questList.Add(60, new QuestData("공 뽑기", new int[]{5000}));
     }
 
     public void SetQuestClear(int questid)
@@ -57,28 +59,36 @@ public class QuestManager : MonoBehaviour
 
     void ControlObject()
     {
+        GameManager gameManager = GameManager.Instance;
         PuzzleTrigger puzzleTrigger;
         QuestTrigger questTrigger;
+        questList[questId].cleared = true;
         switch(questId)
         {
+            case 0:
+                gameManager.SetLineQueue();
+                gameManager.Action(null);
+                break;
             case 10:
-                questList[questId].cleared = true;
-                GameManager.Instance.SetLineQueue();
-                GameManager.Instance.Action(null);
+                gameManager.FadeImage.PlayFadeIn();
+                Time.timeScale = 1f;
+                break;
+            case 20:
+                gameManager.SetLineQueue();
+                gameManager.Action(null);
                 questObject[1].SetActive(true);
                 puzzleTrigger = questObject[0].GetComponent<PuzzleTrigger>();
                 puzzleTrigger.Restore();
                 puzzleTrigger.isActivate = false;
                 Inventory.Instance.Insert("Sandwich");
                 break;
-            case 20:
-                questList[questId].cleared = true;
+            case 30:
                 Debug.Log("샌드위치 컷씬");
                 questObject[1].SetActive(false);
                 questTrigger = questObject[1].GetComponent<QuestTrigger>();
                 questTrigger.isActivate = false;
-                GameManager.Instance.globalLight.SetIntensity(0.4f);
-                GameManager.Instance.globalLight.SetColor(new Color32(178, 158, 255, 255));
+                gameManager.globalLight.SetIntensity(0.4f);
+                gameManager.globalLight.SetColor(new Color32(178, 158, 255, 255));
                 questObject[2].SetActive(true);
                 questObject[3].GetComponent<PuzzleTrigger>().isActivate = false;
                 questObject[4].GetComponent<PuzzleTrigger>().isActivate = false;
@@ -88,23 +98,21 @@ public class QuestManager : MonoBehaviour
                 questObject[7].GetComponent<PuzzleTrigger>().isPlayerActive = true;
                 questObject[7].GetComponent<PuzzleTrigger>().isCameraActive = true;
                 break;
-            case 30:
+            case 40:
                 questObject[2].SetActive(false);
-                questList[questId].cleared = true;
                 Debug.Log("옷장 컷씬");
                 puzzleTrigger = questObject[7].GetComponent<PuzzleTrigger>();
                 puzzleTrigger.Restore();
                 puzzleTrigger.isActivate = false;
                 for(int i = 3; i <= 6; i++)
                     questObject[i].GetComponent<PuzzleTrigger>().isActivate = false;
-                GameManager.Instance.globalLight.SetIntensity(0.7f);
-                GameManager.Instance.globalLight.SetColor(new Color32(255, 255, 255, 255));
-                GameManager.Instance.limitStage = 20000;
-                GameManager.Instance.doorManager.SetActivate();
+                gameManager.globalLight.SetIntensity(0.7f);
+                gameManager.globalLight.SetColor(new Color32(255, 255, 255, 255));
+                gameManager.limitStage = 20000;
+                gameManager.doorManager.SetActivate();
                 break;
-            case 40:
-                questList[questId].cleared = true;
-                GameManager.Instance.doorManager.SetActivate();
+            case 50:
+                gameManager.doorManager.SetActivate();
                 puzzleTrigger = questObject[6].GetComponent<PuzzleTrigger>();
                 puzzleTrigger.Restore();
                 puzzleTrigger.isActivate = false;

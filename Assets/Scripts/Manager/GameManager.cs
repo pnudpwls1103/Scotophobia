@@ -41,17 +41,14 @@ public class GameManager : MonoBehaviour
     public Text UINameText;
     public GameObject scanObject;
     public bool isAction = false;
-
-    // ÀÚµ¿ ´ë»ç
     public bool isLineActive = false;
     public int lineNumber = 1;
 
-    // Player
     public GameObject player;
-    
-
-    // Camera
     public GameObject mainCamera;
+    public Fade FadeImage;
+
+
     
     // ½Ì±ÛÅæ
     private static GameManager _instance;
@@ -70,7 +67,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Awake()
+    void Awake()
     {
         if(_instance == null)
         {
@@ -89,16 +86,16 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(GameObject.Find("Player"));
     }
 
-    public void Start()
+    void Start()
     {
         talkPanel.SetActive(isAction);
         currentStage = (int)Room.Hall;
         limitStage = (int)Room.Kitchen;
-        questManager.questId = 10;
+        questManager.questId = 0;
         doorManager.SetActivate();
 
-        SetLineQueue();
-        Action(null);
+        questManager.CheckQuest();
+        Time.timeScale = 0f;
     }
 
     public void Action(GameObject scanObj)
@@ -158,6 +155,11 @@ public class GameManager : MonoBehaviour
 
         if(lineData == null)
         {
+            if(questManager.questId == 10)
+            {
+                questManager.CheckQuest();
+            }
+            
             isAction = false;
             isLineActive = false;
 

@@ -14,8 +14,7 @@ public class Fade : MonoBehaviour
 
     void Awake()  
     {   
-        fadeImage = GetComponent<Image>();  
-        PlayFadeIn();
+        fadeImage = GetComponent<Image>();
     }  
 
     public void PlayFadeIn()
