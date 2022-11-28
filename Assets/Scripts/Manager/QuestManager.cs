@@ -73,6 +73,7 @@ public class QuestManager : MonoBehaviour
             case 10:
                 gameManager.FadeImage.PlayFadeIn();
                 Time.timeScale = 1f;
+                gameManager.lifeManager.SetUI();
                 break;
             case 20:
                 gameManager.SetLineQueue();
@@ -98,8 +99,11 @@ public class QuestManager : MonoBehaviour
                 questObject[7].GetComponent<PuzzleTrigger>().isActivate = true;
                 questObject[7].GetComponent<PuzzleTrigger>().isPlayerActive = true;
                 questObject[7].GetComponent<PuzzleTrigger>().isCameraActive = true;
+                gameManager.lifeManager.SetTimer();
                 break;
             case 40:
+                gameManager.lifeManager.ResetTimer();
+                gameManager.lifeManager.SetLife(5);
                 questObject[2].SetActive(false);
                 Debug.Log("¿ÊÀå ÄÆ¾À");
                 puzzleTrigger = questObject[7].GetComponent<PuzzleTrigger>();

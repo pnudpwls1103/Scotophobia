@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public DoorManager doorManager;
     public CutSceneManager cutSceneManager;
     public LineManager lineManager;
+    public LifeManager lifeManager;
 
     // ¥Î»≠/¥ÎªÁ√¢
     public GameObject talkPanel;
@@ -47,8 +48,6 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject mainCamera;
     public Fade FadeImage;
-
-
     
     // ΩÃ±€≈Ê
     private static GameManager _instance;
@@ -79,11 +78,11 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-        DontDestroyOnLoad(questManager);
-        DontDestroyOnLoad(talkManager);
-        DontDestroyOnLoad(GameObject.Find("UICanvas"));
-        DontDestroyOnLoad(GameObject.Find("GlobalLight"));
-        DontDestroyOnLoad(GameObject.Find("Player"));
+        // DontDestroyOnLoad(questManager);
+        // DontDestroyOnLoad(talkManager);
+        // DontDestroyOnLoad(GameObject.Find("UICanvas"));
+        // DontDestroyOnLoad(GameObject.Find("GlobalLight"));
+        // DontDestroyOnLoad(GameObject.Find("Player"));
     }
 
     void Start()

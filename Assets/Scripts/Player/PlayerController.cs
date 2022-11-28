@@ -153,7 +153,12 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Monster"))
-            Debug.Log("Player die!");
+            Die();
+    }
+
+    public void Die()
+    {
+        Debug.Log("Player die!");
     }
     void SpeedUp()
     {
