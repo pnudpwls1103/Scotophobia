@@ -2278,7 +2278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &592680014
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2723,8 +2723,8 @@ MonoBehaviour:
   - {fileID: 1234567402}
   - {fileID: 968012059}
   lifeObject: {fileID: 592680013}
-  LIMITTIME: 1
-  time: 1
+  LIMITTIME: 1.5
+  time: 1.5
   health: 5
 --- !u!4 &689945954
 Transform:
