@@ -172,10 +172,4 @@ public class GameManager : MonoBehaviour
         isAction = true;
         lineManager.lineIndex++;
     }
-
-    public void SetImage(Sprite changeImage)
-    {
-        Image image = GameObject.Find("Image").GetComponent<Image>();
-        image.sprite = changeImage;
-    }
 }
