@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class TalkManager : MonoBehaviour
 {
+    List<int> talkIds;
     Dictionary<int, string[]> talkData;
     public int talkIndex = 0;
     void Awake()
     {
+        talkIds = new List<int>();
         talkData = new Dictionary<int, string[]>();
         GenerateData();
     }
@@ -25,18 +27,22 @@ public class TalkManager : MonoBehaviour
         talkData.Add(60000, new string[]{"복도"});
 
         talkData.Add(10000 + 1000, new string[]{"조리공간이다."});
-        talkData.Add(10000 + 1000 + 10, new string[]{"조리공간 위에 재료들이 있다."});
-        //talkData.Add(10000 + 2000 + 10 + 1, new string[]{"방금 만들어서 따끈따끈한 샌드위치를 먹었다."});
+        talkData.Add(10000 + 1000 + 20, new string[]{"조리공간 위에 재료들이 있다."});
         
         talkData.Add(20000 + 1000, new string[]{"아빠의 책이 가득 찬 책장이다."});
         talkData.Add(20000 + 1000 + 20, new string[]{"이상한 문양이 그려진 책들이 있다."});
 
         talkData.Add(20000 + 2000, new string[]{"아빠와 함께 있는 사진이다."});
         talkData.Add(20000 + 2000 + 30, new string[]{"아빠와 함께 있는 사진이다."});
+
+        foreach(int key in talkData.Keys)
+            talkIds.Add(key);
     }
 
     public string GetTalk(int id)
     {
+        if(!(talkIds.Contains(id) || talkIds.Contains(id - id%10) || talkIds.Contains(id - id%100)))
+            return null;
         // 퀘스트 id에서 퀘스트 index에 해당하는 대사가 없는 경우
         if(!talkData.ContainsKey(id))
         {
