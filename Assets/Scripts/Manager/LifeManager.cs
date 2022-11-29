@@ -70,7 +70,12 @@ public class LifeManager : MonoBehaviour
     {
         this.health = health;
         for(int i = 0; i < health; i++)
+        {
             UIhealth[i].gameObject.SetActive(true);
+            Animator anim = UIhealth[i].GetComponent<Animator>();
+            anim.SetBool("isBlink", false);
+        }
+            
     }
     
 }
