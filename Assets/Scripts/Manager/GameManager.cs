@@ -14,9 +14,26 @@ enum Room
 }
 public class GameManager : MonoBehaviour
 {
-    public int limitStage;
-    public int currentStage;
-    public int Stage
+    // 스테이지/시계
+    [SerializeField]
+    Sprite[] clockSprites;
+    public Image clockImage;
+    int limitStage;
+    public int LimitStage
+    {
+        get
+        {
+            return limitStage;
+        }
+        set
+        {
+            limitStage = value;
+            clockImage.sprite = clockSprites[limitStage / 10000 - 1];
+        }
+
+    }
+    int currentStage;
+    public int CurrentStage
     {
         get
         {
@@ -87,6 +104,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        clockImage.gameObject.SetActive(false);
         talkPanel.SetActive(isAction);
         currentStage = (int)Room.Hall;
         limitStage = (int)Room.Kitchen;

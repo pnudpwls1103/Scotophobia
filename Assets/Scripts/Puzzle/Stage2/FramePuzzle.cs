@@ -16,7 +16,7 @@ public class FramePuzzle : MonoBehaviour
     void Update()
     {
         GameManager gameManager = GameManager.Instance;
-        if(gameManager.currentStage == 20000 && Input.GetMouseButtonDown(0))
+        if(gameManager.CurrentStage == 20000 && Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);

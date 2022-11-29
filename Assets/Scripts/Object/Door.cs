@@ -19,7 +19,7 @@ public class Door : Trigger
         {
             fade.PlayFadeIn();
             Action(gameObject);
-            GameManager.Instance.Stage = id;
+            GameManager.Instance.CurrentStage = id;
         }
     }
 

@@ -43,7 +43,7 @@ public class MainCamera : MonoBehaviour
 
     void LimitCameraArea()
     {
-        int stageNum = GameManager.Instance.Stage / 10000 - 1;
+        int stageNum = GameManager.Instance.CurrentStage / 10000 - 1;
         transform.position = Vector3.Lerp(transform.position, 
                                         playerTrans.position + cameraPosition,
                                         Time.deltaTime * cameraMoveSpeed);

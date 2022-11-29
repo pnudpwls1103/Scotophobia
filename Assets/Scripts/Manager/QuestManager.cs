@@ -74,6 +74,7 @@ public class QuestManager : MonoBehaviour
                 gameManager.FadeImage.PlayFadeIn();
                 Time.timeScale = 1f;
                 gameManager.lifeManager.SetUI(true);
+                gameManager.clockImage.gameObject.SetActive(true);
                 break;
             case 20:
                 gameManager.SetLineQueue();
@@ -113,7 +114,7 @@ public class QuestManager : MonoBehaviour
                     questObject[i].GetComponent<HintTrigger>().isActivate = false;
                 gameManager.globalLight.SetIntensity(0.7f);
                 gameManager.globalLight.SetColor(new Color32(255, 255, 255, 255));
-                gameManager.limitStage = 20000;
+                gameManager.LimitStage = 20000;
                 gameManager.doorManager.SetActivate();
                 break;
             case 50:

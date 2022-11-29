@@ -13,6 +13,7 @@ public class CookPuzzle : ObjectData
     void Start()
     {
         gameManager.lifeManager.SetUI(false);
+        gameManager.clockImage.gameObject.SetActive(false);
         gameManager.globalLight.SetIntensity(1f);
     }
 
@@ -31,6 +32,7 @@ public class CookPuzzle : ObjectData
         Debug.Log("Cook Puzzle Clear");
         gameManager.talkPanel.SetActive(false);
         gameManager.lifeManager.SetUI(true);
+        gameManager.clockImage.gameObject.SetActive(true);
         gameManager.questManager.CheckQuest();
     }
 }

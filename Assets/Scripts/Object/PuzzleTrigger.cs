@@ -17,7 +17,7 @@ public class PuzzleTrigger : Trigger
         if(isActivate)
         {
             Action(gameObject);
-            GameManager.Instance.Stage = stageNum;
+            GameManager.Instance.CurrentStage = stageNum;
         }
     }
 
