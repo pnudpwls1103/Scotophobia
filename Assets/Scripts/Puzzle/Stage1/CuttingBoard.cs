@@ -37,6 +37,7 @@ public class CuttingBoard : MonoBehaviour
         {
             PutIngredient("CookedBread2", 3);
             cookPuzzle.Clear();
+            DeleteAllIngredient();
         }
     }
 
@@ -60,7 +61,7 @@ public class CuttingBoard : MonoBehaviour
         ingredients.Add(ingredient);
     }
 
-    void DeleteAllIngredient()
+    public void DeleteAllIngredient()
     {
         foreach (GameObject ingredient in ingredients)
             Destroy(ingredient);

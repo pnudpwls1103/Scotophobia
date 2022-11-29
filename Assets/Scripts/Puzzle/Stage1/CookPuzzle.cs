@@ -26,10 +26,11 @@ public class CookPuzzle : ObjectData
         gameManager.UIText.text = "»÷µåÀ§Ä¡°¡ ¿Ï¼ºµÆ´Ù";
         gameManager.talkPanel.SetActive(true);
         yield return new WaitForSeconds(2); 
+        cuttingBoard.DeleteAllIngredient();
         gameManager.globalLight.SetIntensity(0.7f);
-        gameManager.questManager.CheckQuest();
         Debug.Log("Cook Puzzle Clear");
         gameManager.talkPanel.SetActive(false);
         gameManager.lifeManager.SetUI(true);
+        gameManager.questManager.CheckQuest();
     }
 }
