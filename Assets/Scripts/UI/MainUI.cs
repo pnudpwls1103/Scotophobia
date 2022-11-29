@@ -5,7 +5,7 @@ using UnityEngine;
 public enum BTNType
 {
     New,
-    Continue,
+    Load,
     Option,
     Back,
     Quit

@@ -1445,7 +1445,6 @@ MonoBehaviour:
   SceneName: Stage1_Lock
   HideObject: {fileID: 1619109755}
   isPlayerActive: 0
-  isCameraActive: 0
   image: {fileID: 0}
 --- !u!61 &390247870
 BoxCollider2D:
@@ -2238,7 +2237,6 @@ MonoBehaviour:
   SceneName: Stage1_Kitchen
   HideObject: {fileID: 1619109755}
   isPlayerActive: 0
-  isCameraActive: 0
   image: {fileID: 0}
 --- !u!61 &591482965
 BoxCollider2D:
@@ -4181,7 +4179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec14aa6d4cf606544865103ad46b2e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animTime: 1
+  animTime: 2
 --- !u!114 &1262368990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7737,7 +7735,6 @@ MonoBehaviour:
   SceneName: Stage2_Bookshelf
   HideObject: {fileID: 1619109755}
   isPlayerActive: 0
-  isCameraActive: 0
   image: {fileID: 0}
 --- !u!4 &6720633773298860473
 Transform:
