@@ -32,8 +32,9 @@ public class FireFlyController : MonoBehaviour
 
     void UpdateChase()
     {
-        render.flipX = (playerSkeleton.skeleton.ScaleX < 0) ? true : false; 
-        transform.position = new Vector2(playerTrans.position.x - 2f, playerTrans.position.y + 4f);
+        float x = playerTrans.position.x;
+        x = playerSkeleton.skeleton.ScaleX < 0 ? x + 2f : x - 2f;
+        transform.position = new Vector2(x, playerTrans.position.y + 4f);
     }
 
     void UpdateAuto()
