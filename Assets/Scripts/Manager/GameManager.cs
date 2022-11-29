@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         // DontDestroyOnLoad(questManager);
         // DontDestroyOnLoad(talkManager);
-        // DontDestroyOnLoad(GameObject.Find("UICanvas"));
+        DontDestroyOnLoad(GameObject.Find("UICanvas"));
         // DontDestroyOnLoad(GameObject.Find("GlobalLight"));
         // DontDestroyOnLoad(GameObject.Find("Player"));
     }

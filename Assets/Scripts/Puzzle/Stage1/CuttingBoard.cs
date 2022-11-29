@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class CuttingBoard : MonoBehaviour
 {
     [SerializeField]
+    Sprite[] ingredientImage;
+    [SerializeField]
     IngredientMenu menu;
     [SerializeField]
     CookPuzzle cookPuzzle;
@@ -16,32 +18,43 @@ public class CuttingBoard : MonoBehaviour
     Vector2 ingredientPos;
     [SerializeField]
     float size;
+    [SerializeField]
+    float waitingTime;
     int sortingOrder = 4;
     public void Cook(GameObject go)
     {
-        PutIngredient(go);
+        PutIngredient(go.name, order);
         menu.Delete(go.name);
         order++;
         if (order == 2)
         {
-            menu.Insert("ButterBread");
             DeleteAllIngredient();
+            PutIngredient("ButterBread", 2);
+            StartCoroutine(MainCook("ButterBread"));
+            order++;
         }
-        else if (order == 5)
+        else if (order == 6)
         {
+            PutIngredient("CookedBread2", 3);
             cookPuzzle.Clear();
-            DeleteAllIngredient();
         }
     }
 
-    void PutIngredient(GameObject go)
+    IEnumerator MainCook(string name)
+    {
+        yield return new WaitForSeconds(waitingTime);
+        menu.Insert(name);
+        DeleteAllIngredient();
+    }
+
+    void PutIngredient(string name, int imageIdx)
     {
         GameObject ingredient = new GameObject();
         ingredient.transform.position = ingredientPos;
         ingredient.transform.localScale = new Vector3(1, 1, 1) * size;
-        ingredient.name = go.name;
+        ingredient.name = name;
         SpriteRenderer sr = ingredient.AddComponent<SpriteRenderer>();
-        sr.sprite = go.GetComponent<Image>().sprite;
+        sr.sprite = ingredientImage[imageIdx];
         sr.sortingOrder = sortingOrder;
         sortingOrder++;
         ingredients.Add(ingredient);

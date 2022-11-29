@@ -13,9 +13,11 @@ public class IngredientMenu : UI_Base
     {
         Bind(typeof(GameObjects));
         Insert("Bread");
-        Insert("Butter");
-        Insert("Egg");
         Insert("Ham");
+        Insert("Egg");
+        Insert("Butter");
+        
+        
     }
 
     public void Insert(string str)

@@ -5,9 +5,13 @@ using UnityEngine.UI;
 
 public class FryingPan : MonoBehaviour
 {
-    public int order = 0;
+    [SerializeField]
+    Sprite[] ingredientImage;
+    [SerializeField]
+    GameObject eggSmoke;
     [SerializeField]
     IngredientMenu menu;
+    public int order = 0;
 
     List<GameObject> ingredients = new List<GameObject>();
     [SerializeField]
@@ -15,36 +19,46 @@ public class FryingPan : MonoBehaviour
     [SerializeField]
     float size;
     [SerializeField]
-    float watingTime;
+    float waitingTime;
     int sortingOrder = 4;
     public void Cook(GameObject go)
     {
-        PutIngredient(go);
+        PutIngredient(go.name, order);
         menu.Delete(go.name);
         order++;
         if (order == 1)
-            StartCoroutine(MainCook("CookedBread"));
+        {
+            StartCoroutine(MainCook("CookedBread", true));
+        }
+            
         else if (order == 2)
-            StartCoroutine(MainCook("CookedEgg"));
+        {
+            DeleteAllIngredient();
+            PutIngredient("FriedEgg", 3);
+            StartCoroutine(MainCook("CookedEgg", true));
+        }
+            
     }
 
-    
-
-    IEnumerator MainCook(string name)
+    IEnumerator MainCook(string name, bool isInsert)
     {
-        yield return new WaitForSeconds(watingTime);
-        menu.Insert(name);
+        if(name == "CookedEgg")
+            eggSmoke.SetActive(true);
+        yield return new WaitForSeconds(waitingTime);
+        if(isInsert)
+            menu.Insert(name);
+        eggSmoke.SetActive(false);
         DeleteAllIngredient();
     }
 
-    void PutIngredient(GameObject go)
+    void PutIngredient(string name, int imageIdx)
     {
         GameObject ingredient = new GameObject();
         ingredient.transform.position = ingredientPos;
         ingredient.transform.localScale = new Vector3(1, 1, 1) * size;
-        ingredient.name = go.name;
+        ingredient.name = name;
         SpriteRenderer sr = ingredient.AddComponent<SpriteRenderer>();
-        sr.sprite = go.GetComponent<Image>().sprite;
+        sr.sprite = ingredientImage[imageIdx];
         sr.sortingOrder = sortingOrder;
         sortingOrder++;
         ingredients.Add(ingredient);
