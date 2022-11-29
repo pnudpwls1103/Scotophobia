@@ -10,8 +10,10 @@ public class CookPuzzle : ObjectData
     [SerializeField]
     FryingPan fryingPan;
     GameManager gameManager = GameManager.Instance;
+    Fade fade;
     void Start()
     {
+        GameManager.Instance.ControlSceneObject(false, false);
         gameManager.lifeManager.SetUI(false);
         gameManager.clockImage.gameObject.SetActive(false);
         gameManager.globalLight.SetIntensity(1f);

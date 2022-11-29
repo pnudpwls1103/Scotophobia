@@ -99,7 +99,6 @@ public class QuestManager : MonoBehaviour
                 questObject[6].GetComponent<HintTrigger>().isActivate = true;
                 questObject[7].GetComponent<PuzzleTrigger>().isActivate = true;
                 questObject[7].GetComponent<PuzzleTrigger>().isPlayerActive = true;
-                questObject[7].GetComponent<PuzzleTrigger>().isCameraActive = true;
                 gameManager.lifeManager.SetTimer();
                 break;
             case 40:
