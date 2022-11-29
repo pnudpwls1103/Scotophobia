@@ -64,7 +64,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public GameObject mainCamera;
-    public Fade FadeImage;
+    public Fade fadeImage;
+    public GameObject gameOverUI;
     
     // ΩÃ±€≈Ê
     private static GameManager _instance;
@@ -189,5 +190,11 @@ public class GameManager : MonoBehaviour
 
         isAction = true;
         lineManager.lineIndex++;
+    }
+
+    public void GameOver()
+    {
+        Time.timeScale = 0f;
+        gameOverUI.SetActive(true);
     }
 }

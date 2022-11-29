@@ -158,6 +158,7 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
+        GameManager.Instance.GameOver();
         Debug.Log("Player die!");
     }
     void SpeedUp()
