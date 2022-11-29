@@ -73,7 +73,8 @@ public class QuestManager : MonoBehaviour
             case 10:
                 gameManager.FadeImage.PlayFadeIn();
                 Time.timeScale = 1f;
-                gameManager.lifeManager.SetUI();
+                gameManager.lifeManager.SetUI(true);
+                gameManager.lifeManager.SetTimer();
                 break;
             case 20:
                 gameManager.SetLineQueue();

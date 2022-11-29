@@ -93,6 +93,7 @@ public class GameManager : MonoBehaviour
         questManager.questId = 0;
         doorManager.SetActivate();
 
+        lifeManager.SetUI(false);
         questManager.CheckQuest();
         Time.timeScale = 0f;
     }

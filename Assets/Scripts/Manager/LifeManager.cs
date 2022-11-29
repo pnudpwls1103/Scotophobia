@@ -30,7 +30,6 @@ public class LifeManager : MonoBehaviour
         if(health > 1)
         {
             health--;
-                  
         }
         else
         {
@@ -41,6 +40,9 @@ public class LifeManager : MonoBehaviour
 
     void DecreaseTime()
     {
+        Animator anim = UIhealth[health - 1].GetComponent<Animator>();
+        anim.SetBool("isBlink", true);
+
         time -= Time.deltaTime;
         if(time <= 0)
         {
@@ -59,9 +61,9 @@ public class LifeManager : MonoBehaviour
         onTimer -= DecreaseTime;
     }
 
-    public void SetUI()
+    public void SetUI(bool state)
     {
-        lifeObject.SetActive(true);
+        lifeObject.SetActive(state);
     }
 
     public void SetLife(int health)
