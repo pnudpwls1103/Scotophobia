@@ -2272,7 +2272,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603457368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12, y: -24, z: 4.8}
+  m_LocalPosition: {x: -20, y: -24, z: 4.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6054,7 +6054,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959422703}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: 0.4, z: -5}
+  m_LocalPosition: {x: -13, y: -24, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6124,20 +6124,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTrans: {fileID: 1689144256}
   mapSizes:
+  - {x: 16.19, y: 0}
+  - {x: 36.5, y: 0}
   - {x: 0, y: 0}
   - {x: 0, y: 0}
   - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
+  - {x: 27.195, y: 5.4}
   cameraPosition: {x: 0, y: 0.4, z: 0}
   centers:
+  - {x: -20, y: -24}
+  - {x: 31.27, y: -40}
   - {x: 0, y: 0}
   - {x: 0, y: 0}
   - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
+  - {x: 0, y: 0.4}
   cameraMoveSpeed: 5
 --- !u!1 &1991518739
 GameObject:
