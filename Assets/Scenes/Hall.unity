@@ -840,6 +840,7 @@ MonoBehaviour:
   isAction: 0
   isLineActive: 0
   lineNumber: 1
+  eventsystem: {fileID: 1314078493}
   player: {fileID: 1689144251}
   mainCamera: {fileID: 1959422703}
   fadeImage: {fileID: 1262368989}

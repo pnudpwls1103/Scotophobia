@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
     public bool isLineActive = false;
     public int lineNumber = 1;
 
+    public GameObject eventsystem;
     public GameObject player;
     public GameObject mainCamera;
     public Fade fadeImage;
