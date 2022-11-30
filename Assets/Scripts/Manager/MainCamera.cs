@@ -22,12 +22,12 @@ public class MainCamera : MonoBehaviour
     void Awake()
     {
         mapSizes[0] = new Vector2(16.19f, 0f);
-        mapSizes[1] = new Vector2(36.5f, 0f);
+        mapSizes[1] = new Vector2(18.19f, 0f);
         mapSizes[5] = new Vector2(27.195f, 5.4f);
 
         centers[0] = new Vector2(-20f, -24f);
-        centers[1] = new Vector2(31.27f, -40f);
-        centers[5] = new Vector2(0f, 0.4f);
+        centers[1] = new Vector2(0f, -40f);
+        centers[5] = new Vector2(-5f, 0.4f);
     }
 
     void Start()
