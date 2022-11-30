@@ -2476,8 +2476,8 @@ MonoBehaviour:
   - {fileID: 1579557347}
   - {fileID: 968012059}
   lifeObject: {fileID: 592680013}
-  LIMITTIME: 1.5
-  time: 1.5
+  LIMITTIME: 3
+  time: 3
   health: 5
 --- !u!4 &689945954
 Transform:
@@ -4996,7 +4996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcbf815959c23584ab3040519c6634d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulbOnSpeed: 0.03
+  bulbOnSpeed: 0.013
   bulbOffSpeed: 0.013
   canMove: 1
   canClick: 1
@@ -8205,7 +8205,6 @@ MonoBehaviour:
   SceneName: Stage1_Lock
   HideObject: {fileID: 875939585}
   isPlayerActive: 0
-  image: {fileID: 0}
 --- !u!61 &4616704457246240282
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8884,7 +8883,6 @@ MonoBehaviour:
   SceneName: Stage2_Bookshelf
   HideObject: {fileID: 0}
   isPlayerActive: 0
-  image: {fileID: 0}
 --- !u!212 &6101796301631156629
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9283,7 +9281,6 @@ MonoBehaviour:
   SceneName: Stage1_Kitchen
   HideObject: {fileID: 875939585}
   isPlayerActive: 0
-  image: {fileID: 0}
 --- !u!61 &7111591065341327466
 BoxCollider2D:
   m_ObjectHideFlags: 0

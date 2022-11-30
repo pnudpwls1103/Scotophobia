@@ -102,6 +102,7 @@ public class QuestManager : MonoBehaviour
                 questTrigger.isActivate = false;
                 gameManager.globalLight.SetIntensity(0.4f);
                 gameManager.globalLight.SetColor(new Color32(178, 158, 255, 255));
+                gameManager.player.GetComponent<PlayerController>().ToggleBulb();
                 questObject[2].SetActive(true);
                 questObject[3].GetComponent<HintTrigger>().isActivate = false;
                 questObject[4].GetComponent<HintTrigger>().isActivate = false;
@@ -112,6 +113,7 @@ public class QuestManager : MonoBehaviour
                 gameManager.lifeManager.SetTimer();
                 break;
             case 60:
+                gameManager.player.GetComponent<PlayerController>().ToggleBulb();
                 gameManager.lifeManager.ResetTimer();
                 gameManager.lifeManager.SetLife(5);
                 questObject[2].SetActive(false);

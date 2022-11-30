@@ -47,10 +47,6 @@ public class PlayerController : MonoBehaviour
             Interact();
         if (Input.GetKeyDown(KeyCode.I))
             UI_Root.TogglePopup(typeof(Define.UI_Popup), (int)Define.UI_Popup.Inventory);
-        if (Input.GetKeyDown(KeyCode.O))
-            ToggleBulb();
-        if (Input.GetKeyDown(KeyCode.P))
-            GetItem();
         if (Input.GetKeyDown(KeyCode.Space))
             GameManager.Instance.Action(scanObject);
             
@@ -106,7 +102,7 @@ public class PlayerController : MonoBehaviour
             inter.Interact(gameObject);
         }
     }
-    void ToggleBulb()
+    public void ToggleBulb()
     {
         if (bulb)
         {
