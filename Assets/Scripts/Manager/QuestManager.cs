@@ -24,8 +24,9 @@ public class QuestManager : MonoBehaviour
         questList.Add(40, new QuestData("샌드위치 건내주기", new int[]{2000}));
         questList.Add(50, new QuestData("샌드위치 건내주기 컷씬", new int[]{2000}));
         questList.Add(60, new QuestData("스테이지1 자물쇠 열기", new int[]{3000}));
-        questList.Add(70, new QuestData("책 배열", new int[]{4000}));
-        questList.Add(80, new QuestData("공 뽑기", new int[]{5000}));
+        questList.Add(70, new QuestData("아빠와 대화", new int[]{3000}));
+        questList.Add(80, new QuestData("책 배열", new int[]{4000}));
+        questList.Add(90, new QuestData("공 뽑기", new int[]{5000}));
     }
 
     public void SetQuestClear(int questid)
@@ -129,8 +130,13 @@ public class QuestManager : MonoBehaviour
                 gameManager.doorManager.SetActivate();
                 break;
             case 70:
-                gameManager.doorManager.SetActivate();
-                puzzleTrigger = questObject[6].GetComponent<PuzzleTrigger>();
+                hintTrigger = questObject[9].GetComponent<HintTrigger>();
+                hintTrigger.isActivate = false;
+                puzzleTrigger = questObject[8].GetComponent<PuzzleTrigger>();
+                puzzleTrigger.isActivate = true;
+                break;
+            case 80:
+                puzzleTrigger = questObject[8].GetComponent<PuzzleTrigger>();
                 puzzleTrigger.Restore();
                 puzzleTrigger.isActivate = false;
                 break;
