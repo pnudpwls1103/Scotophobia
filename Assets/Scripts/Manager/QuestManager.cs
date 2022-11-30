@@ -28,6 +28,7 @@ public class QuestManager : MonoBehaviour
         questList.Add(80, new QuestData("아빠와 대화", new int[]{3000}));
         questList.Add(90, new QuestData("책 배열", new int[]{4000}));
         questList.Add(100, new QuestData("선택지 뽑기", new int[]{3000}));
+        questList.Add(110, new QuestData("옷장 열기", new int[]{}));
     }
 
     public void SetQuestClear(int questid)
@@ -140,7 +141,7 @@ public class QuestManager : MonoBehaviour
                 gameManager.SetLineQueue();
                 gameManager.Action(null);
                 break;
-            case 80:
+            case 80:    
                 puzzleTrigger = questObject[8].GetComponent<PuzzleTrigger>();
                 puzzleTrigger.isActivate = true;
                 break;
@@ -148,9 +149,32 @@ public class QuestManager : MonoBehaviour
                 puzzleTrigger = questObject[8].GetComponent<PuzzleTrigger>();
                 puzzleTrigger.Restore();
                 puzzleTrigger.isActivate = false;
+                puzzleTrigger = questObject[9].GetComponent<PuzzleTrigger>();
+                puzzleTrigger.isActivate = true;
                 break;
             case 100:
-                Debug.Log("선택지 고르기");
+                puzzleTrigger = questObject[9].GetComponent<PuzzleTrigger>();
+                puzzleTrigger.Restore();
+                puzzleTrigger.isActivate = false;
+                questObject[9].SetActive(false);
+                gameManager.SetLineQueue();
+                gameManager.Action(null);
+                gameManager.globalLight.SetIntensity(0.4f);
+                gameManager.globalLight.SetColor(new Color32(178, 158, 255, 255));
+                gameManager.player.GetComponent<PlayerController>().ToggleBulb();
+                questObject[10].SetActive(true);
+                gameManager.lifeManager.SetTimer();
+                break;
+            case 110:
+                gameManager.player.GetComponent<PlayerController>().ToggleBulb();
+                gameManager.lifeManager.ResetTimer();
+                gameManager.lifeManager.SetLife(5);
+                questObject[10].SetActive(false);
+
+                gameManager.SetLineQueue();
+                gameManager.Action(null);
+
+                gameManager.cutSceneManager.VideoActive();
                 break;
             default:
                 break;

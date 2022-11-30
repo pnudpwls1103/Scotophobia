@@ -21,7 +21,8 @@ public class PuzzleTrigger : Trigger
 
     override public void Action(GameObject player)
     {
-        HideObject.SetActive(false);
+        if(HideObject)
+            HideObject.SetActive(false);
         if(isPlayerActive)
         {
             PlayerController playerController = GameManager.Instance.player.GetComponent<PlayerController>();
@@ -39,7 +40,8 @@ public class PuzzleTrigger : Trigger
         PlayerController playerController = GameManager.Instance.player.GetComponent<PlayerController>();
         playerController.canMove = true;
         playerController.canClick = true;
-        HideObject.SetActive(true);
+        if(HideObject)
+            HideObject.SetActive(true);
         GameManager.Instance.eventsystem.SetActive(true);
         SceneManager.UnloadSceneAsync(SceneName);
     }

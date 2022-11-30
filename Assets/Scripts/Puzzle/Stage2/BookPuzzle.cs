@@ -43,7 +43,7 @@ public class BookPuzzle : ObjectData
 
     void Clear()
     {
-        GameManager.Instance.questManager.CheckQuest();
+        StartCoroutine(ClearLogic());
     }
 
     void OnBookClicked(int clickedIdx)
@@ -78,5 +78,17 @@ public class BookPuzzle : ObjectData
             pos = new Vector2(pos.x + sizeX, pos.y);
             bookInfos[i].book.transform.parent.position = pos;
         }
+    }
+
+    IEnumerator ClearLogic()
+    {
+        gameManager.UIInfoText.text = "책 정리를 끝냈다";
+        gameManager.infoPanel.SetActive(true);
+        yield return new WaitForSeconds(2); 
+        gameManager.globalLight.SetIntensity(0.7f);
+        gameManager.infoPanel.SetActive(false);
+        gameManager.lifeManager.SetUI(true);
+        gameManager.clockImage.gameObject.SetActive(true);
+        gameManager.questManager.CheckQuest();
     }
 }

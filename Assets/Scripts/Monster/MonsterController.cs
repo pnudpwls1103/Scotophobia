@@ -10,7 +10,7 @@ public class MonsterController : MonoBehaviour
     Alarm IdleMove = new Alarm(minTime: 3.5f, maxTime: 5f);
 
     Transform target;
-    public Vector2 dir = Vector2.right;
+    Vector2 dir = Vector2.right;
     Define.MonsterState monsterState = Define.MonsterState.Chase;
     Rigidbody2D rigid = null;
     Animator anim;
