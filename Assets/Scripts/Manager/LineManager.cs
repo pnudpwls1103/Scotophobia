@@ -22,8 +22,6 @@ public class LineManager : MonoBehaviour
         lineList.Add(new LineData(4, "아빠", new string[]{"정리를 아주 잘 해놨더구나"}));
         lineList.Add(new LineData(4, "아빠", new string[]{"..."}));
         lineList.Add(new LineData(4, "아빠", new string[]{"하지만 늘 제대로 말을 듣는 법이 없구나. 니 엄마처럼"}));
-    
-        lineList.Add(new LineData(5, "아이", new string[]{"안에서 잠굴 수 있는 옷장이다."}));
     }
 
     void Awake()

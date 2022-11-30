@@ -118,7 +118,6 @@ public class GameManager : MonoBehaviour
 
         lifeManager.SetUI(false);
         questManager.CheckQuest();
-        Time.timeScale = 0f;
     }
 
     public void Action(GameObject scanObj)
@@ -191,6 +190,7 @@ public class GameManager : MonoBehaviour
             }
 
             isLineActive = false;
+            Time.timeScale = 1f;
 
             return;
         }

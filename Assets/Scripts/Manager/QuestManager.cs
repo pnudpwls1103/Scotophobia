@@ -71,8 +71,8 @@ public class QuestManager : MonoBehaviour
         switch(questId)
         {
             case 0:
-                gameManager.cutSceneManager.VideoActive();
-                gameManager.cutSceneManager.cutSceneIndex++;
+                Time.timeScale = 0f;
+                gameManager.cutSceneManager.VideoActive(0);
                 break;
             case 10:
                 gameManager.fadeImage.gameObject.SetActive(true);
@@ -86,6 +86,7 @@ public class QuestManager : MonoBehaviour
                 Time.timeScale = 1f;
                 break;
             case 30:
+                Time.timeScale = 0f;
                 gameManager.SetLineQueue();
                 gameManager.Action(null);
                 questObject[1].SetActive(true);
@@ -96,10 +97,10 @@ public class QuestManager : MonoBehaviour
                 break;
             case 40:
                 Time.timeScale = 0f;
-                gameManager.cutSceneManager.VideoActive();
-                gameManager.cutSceneManager.cutSceneIndex++;
+                gameManager.cutSceneManager.VideoActive(1);
                 break;
             case 50:
+                Time.timeScale = 1f;
                 questObject[1].SetActive(false);
                 questTrigger = questObject[1].GetComponent<QuestTrigger>();
                 questTrigger.isActivate = false;
@@ -120,9 +121,9 @@ public class QuestManager : MonoBehaviour
                 gameManager.lifeManager.ResetTimer();
                 gameManager.lifeManager.SetLife(5);
                 questObject[2].SetActive(false);
-
-                gameManager.cutSceneManager.VideoActive();
-                gameManager.cutSceneManager.cutSceneIndex++;
+                
+                Time.timeScale = 0f;
+                gameManager.cutSceneManager.VideoActive(2);
                 
                 puzzleTrigger = questObject[7].GetComponent<PuzzleTrigger>();
                 puzzleTrigger.Restore();
@@ -136,6 +137,7 @@ public class QuestManager : MonoBehaviour
                 
                 gameManager.LimitStage = 20000;
                 gameManager.doorManager.SetActivate();
+                Time.timeScale = 1f;
                 break;
             case 70:
                 gameManager.SetLineQueue();
@@ -171,10 +173,9 @@ public class QuestManager : MonoBehaviour
                 gameManager.lifeManager.SetLife(5);
                 questObject[10].SetActive(false);
 
-                gameManager.SetLineQueue();
-                gameManager.Action(null);
-
-                gameManager.cutSceneManager.VideoActive();
+                Time.timeScale = 0f;
+                gameManager.cutSceneManager.VideoActive(2);
+                Time.timeScale = 1f;
                 break;
             default:
                 break;

@@ -12,17 +12,16 @@ public class CutSceneManager : MonoBehaviour
     [SerializeField]
     GameObject imageUI;
     public float[] speed;
-    public int cutSceneIndex = 0;
 
     void Start()
     {
 
     }
 
-    public void VideoActive()
+    public void VideoActive(int idx)
     {
-        videoPlayer.clip = videos[cutSceneIndex];
-        videoPlayer.playbackSpeed = speed[cutSceneIndex];
+        videoPlayer.clip = videos[idx];
+        videoPlayer.playbackSpeed = speed[idx];
         imageUI.SetActive(true);
         videoPlayer.Play();
         videoPlayer.loopPointReached += CheckOver;
@@ -30,7 +29,6 @@ public class CutSceneManager : MonoBehaviour
 
     public void VideoInActive()
     {   
-        videoPlayer.clip = null;
         videoPlayer.loopPointReached -= CheckOver;
         videoPlayer.Stop();
         imageUI.SetActive(false);
