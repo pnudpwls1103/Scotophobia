@@ -31,7 +31,6 @@ public class CookPuzzle : ObjectData
         yield return new WaitForSeconds(2); 
         cuttingBoard.DeleteAllIngredient();
         gameManager.globalLight.SetIntensity(0.7f);
-        Debug.Log("Cook Puzzle Clear");
         gameManager.talkPanel.SetActive(false);
         gameManager.lifeManager.SetUI(true);
         gameManager.clockImage.gameObject.SetActive(true);

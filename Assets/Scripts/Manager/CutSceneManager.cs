@@ -38,7 +38,6 @@ public class CutSceneManager : MonoBehaviour
 
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
     {
-        Debug.Log("Video Is Over");
         VideoInActive();
         GameManager.Instance.questManager.CheckQuest();
     }

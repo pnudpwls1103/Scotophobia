@@ -10,7 +10,6 @@ public class Book : MonoBehaviour, IPointerDownHandler
     public int CurrentIdx { get { return currentIdx; } set { currentIdx = value; } }
     public void OnPointerDown(PointerEventData eventData)
     {
-        //Debug.Log($"{gameObject.name} clicked");
         Debug.Log($"idx : {currentIdx}");
         onBookClicked(currentIdx);
     }

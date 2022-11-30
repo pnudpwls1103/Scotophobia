@@ -35,7 +35,6 @@ public class BookPuzzle : ObjectData
     void Clear()
     {
         GameManager.Instance.questManager.CheckQuest();
-        Debug.Log("BookPuzzle Clear");
     }
 
     void OnBookClicked(int clickedIdx)

@@ -96,8 +96,6 @@ public class MonsterController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Wall")
             ToggleDirection();
-        else if (collision.gameObject.tag == "Player")
-            Debug.Log("Player Dead!");
     }
     void ToggleDirection()
     {
