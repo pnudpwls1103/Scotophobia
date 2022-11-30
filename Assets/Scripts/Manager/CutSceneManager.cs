@@ -34,6 +34,7 @@ public class CutSceneManager : MonoBehaviour
         videoPlayer.loopPointReached -= CheckOver;
         videoPlayer.Stop();
         imageUI.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     void CheckOver(UnityEngine.Video.VideoPlayer vp)

@@ -27,7 +27,7 @@ public class QuestManager : MonoBehaviour
         questList.Add(70, new QuestData("스테이지1 클리어 대사", new int[]{}));
         questList.Add(80, new QuestData("아빠와 대화", new int[]{3000}));
         questList.Add(90, new QuestData("책 배열", new int[]{4000}));
-        questList.Add(100, new QuestData("공 뽑기", new int[]{5000}));
+        questList.Add(100, new QuestData("선택지 뽑기", new int[]{3000}));
     }
 
     public void SetQuestClear(int questid)
@@ -95,6 +95,7 @@ public class QuestManager : MonoBehaviour
                 Inventory.Instance.Insert("Sandwich");
                 break;
             case 40:
+                Time.timeScale = 0f;
                 gameManager.cutSceneManager.VideoActive();
                 gameManager.cutSceneManager.cutSceneIndex++;
                 break;
@@ -148,6 +149,9 @@ public class QuestManager : MonoBehaviour
                 puzzleTrigger = questObject[8].GetComponent<PuzzleTrigger>();
                 puzzleTrigger.Restore();
                 puzzleTrigger.isActivate = false;
+                break;
+            case 100:
+                Debug.Log("선택지 고르기");
                 break;
             default:
                 break;

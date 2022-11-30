@@ -3406,13 +3406,13 @@ MonoBehaviour:
   videos:
   - {fileID: 32900000, guid: c8d3e0bdd2a548d43bb2741469a8a0dd, type: 3}
   - {fileID: 32900000, guid: 303f59e9bb3d4db4bb3ae71ad5fe26f6, type: 3}
-  - {fileID: 32900000, guid: 84fe3068d6752f34eafc4fe290c43035, type: 3}
+  - {fileID: 32900000, guid: 416e552a0f9081a49a3fd68605f662bc, type: 3}
   videoPlayer: {fileID: 1140919127}
   imageUI: {fileID: 1852241955}
   speed:
   - 0.7
   - 0.5
-  - 1
+  - 0.4
   cutSceneIndex: 0
 --- !u!4 &1256439109
 Transform:
