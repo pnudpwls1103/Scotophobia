@@ -27,7 +27,7 @@ public class MainCamera : MonoBehaviour
 
         centers[0] = new Vector2(-20f, -24f);
         centers[1] = new Vector2(0f, -40f);
-        centers[5] = new Vector2(-5f, 0.4f);
+        centers[5] = new Vector2(0f, 0.4f);
     }
 
     void Start()
