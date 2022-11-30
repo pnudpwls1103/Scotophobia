@@ -66,7 +66,6 @@ public class QuestManager : MonoBehaviour
         GameManager gameManager = GameManager.Instance;
         PuzzleTrigger puzzleTrigger;
         QuestTrigger questTrigger;
-        HintTrigger hintTrigger;
         questList[questId].cleared = true;
         switch(questId)
         {

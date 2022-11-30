@@ -24,7 +24,7 @@ public class GlobalLight : MonoBehaviour
 
     void OnBulbOn()
     {
-        lit.intensity = 0f;
+        lit.intensity = 0.1f;
         if (co != null)
         {
             StopCoroutine(co);
