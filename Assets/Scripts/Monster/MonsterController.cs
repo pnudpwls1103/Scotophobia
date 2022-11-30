@@ -10,30 +10,43 @@ public class MonsterController : MonoBehaviour
     Alarm IdleMove = new Alarm(minTime: 3.5f, maxTime: 5f);
 
     Transform target;
-    Vector2 dir = Vector2.right;
+    public Vector2 dir = Vector2.right;
     Define.MonsterState monsterState = Define.MonsterState.Chase;
     Rigidbody2D rigid = null;
+    Animator anim;
     void Start()
     {
         target = GameObject.Find("Player").transform;
         toggleDir.InitCurTime();
         IdleMove.InitCurTime();
         rigid = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y);
     }
 
     void Update()
     {
-        Debug.Log($"{monsterState}");
         if (CheckPlayerInSight() && monsterState != Define.MonsterState.Chase)
             monsterState = Define.MonsterState.Chase;
         else if (!CheckPlayerInSight() && monsterState == Define.MonsterState.Chase)
             monsterState = Define.MonsterState.Move;
         switch (monsterState)
         {
-            case Define.MonsterState.Idle: UpdateIdle(); break;
-            case Define.MonsterState.Move: UpdateMove(); break;
-            case Define.MonsterState.Chase: UpdateChase(); break;
-            case Define.MonsterState.Attack: UpdateAttack(); break;
+            case Define.MonsterState.Idle: 
+                anim.SetBool("isWalk", false);
+                UpdateIdle();
+                break;
+            case Define.MonsterState.Move: 
+                anim.SetBool("isWalk", true);
+                UpdateMove(); 
+                break;
+            case Define.MonsterState.Chase: 
+                anim.SetBool("isWalk", true);
+                UpdateChase(); 
+                break;
+            case Define.MonsterState.Attack: 
+                UpdateAttack(); 
+                break;
         }
     }
 
@@ -71,6 +84,7 @@ public class MonsterController : MonoBehaviour
     void UpdateChase() // 전구 켜지면 플레이어 쫓아감
     {
         dir = (target.position - transform.position).normalized;
+        FlipSprite();
         dir.y = 0;
         rigid.position += dir * speed;
     }
@@ -89,11 +103,19 @@ public class MonsterController : MonoBehaviour
     {
         toggleDir.InitCurTime();
         dir = -dir;
+        FlipSprite();
     }
     void ChangeBetweenIdleMove(Define.MonsterState state, float cutTime = 0f)
     {
         IdleMove.InitCurTime(cutTime);
         monsterState = state;
+    }
+
+    void FlipSprite()
+    {
+        float x = Mathf.Abs(transform.localScale.x);
+        x *= dir.x >= 0 ? -1 : 1;
+        transform.localScale = new Vector2(x, transform.localScale.y);
     }
     //void OnBulbOn()
     //{
