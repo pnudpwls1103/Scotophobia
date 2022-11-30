@@ -35,7 +35,7 @@ public class TalkManager : MonoBehaviour
         talkData.Add(20000 + 2000 + 30, new string[]{"아빠와 함께 있는 사진이다."});
 
         talkData.Add(20000 + 3000, new string[]{"아빠"});
-        talkData.Add(20000 + 3000 + 70, new string[]{"책장이 좀 더럽구나. 정리를 해다오."});
+        talkData.Add(20000 + 3000 + 80, new string[]{"책장이 좀 더럽구나. 정리를 해다오."});
 
         foreach(int key in talkData.Keys)
             talkIds.Add(key);

@@ -145,6 +145,10 @@ public class GameManager : MonoBehaviour
 
         if(talkData == null)
         {
+            if(currentStage == 20000 && id == 3000 && questManager.questId == 80)
+            {
+                questManager.CheckQuest();
+            }
             isAction = false;
             talkManager.talkIndex = 0;
             return;
@@ -174,7 +178,7 @@ public class GameManager : MonoBehaviour
 
         if(lineData == null)
         {
-            if(questManager.questId == 20)
+            if(questManager.questId == 20 || questManager.questId == 70)
             {
                 questManager.CheckQuest();
             }

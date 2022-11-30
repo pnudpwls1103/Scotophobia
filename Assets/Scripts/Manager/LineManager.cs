@@ -10,13 +10,14 @@ public class LineManager : MonoBehaviour
     public int lineIndex = 0;
     void GenerateData()
     {
-        lineList.Add(new LineData(1, "반딧불이", new string[]{"아이야, 나아가야 해"}));
+        lineList.Add(new LineData(1, "???", new string[]{"아이야, 나아가야 해"}));
         lineList.Add(new LineData(1, "아이", new string[]{"(아빠가 일어나기 전에 아침밥을 차려야 해.)", "(우리 아빠는 너무 상냥해)"}));
 
         lineList.Add(new LineData(2, "아빠", new string[]{"맛있어 보이는 샌드위치구나!"}));
         lineList.Add(new LineData(2, "아이", new string[]{"(아빠에게 샌드위치를 전해주자)"}));
 
-        
+        lineList.Add(new LineData(3, "???", new string[]{"아이야, 계속 나아가야 해. 너만이 해낼 수 있어."}));
+        lineList.Add(new LineData(3, "아이", new string[]{"여길 벗어나고 싶어. 괴로워."}));
     }
 
     void Awake()
