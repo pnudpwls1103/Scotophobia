@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TalkManager : MonoBehaviour
+public class InfoManager : MonoBehaviour
 {
     List<int> talkIds;
     Dictionary<int, string[]> talkData;

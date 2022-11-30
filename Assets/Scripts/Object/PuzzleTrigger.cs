@@ -29,8 +29,8 @@ public class PuzzleTrigger : Trigger
             playerController.canClick = false;
         }
         
+        GameManager.Instance.eventsystem.SetActive(false);
         SceneManager.LoadScene(SceneName, LoadSceneMode.Additive);
-        
     }
 
     public void Restore()
@@ -40,6 +40,7 @@ public class PuzzleTrigger : Trigger
         playerController.canMove = true;
         playerController.canClick = true;
         HideObject.SetActive(true);
+        GameManager.Instance.eventsystem.SetActive(true);
         SceneManager.UnloadSceneAsync(SceneName);
     }
 }

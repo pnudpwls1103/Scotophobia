@@ -10,7 +10,7 @@ enum Room
     Hall = 60000,
     Kitchen = 10000,
     Library = 20000,
-    Laundry = 30000,
+
 }
 public class GameManager : MonoBehaviour
 {
@@ -47,21 +47,24 @@ public class GameManager : MonoBehaviour
 
     public GlobalLight globalLight;
     public QuestManager questManager;
-    public TalkManager talkManager;
+    public InfoManager infoManager;
     public DoorManager doorManager;
     public CutSceneManager cutSceneManager;
     public LineManager lineManager;
     public LifeManager lifeManager;
 
-    // 대화/대사창
-    public GameObject talkPanel;
-    public Text UIText;
+    // 출력UI
+    public GameObject linePanel;
+    public Text UITalk;
     public Text UINameText;
+    public GameObject infoPanel;
+    public Text UIInfoText;
     public GameObject scanObject;
-    public bool isAction = false;
+    public bool isInfoActive = false;
     public bool isLineActive = false;
     public int lineNumber = 1;
 
+    public GameObject eventsystem;
     public GameObject player;
     public GameObject mainCamera;
     public Fade fadeImage;
@@ -106,7 +109,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         clockImage.gameObject.SetActive(false);
-        talkPanel.SetActive(isAction);
+        linePanel.SetActive(isLineActive);
+        infoPanel.SetActive(isInfoActive);
         currentStage = (int)Room.Hall;
         limitStage = (int)Room.Kitchen;
         questManager.questId = 0;
@@ -123,41 +127,44 @@ public class GameManager : MonoBehaviour
         {
             scanObject = scanObj;
             ObjectData objData = scanObject.GetComponent<ObjectData>();
-            Talk(objData.id);
+            PrintInfo(objData.id);
+                
         } 
         else if(isLineActive)
         {
             PrintLine();
         }
         
-        talkPanel.SetActive(isAction);
-        UINameText.gameObject.SetActive(isLineActive);
+        linePanel.SetActive(isLineActive);
+        infoPanel.SetActive(isInfoActive);
     }
 
-    void Talk(int id)
+    void PrintInfo(int id)
     {
         int questTalkIndex = questManager.GetQuestTalkIndex();
-        string talkData;
+        string infoData;
         if(id/10000 > 0)
-            talkData = talkManager.GetTalk(id);
+            infoData = infoManager.GetTalk(id);
+            
         else
-            talkData = talkManager.GetTalk(currentStage + id + questTalkIndex);
+            infoData = infoManager.GetTalk(currentStage + id + questTalkIndex);
+            
 
-        if(talkData == null)
+        if(infoData == null)
         {
             if(currentStage == 20000 && id == 3000 && questManager.questId == 80)
             {
                 questManager.CheckQuest();
             }
-            isAction = false;
-            talkManager.talkIndex = 0;
+            isInfoActive = false;
+            infoManager.talkIndex = 0;
             return;
         }
 
-        UIText.text = talkData;
-        
-        isAction = true;
-        talkManager.talkIndex++;
+        UIInfoText.text = infoData;       
+
+        isInfoActive = true;
+        infoManager.talkIndex++;
     }
 
     public void ControlSceneObject(bool playerState, bool cameraState)
@@ -182,17 +189,16 @@ public class GameManager : MonoBehaviour
             {
                 questManager.CheckQuest();
             }
-            
-            isAction = false;
+
             isLineActive = false;
 
             return;
         }
 
         UINameText.text = lineData.Item1;
-        UIText.text = lineData.Item2;
+        UITalk.text = lineData.Item2;
 
-        isAction = true;
+        isLineActive = true;
         lineManager.lineIndex++;
     }
 

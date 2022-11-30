@@ -26,12 +26,12 @@ public class CookPuzzle : ObjectData
 
     IEnumerator ClearLogic()
     {
-        gameManager.UIText.text = "»÷µåÀ§Ä¡°¡ ¿Ï¼ºµÆ´Ù";
-        gameManager.talkPanel.SetActive(true);
+        gameManager.UIInfoText.text = "»÷µåÀ§Ä¡°¡ ¿Ï¼ºµÆ´Ù";
+        gameManager.infoPanel.SetActive(true);
         yield return new WaitForSeconds(2); 
         cuttingBoard.DeleteAllIngredient();
         gameManager.globalLight.SetIntensity(0.7f);
-        gameManager.talkPanel.SetActive(false);
+        gameManager.infoPanel.SetActive(false);
         gameManager.lifeManager.SetUI(true);
         gameManager.clockImage.gameObject.SetActive(true);
         gameManager.questManager.CheckQuest();
