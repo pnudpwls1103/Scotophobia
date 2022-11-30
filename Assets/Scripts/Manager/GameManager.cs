@@ -174,7 +174,7 @@ public class GameManager : MonoBehaviour
 
         if(lineData == null)
         {
-            if(questManager.questId == 10)
+            if(questManager.questId == 20)
             {
                 questManager.CheckQuest();
             }

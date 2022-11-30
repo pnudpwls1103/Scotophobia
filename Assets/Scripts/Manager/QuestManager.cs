@@ -17,13 +17,15 @@ public class QuestManager : MonoBehaviour
 
     void GenerateData()
     {
-        questList.Add(0, new QuestData("시작", new int[]{}));
-        questList.Add(10, new QuestData("시작페이지 클릭", new int[]{}));
-        questList.Add(20, new QuestData("샌드위치 만들기", new int[]{1000}));
-        questList.Add(30, new QuestData("샌드위치 건내주기", new int[]{2000}));
-        questList.Add(40, new QuestData("스테이지1 자물쇠 열기", new int[]{3000}));
-        questList.Add(50, new QuestData("책 배열", new int[]{4000}));
-        questList.Add(60, new QuestData("공 뽑기", new int[]{5000}));
+        questList.Add(0, new QuestData("시작 컷씬", new int[]{}));
+        questList.Add(10, new QuestData("시작", new int[]{}));
+        questList.Add(20, new QuestData("시작페이지 클릭", new int[]{}));
+        questList.Add(30, new QuestData("샌드위치 만들기", new int[]{1000}));
+        questList.Add(40, new QuestData("샌드위치 건내주기", new int[]{2000}));
+        questList.Add(50, new QuestData("샌드위치 건내주기 컷씬", new int[]{2000}));
+        questList.Add(60, new QuestData("스테이지1 자물쇠 열기", new int[]{3000}));
+        questList.Add(70, new QuestData("책 배열", new int[]{4000}));
+        questList.Add(80, new QuestData("공 뽑기", new int[]{5000}));
     }
 
     public void SetQuestClear(int questid)
@@ -67,16 +69,21 @@ public class QuestManager : MonoBehaviour
         switch(questId)
         {
             case 0:
+                gameManager.cutSceneManager.VideoActive();
+                gameManager.cutSceneManager.cutSceneIndex++;
+                break;
+            case 10:
+                gameManager.fadeImage.gameObject.SetActive(true);
                 gameManager.SetLineQueue();
                 gameManager.Action(null);
                 break;
-            case 10:
+            case 20:
                 gameManager.fadeImage.PlayFadeIn();
-                Time.timeScale = 1f;
                 gameManager.lifeManager.SetUI(true);
                 gameManager.clockImage.gameObject.SetActive(true);
+                Time.timeScale = 1f;
                 break;
-            case 20:
+            case 30:
                 gameManager.SetLineQueue();
                 gameManager.Action(null);
                 questObject[1].SetActive(true);
@@ -85,8 +92,11 @@ public class QuestManager : MonoBehaviour
                 puzzleTrigger.isActivate = false;
                 Inventory.Instance.Insert("Sandwich");
                 break;
-            case 30:
-                Debug.Log("샌드위치 컷씬");
+            case 40:
+                gameManager.cutSceneManager.VideoActive();
+                gameManager.cutSceneManager.cutSceneIndex++;
+                break;
+            case 50:
                 questObject[1].SetActive(false);
                 questTrigger = questObject[1].GetComponent<QuestTrigger>();
                 questTrigger.isActivate = false;
@@ -101,7 +111,7 @@ public class QuestManager : MonoBehaviour
                 questObject[7].GetComponent<PuzzleTrigger>().isPlayerActive = true;
                 gameManager.lifeManager.SetTimer();
                 break;
-            case 40:
+            case 60:
                 gameManager.lifeManager.ResetTimer();
                 gameManager.lifeManager.SetLife(5);
                 questObject[2].SetActive(false);
@@ -116,7 +126,7 @@ public class QuestManager : MonoBehaviour
                 gameManager.LimitStage = 20000;
                 gameManager.doorManager.SetActivate();
                 break;
-            case 50:
+            case 70:
                 gameManager.doorManager.SetActivate();
                 puzzleTrigger = questObject[6].GetComponent<PuzzleTrigger>();
                 puzzleTrigger.Restore();
