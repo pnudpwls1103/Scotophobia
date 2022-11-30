@@ -9,7 +9,6 @@ public class PuzzleTrigger : Trigger
     public string SceneName;
     public GameObject HideObject;
     public bool isPlayerActive = false;
-    public Sprite image = null;
 
     override public void Interact(GameObject gameObject)
     {
