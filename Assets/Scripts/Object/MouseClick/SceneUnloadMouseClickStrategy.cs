@@ -9,6 +9,7 @@ public class SceneUnloadMouseClickStrategy : ClickStrategy
     public string sceneName;
     override public void ClickMethod(PointerEventData eventData)
     {
+        GameManager.Instance.eventsystem.SetActive(true);
         SceneManager.UnloadSceneAsync(sceneName);
     }
 }

@@ -8,7 +8,9 @@ public enum BTNType
     Load,
     Option,
     Back,
-    Quit
+    Quit,
+    StartEnd,
+    StartTemp
 }
 
 public class MainUI : MonoBehaviour

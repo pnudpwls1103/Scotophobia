@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System;
+using UnityEngine.SceneManagement;
 
 enum Room 
 {
@@ -68,7 +69,6 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject mainCamera;
     public Fade fadeImage;
-    public GameObject gameOverUI;
     
     // ΩÃ±€≈Ê
     private static GameManager _instance;
@@ -99,11 +99,7 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-        // DontDestroyOnLoad(questManager);
-        // DontDestroyOnLoad(talkManager);
         DontDestroyOnLoad(GameObject.Find("UICanvas"));
-        // DontDestroyOnLoad(GameObject.Find("GlobalLight"));
-        // DontDestroyOnLoad(GameObject.Find("Player"));
     }
 
     void Start()
@@ -205,6 +201,15 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Time.timeScale = 0f;
-        gameOverUI.SetActive(true);
+        for(int i = 0; i < SceneManager.sceneCount; i++)
+            SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(i).name);
+        SceneManager.LoadSceneAsync("End");
+    }
+
+    public void GameEnd()
+    {
+        for(int i = 0; i < SceneManager.sceneCount; i++)
+            SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(i).name);
+        SceneManager.LoadSceneAsync("Temp");
     }
 }

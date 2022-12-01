@@ -14,7 +14,7 @@ public class ButtonType : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         switch (currentType)
         {
             case BTNType.New:
-                SceneManager.sceneLoaded += LoadedsceneEvent;
+                SceneManager.sceneLoaded += LoadedStartEvent;
                 SceneManager.LoadScene("Hall", LoadSceneMode.Additive);
                 break;
             case BTNType.Load:
@@ -26,14 +26,37 @@ public class ButtonType : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             case BTNType.Quit:
                 Application.Quit();
                 break;
+            case BTNType.StartEnd:
+                Destroy(GameObject.Find("GameManager"));
+                SceneManager.sceneLoaded += LoadedEndEvent;
+                SceneManager.LoadScene("Start", LoadSceneMode.Additive);
+                break;
+            case BTNType.StartTemp:
+                Destroy(GameObject.Find("GameManager"));
+                SceneManager.sceneLoaded += LoadedTempEvent;
+                SceneManager.LoadScene("Start", LoadSceneMode.Additive);
+                break;
         }
     }
 
-    void LoadedsceneEvent(Scene scene, LoadSceneMode mode)
+    void LoadedStartEvent(Scene scene, LoadSceneMode mode)
     {
         SceneManager.UnloadSceneAsync("Start");
-        SceneManager.sceneLoaded -= LoadedsceneEvent;
+        SceneManager.sceneLoaded -= LoadedStartEvent;
     }
+
+    void LoadedEndEvent(Scene scene, LoadSceneMode mode)
+    {
+        SceneManager.UnloadSceneAsync("End");
+        SceneManager.sceneLoaded -= LoadedEndEvent;
+    }
+
+    void LoadedTempEvent(Scene scene, LoadSceneMode mode)
+    {
+        SceneManager.UnloadSceneAsync("Temp");
+        SceneManager.sceneLoaded -= LoadedTempEvent;
+    }
+
 
     public void OnPointerEnter(PointerEventData eventData)
     {

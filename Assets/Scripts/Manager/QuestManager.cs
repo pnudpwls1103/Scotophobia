@@ -29,6 +29,7 @@ public class QuestManager : MonoBehaviour
         questList.Add(90, new QuestData("책 배열", new int[]{4000}));
         questList.Add(100, new QuestData("선택지 뽑기", new int[]{3000}));
         questList.Add(110, new QuestData("옷장 열기", new int[]{}));
+        questList.Add(120, new QuestData("끝", new int[]{}));
     }
 
     public void SetQuestClear(int questid)
@@ -176,6 +177,9 @@ public class QuestManager : MonoBehaviour
                 Time.timeScale = 0f;
                 gameManager.cutSceneManager.VideoActive(2);
                 Time.timeScale = 1f;
+                break;
+            case 120:
+                gameManager.GameEnd();
                 break;
             default:
                 break;
