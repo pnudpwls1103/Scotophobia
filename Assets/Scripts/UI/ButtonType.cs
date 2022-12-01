@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using TMPro;
@@ -17,7 +18,7 @@ public class ButtonType : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 SceneManager.LoadScene("Hall", LoadSceneMode.Additive);
                 break;
             case BTNType.Load:
-                Debug.Log("Load");
+                GameObject.Find("MenualCanvas").GetComponentInChildren<Image>(true).gameObject.SetActive(true);
                 break;
             case BTNType.Option:
                 Debug.Log("Option");

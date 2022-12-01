@@ -10,9 +10,13 @@ public class MouseClickEvent : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        PlayerController playerController = GameManager.Instance.player.GetComponent<PlayerController>();
-        playerController.canMove = true;
-        playerController.canClick = true;
+        if(GameManager.Instance != null)
+        {
+            PlayerController playerController = GameManager.Instance.player.GetComponent<PlayerController>();
+            playerController.canMove = true;
+            playerController.canClick = true;
+        }
+        
         clickStrategy.ClickMethod(eventData);
     }
 }

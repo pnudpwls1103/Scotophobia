@@ -5,8 +5,9 @@ using UnityEngine.EventSystems;
 
 public class HintMouseClickStrategy : ClickStrategy
 {   
+    public GameObject hindObject;
     override public void ClickMethod(PointerEventData eventData)
     {
-        eventData.pointerPressRaycast.gameObject.SetActive(false);
+        hindObject.SetActive(false);
     }
 }
