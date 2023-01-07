@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonsterController : MonoBehaviour
 {
-    float speed = 0.007f;
+    float speed = 0.02f;
 
     Alarm toggleDir = new Alarm(minTime: 1.5f, maxTime: 8f);
     Alarm IdleMove = new Alarm(minTime: 3.5f, maxTime: 5f);

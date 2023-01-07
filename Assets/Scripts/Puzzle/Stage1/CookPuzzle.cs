@@ -9,11 +9,12 @@ public class CookPuzzle : ObjectData
     CuttingBoard cuttingBoard;
     [SerializeField]
     FryingPan fryingPan;
-    GameManager gameManager = GameManager.Instance;
+    GameManager gameManager;
     Fade fade;
     void Start()
     {
-        GameManager.Instance.ControlSceneObject(false, false);
+        gameManager = GameManager.Instance;
+        gameManager.ControlSceneObject(false, false);
         gameManager.lifeManager.SetUI(false);
         gameManager.clockImage.gameObject.SetActive(false);
         gameManager.globalLight.SetIntensity(1f);

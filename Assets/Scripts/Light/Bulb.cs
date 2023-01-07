@@ -5,7 +5,7 @@ using UnityEngine.Rendering.Universal;
 
 public class Bulb : MonoBehaviour
 {
-    Light2D lit;
+    public Light2D lit;
     void Start()
     {
         lit = GetComponent<Light2D>();

@@ -208,6 +208,7 @@ public class GameManager : MonoBehaviour
 
     public void GameEnd()
     {
+        lifeManager.ResetTimer();
         for(int i = 0; i < SceneManager.sceneCount; i++)
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(i).name);
         SceneManager.LoadSceneAsync("Temp");

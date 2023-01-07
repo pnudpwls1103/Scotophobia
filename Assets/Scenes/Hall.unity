@@ -886,6 +886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1259989cd16b5e14ea84b8868c6cc27b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lit: {fileID: 353107020}
 --- !u!114 &353107020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1024,7 +1025,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398465619}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.37, y: 6.6, z: -4.8}
+  m_LocalPosition: {x: 3.08, y: 6.77, z: -4.8}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1044,7 +1045,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.1864872, y: -0.5328207}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1055,7 +1056,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 9.045582, y: 13.254843}
   m_EdgeRadius: 0
 --- !u!212 &398465623
 SpriteRenderer:
@@ -1095,9 +1096,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 274965163
+  m_SortingLayer: -1
+  m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: 1936a0e27279c534987d3b2871d195da, type: 3}
   m_Color: {r: 1, g: 0.9127358, b: 0.8254717, a: 1}
   m_FlipX: 0
@@ -1719,8 +1720,8 @@ MonoBehaviour:
   - {fileID: 1579557347}
   - {fileID: 968012059}
   lifeObject: {fileID: 592680013}
-  LIMITTIME: 5
-  time: 3
+  LIMITTIME: 3.5
+  time: 3.5
   health: 5
 --- !u!4 &689945954
 Transform:
@@ -8384,7 +8385,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -1.2876346}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -8395,7 +8396,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.01, y: 1.55}
+  m_Size: {x: 6.01, y: 4.1252694}
   m_EdgeRadius: 0
 --- !u!4 &7272346515531280644
 Transform:
@@ -8977,7 +8978,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &8166065707941920856
 SpriteRenderer:
   m_ObjectHideFlags: 0
