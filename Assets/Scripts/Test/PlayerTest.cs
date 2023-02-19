@@ -9,7 +9,8 @@ public class PlayerTest : MonoBehaviour
     public float maxHealth = 100;
     public float currentHealth;
     public float stressSpeed;
-    public HealthBar healthBar;
+    public HealthBar healthBar1;
+    public HealthBar healthBar2;
 
     // bulb
     [SerializeField]
@@ -29,7 +30,8 @@ public class PlayerTest : MonoBehaviour
     {
         // health
         currentHealth = 0;
-        healthBar.SetMaxHealth(maxHealth);
+        healthBar1.SetMaxHealth(maxHealth);
+        healthBar2.SetMaxHealth(maxHealth);
 
         // bulb
         skeletonAnimation = GetComponent<SkeletonAnimation>();
@@ -77,7 +79,8 @@ public class PlayerTest : MonoBehaviour
         {
             health += Time.deltaTime * stressSpeed;
             currentHealth = health;
-            healthBar.SetHealth(currentHealth);
+            healthBar1.SetHealth(currentHealth);
+            healthBar2.SetHealth(currentHealth);
             yield return new WaitForFixedUpdate();
         }
 
