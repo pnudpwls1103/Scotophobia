@@ -7,12 +7,23 @@ public class SlotTest : MonoBehaviour
 {
     public Item item;
     public Image itemImage;
+    private Outline outline;
+
+    private void Start()
+    {
+        outline = GetComponent<Outline>();
+    }
 
     public void SetColor(float _alpha)
     {
         Color color = itemImage.color;
         color.a = _alpha;
         itemImage.color = color;
+    }
+
+    public void SetOutlineDistance(Vector2 distance)
+    {
+        outline.effectDistance = distance;
     }
 
     public void AddItem(Item _item)
@@ -29,5 +40,6 @@ public class SlotTest : MonoBehaviour
         itemImage.sprite = null;
         SetColor(0);
     }
+
 }
 
