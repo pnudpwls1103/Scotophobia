@@ -25,6 +25,10 @@ public class PlayerTest : MonoBehaviour
     float speed;
     Rigidbody2D rigid;
     SkeletonAnimation skeletonAnimation;
+
+    // Item
+    [SerializeField]
+    private InventoryTest inventory;
     
     void Start()
     {
@@ -69,6 +73,25 @@ public class PlayerTest : MonoBehaviour
                 StopCoroutine(coroutine);
                 coroutine = null;
             }
+        }
+    }
+    
+    void OnTriggerStay2D(Collider2D other)
+    {
+        // item
+        if (other.gameObject.tag.Equals("Item"))
+        {
+            PickUpItem(other);
+        }    
+    }
+
+    void PickUpItem(Collider2D collider)
+    {
+        if(collider != null)
+        {
+            Item item = collider.transform.GetComponent<ItemPickUp>().item;
+            inventory.AcquireItem(item);
+            Destroy(collider.transform.gameObject);
         }
     }
 
