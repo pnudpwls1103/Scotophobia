@@ -78,8 +78,11 @@ public class PlayerTest : MonoBehaviour
     
     void OnTriggerStay2D(Collider2D other)
     {
+        bool isClick = Input.GetMouseButtonDown(0);
+
         // item
-        if (other.gameObject.tag.Equals("Item"))
+        bool isItem = other.gameObject.tag.Equals("Item");
+        if (isClick && isItem)
         {
             PickUpItem(other);
         }    
