@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - object
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Monster
   - Object
   - Ground
-  - 
+  - Item
   - 
   - 
   - 
