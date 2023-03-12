@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SlotTest : MonoBehaviour
 {
-    public Item item;
+    public Item item = null;
     public Image itemImage;
     private Outline outline;
 

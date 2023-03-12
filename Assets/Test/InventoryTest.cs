@@ -12,6 +12,9 @@ public class InventoryTest : MonoBehaviour, IPointerClickHandler
     private GameObject go_InventoryBackground;
     [SerializeField]
     private GameObject go_SlotsParent;
+    [SerializeField]
+    private GameObject go_ItemInfo;
+
     
     private SlotTest[] slots;
     private SlotTest activeSlot = null;
@@ -22,6 +25,7 @@ public class InventoryTest : MonoBehaviour, IPointerClickHandler
     void Start()
     {
         slots = go_SlotsParent.GetComponentsInChildren<SlotTest>();
+        ResetItemInfo();
     }
 
     void Update()
@@ -64,11 +68,21 @@ public class InventoryTest : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    private void OnMouseDoubleClick()
+    private void OnMouseSlotClick(GameObject _clickedObject)
+    {
+        Item item = _clickedObject.GetComponent<SlotTest>().item;
+        if(item == null) return;
+        
+        SetActiveSlot(_clickedObject);
+        ResetItemInfo();
+        SetItemInfo(_clickedObject);
+    }
+
+    private void OnMouseSlotDoubleClick()
     {
         Debug.Log("더블 클릭");
     }
-
+    
     private void SetActiveSlot(GameObject _clickedObject)
     {
         if(activeSlot != null)
@@ -77,6 +91,37 @@ public class InventoryTest : MonoBehaviour, IPointerClickHandler
         }
         activeSlot = _clickedObject.GetComponent<SlotTest>();
         activeSlot.SetOutlineDistance(new Vector2(10, 10));
+    }
+
+    private void SetItemInfo(GameObject _clickedObject)
+    {
+        SlotTest currentSlot = _clickedObject.GetComponent<SlotTest>();
+        UnityEngine.UI.Image itemImage = go_ItemInfo.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>();
+        TMPro.TextMeshProUGUI itemNameText = go_ItemInfo.transform.GetChild(1).GetComponent<TMPro.TextMeshProUGUI>();
+        TMPro.TextMeshProUGUI itemDescriptionText = go_ItemInfo.transform.GetChild(2).GetComponent<TMPro.TextMeshProUGUI>();
+
+        Item item = currentSlot.item;
+        itemImage.sprite = item.itemImage;
+        itemNameText.text = item.itemName;
+        itemDescriptionText.text = item.description;
+
+        Color imageColor = itemImage.color;
+        imageColor.a = 1f;
+        itemImage.color = imageColor;
+    }
+
+    private void ResetItemInfo()
+    {
+        UnityEngine.UI.Image itemImage = go_ItemInfo.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>();
+        TMPro.TextMeshProUGUI itemNameText = go_ItemInfo.transform.GetChild(1).GetComponent<TMPro.TextMeshProUGUI>();
+        TMPro.TextMeshProUGUI itemDescriptionText = go_ItemInfo.transform.GetChild(2).GetComponent<TMPro.TextMeshProUGUI>();
+
+        Color imageColor = itemImage.color;
+        imageColor.a = 0f;
+        itemImage.color = imageColor;
+
+        itemNameText.text = "";
+        itemDescriptionText.text = "";
     }
 
     private bool CheckMouseDoubleClick()
@@ -97,15 +142,18 @@ public class InventoryTest : MonoBehaviour, IPointerClickHandler
     }
 
     public void OnPointerClick(PointerEventData _eventData)
-    {
-        if (CheckMouseDoubleClick())
+    {   
+        GameObject clickedObject = _eventData.pointerCurrentRaycast.gameObject;
+        if(clickedObject.name.Contains("Slot"))
         {
-            OnMouseDoubleClick();
-        }
-        else
-        {
-            GameObject clickedObject = _eventData.pointerCurrentRaycast.gameObject;
-            SetActiveSlot(clickedObject);
+            if (CheckMouseDoubleClick())
+            {
+                OnMouseSlotDoubleClick();
+            }
+            else
+            {
+                OnMouseSlotClick(clickedObject);
+            }
         }
     }
 }
