@@ -2,32 +2,57 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-
 public class InfoUIManager : MonoBehaviour
 {
-    public RectTransform infoUIImageParent;
-    private GameObject imageGo;
+    [SerializeField]
+    private GameObject go_InfoUI;
+    [SerializeField]
+    private TMPro.TextMeshProUGUI infoText;
+
+    private bool isTypingEffect = false;
+
     void Start()
     {
-        imageGo = infoUIImageParent.GetChild(0).gameObject;
-        DisableUI();
+        DisableInfoUI();
     }
 
-    public void EnableUI()
+    void Update()
     {
-        imageGo.SetActive(true);
+        if(Input.GetMouseButtonDown(0))
+        {
+            bool isOpen = go_InfoUI.activeSelf == true;
+            if(isOpen && isTypingEffect == false)
+            {
+                DisableInfoUI();
+            }
+        }
+        
     }
 
-    public void DisableUI()
+    public void EnableInfoUI()
     {
-        imageGo.SetActive(false);
+        go_InfoUI.SetActive(true);
     }
 
-    public void SetInfoText(string text)
+    public void DisableInfoUI()
     {
+        go_InfoUI.SetActive(false);
+    }
 
-        TextMeshProUGUI textMeshPro = imageGo.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        textMeshPro.SetText(text);
+    public void SetInfoText(string _text)
+    {
+        infoText.text = "";
+        StartCoroutine(TypingText(0, _text));
+    }
+
+    private IEnumerator TypingText(int idx, string _message) 
+    { 
+        isTypingEffect = true;
+        for (int i = 0; i < _message.Length; i++) 
+        { 
+            infoText.text += _message[i];
+            yield return new WaitForSeconds(0.1f); 
+        } 
+        isTypingEffect = false;
     }
 }
