@@ -14,6 +14,8 @@ public class InventoryTest : MonoBehaviour, IPointerClickHandler
     private GameObject go_SlotsParent;
     [SerializeField]
     private GameObject go_ItemInfo;
+    [SerializeField]
+    private MainInvertoryTest mainInvertory;
 
     
     private SlotTest[] slots;
@@ -78,9 +80,10 @@ public class InventoryTest : MonoBehaviour, IPointerClickHandler
         SetItemInfo(_clickedObject);
     }
 
-    private void OnMouseSlotDoubleClick()
+    private void OnMouseSlotDoubleClick(GameObject _clickedObject)
     {
-        Debug.Log("더블 클릭");
+        Item clickedItem = _clickedObject.GetComponent<SlotTest>().item;
+        mainInvertory.SetMainSlotItem(clickedItem);
     }
     
     private void SetActiveSlot(GameObject _clickedObject)
@@ -148,7 +151,7 @@ public class InventoryTest : MonoBehaviour, IPointerClickHandler
         {
             if (CheckMouseDoubleClick())
             {
-                OnMouseSlotDoubleClick();
+                OnMouseSlotDoubleClick(clickedObject);
             }
             else
             {

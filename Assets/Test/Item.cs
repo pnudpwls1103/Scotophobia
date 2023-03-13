@@ -5,16 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="New Item", menuName = "New Item/item")]
 public class Item : ScriptableObject
 {
-    public enum ItemType
-    {
-        Housework,
-        Abuse,
-        Picture,
-        ETC
-    }
-
     public string itemName;
-    public ItemType itemType;
+    public DefineTest.ItemType itemType;
     public Sprite itemImage;
     public GameObject itemPrefab;
     public string description;

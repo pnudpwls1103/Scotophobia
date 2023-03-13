@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2142051242822469263}
   - component: {fileID: 2922038992386991405}
   m_Layer: 10
-  m_Name: Laundry Item
+  m_Name: Laundry Item2
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -982293967
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a625a3aa8b49bdb4d86025252c419c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: e8717f95f492c0043a955c2df261f867, type: 2}
+  item: {fileID: 11400000, guid: 32fc0d52aaca4874fa3ec07509b90038, type: 2}
 --- !u!58 &2922038992386991405
 CircleCollider2D:
   m_ObjectHideFlags: 0
