@@ -83,6 +83,8 @@ public class InventoryTest : MonoBehaviour, IPointerClickHandler
     private void OnMouseSlotDoubleClick(GameObject _clickedObject)
     {
         Item clickedItem = _clickedObject.GetComponent<SlotTest>().item;
+        if(clickedItem == null) return;
+
         mainInvertory.SetMainSlotItem(clickedItem);
     }
     
