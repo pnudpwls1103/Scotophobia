@@ -94,7 +94,8 @@ public class PlayerTest : MonoBehaviour
         {
             Item item = collider.transform.GetComponent<ItemPickUp>().item;
             inventory.AcquireItem(item);
-            Destroy(collider.transform.gameObject);
+            collider.gameObject.SetActive(false);
+            //Destroy(collider.transform.gameObject);
         }
     }
 

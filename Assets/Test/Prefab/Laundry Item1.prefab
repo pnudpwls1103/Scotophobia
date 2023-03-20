@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8203411209776340760}
   - component: {fileID: 2142051242822469263}
   - component: {fileID: 2922038992386991405}
+  - component: {fileID: 5074421409910316363}
   m_Layer: 10
   m_Name: Laundry Item1
   m_TagString: Item
@@ -100,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infoUIManager: {fileID: 0}
   infoText: 
-  item: {fileID: 11400000, guid: e8717f95f492c0043a955c2df261f867, type: 2}
+  item: {fileID: 5074421409910316363}
 --- !u!58 &2922038992386991405
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -117,3 +118,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &5074421409910316363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5930325273743190976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad57a1fef3b92f46908fcd27671c876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: 
+  itemType: 0
+  itemImage: {fileID: 0}
+  itemPrefab: {fileID: 0}
+  description: 

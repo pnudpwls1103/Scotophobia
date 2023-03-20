@@ -15,7 +15,6 @@ public class MainInvertoryTest : MonoBehaviour, IPointerClickHandler
     void Start()
     {
         slots = go_MainSlotsParent.GetComponentsInChildren<SlotTest>();
-        //ResetItemInfo();
     }
 
     public void SetMainSlotItem(Item _item)
